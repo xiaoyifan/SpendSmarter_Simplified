@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "RNFrostedSidebar.h"
 
-@interface FirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface FirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,RNFrostedSidebarDelegate>
 
 
 @end

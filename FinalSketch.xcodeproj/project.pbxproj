@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27A05F97BD9A6940A9A04ECA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 106CD35D52DA804D8DC8B8BF /* libPods.a */; };
 		CC0E2AA11A9D76F00017A9E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0E2AA01A9D76F00017A9E4 /* main.m */; };
 		CC0E2AA41A9D76F00017A9E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0E2AA31A9D76F00017A9E4 /* AppDelegate.m */; };
 		CC0E2AA71A9D76F00017A9E4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0E2AA61A9D76F00017A9E4 /* FirstViewController.m */; };
@@ -16,6 +17,14 @@
 		CC0E2AB21A9D76F00017A9E4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0E2AB01A9D76F00017A9E4 /* LaunchScreen.xib */; };
 		CC0E2ABE1A9D76F00017A9E4 /* FinalSketchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0E2ABD1A9D76F00017A9E4 /* FinalSketchTests.m */; };
 		CC0E2AC81A9D8CE00017A9E4 /* description.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CC0E2AC71A9D8CE00017A9E4 /* description.rtf */; };
+		CC0FDEDC1AA05D1500768770 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0FDED41AA05D1500768770 /* gear.png */; };
+		CC0FDEDD1AA05D1500768770 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0FDED51AA05D1500768770 /* gear@2x.png */; };
+		CC0FDEDE1AA05D1500768770 /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0FDED61AA05D1500768770 /* globe.png */; };
+		CC0FDEDF1AA05D1500768770 /* globe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0FDED71AA05D1500768770 /* globe@2x.png */; };
+		CC0FDEE01AA05D1500768770 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0FDED81AA05D1500768770 /* profile.png */; };
+		CC0FDEE11AA05D1500768770 /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0FDED91AA05D1500768770 /* profile@2x.png */; };
+		CC0FDEE21AA05D1500768770 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0FDEDA1AA05D1500768770 /* star.png */; };
+		CC0FDEE31AA05D1500768770 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0FDEDB1AA05D1500768770 /* star@2x.png */; };
 		CCC73B551AA0217900BC5C2D /* Chicago.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCC73B541AA0217900BC5C2D /* Chicago.jpg */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		106CD35D52DA804D8DC8B8BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FB109306C359848DFF07E65 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CC0E2A9B1A9D76F00017A9E4 /* FinalSketch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalSketch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0E2A9F1A9D76F00017A9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC0E2AA01A9D76F00017A9E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,7 +57,16 @@
 		CC0E2ABC1A9D76F00017A9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC0E2ABD1A9D76F00017A9E4 /* FinalSketchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinalSketchTests.m; sourceTree = "<group>"; };
 		CC0E2AC71A9D8CE00017A9E4 /* description.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = description.rtf; sourceTree = "<group>"; };
+		CC0FDED41AA05D1500768770 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		CC0FDED51AA05D1500768770 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
+		CC0FDED61AA05D1500768770 /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
+		CC0FDED71AA05D1500768770 /* globe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "globe@2x.png"; sourceTree = "<group>"; };
+		CC0FDED81AA05D1500768770 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
+		CC0FDED91AA05D1500768770 /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
+		CC0FDEDA1AA05D1500768770 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		CC0FDEDB1AA05D1500768770 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		CCC73B541AA0217900BC5C2D /* Chicago.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Chicago.jpg; sourceTree = "<group>"; };
+		EDE07C62EA09D41BE109D103 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27A05F97BD9A6940A9A04ECA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +88,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33B46257BAE94B8C1E7A8156 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				106CD35D52DA804D8DC8B8BF /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9525F41916090042E52CCE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FB109306C359848DFF07E65 /* Pods.debug.xcconfig */,
+				EDE07C62EA09D41BE109D103 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CC0E2A921A9D76F00017A9E4 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +112,8 @@
 				CC0E2A9D1A9D76F00017A9E4 /* FinalSketch */,
 				CC0E2ABA1A9D76F00017A9E4 /* FinalSketchTests */,
 				CC0E2A9C1A9D76F00017A9E4 /* Products */,
+				B9525F41916090042E52CCE7 /* Pods */,
+				33B46257BAE94B8C1E7A8156 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +139,14 @@
 				CC0E2AAE1A9D76F00017A9E4 /* Images.xcassets */,
 				CC0E2AB01A9D76F00017A9E4 /* LaunchScreen.xib */,
 				CCC73B541AA0217900BC5C2D /* Chicago.jpg */,
+				CC0FDED41AA05D1500768770 /* gear.png */,
+				CC0FDED51AA05D1500768770 /* gear@2x.png */,
+				CC0FDED61AA05D1500768770 /* globe.png */,
+				CC0FDED71AA05D1500768770 /* globe@2x.png */,
+				CC0FDED81AA05D1500768770 /* profile.png */,
+				CC0FDED91AA05D1500768770 /* profile@2x.png */,
+				CC0FDEDA1AA05D1500768770 /* star.png */,
+				CC0FDEDB1AA05D1500768770 /* star@2x.png */,
 				CC0E2A9E1A9D76F00017A9E4 /* Supporting Files */,
 			);
 			path = FinalSketch;
@@ -137,9 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC0E2AC11A9D76F00017A9E4 /* Build configuration list for PBXNativeTarget "FinalSketch" */;
 			buildPhases = (
+				68B238104F8EEDF47C16A54B /* Check Pods Manifest.lock */,
 				CC0E2A971A9D76F00017A9E4 /* Sources */,
 				CC0E2A981A9D76F00017A9E4 /* Frameworks */,
 				CC0E2A991A9D76F00017A9E4 /* Resources */,
+				90C0962C9D369B120DB196DC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -211,8 +261,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCC73B551AA0217900BC5C2D /* Chicago.jpg in Resources */,
+				CC0FDEDD1AA05D1500768770 /* gear@2x.png in Resources */,
 				CC0E2AAD1A9D76F00017A9E4 /* Main.storyboard in Resources */,
+				CC0FDEE01AA05D1500768770 /* profile.png in Resources */,
+				CC0FDEDC1AA05D1500768770 /* gear.png in Resources */,
+				CC0FDEE21AA05D1500768770 /* star.png in Resources */,
+				CC0FDEE11AA05D1500768770 /* profile@2x.png in Resources */,
 				CC0E2AC81A9D8CE00017A9E4 /* description.rtf in Resources */,
+				CC0FDEE31AA05D1500768770 /* star@2x.png in Resources */,
+				CC0FDEDE1AA05D1500768770 /* globe.png in Resources */,
+				CC0FDEDF1AA05D1500768770 /* globe@2x.png in Resources */,
 				CC0E2AB21A9D76F00017A9E4 /* LaunchScreen.xib in Resources */,
 				CC0E2AAF1A9D76F00017A9E4 /* Images.xcassets in Resources */,
 			);
@@ -226,6 +284,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		68B238104F8EEDF47C16A54B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		90C0962C9D369B120DB196DC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CC0E2A971A9D76F00017A9E4 /* Sources */ = {
@@ -357,6 +448,7 @@
 		};
 		CC0E2AC21A9D76F00017A9E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FB109306C359848DFF07E65 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FinalSketch/Info.plist;
@@ -367,6 +459,7 @@
 		};
 		CC0E2AC31A9D76F00017A9E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDE07C62EA09D41BE109D103 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FinalSketch/Info.plist;

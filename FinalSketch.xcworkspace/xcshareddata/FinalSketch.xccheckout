@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B81CF1BE-71A9-4056-8E95-2AC15052AA2F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FinalSketch</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C1943DADFA87B3AFAB700D7DEE535BC6A1ACEC95</key>
+		<string>https://github.com/xiaoyifan/FinalSketch.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FinalSketch.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C1943DADFA87B3AFAB700D7DEE535BC6A1ACEC95</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/xiaoyifan/FinalSketch.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C1943DADFA87B3AFAB700D7DEE535BC6A1ACEC95</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C1943DADFA87B3AFAB700D7DEE535BC6A1ACEC95</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FinalSketch</string>
+		</dict>
+	</array>
+</dict>
+</plist>
