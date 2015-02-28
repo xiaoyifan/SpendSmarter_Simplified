@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Plus-25.png"
+      "filename" : "Plus-50.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Plus-32.png"
+      "filename" : "Plus-64.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Plus-50.png"
+      "filename" : "Plus-100.png"
     }
   ],
   "info" : {

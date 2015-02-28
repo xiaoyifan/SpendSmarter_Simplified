@@ -7,6 +7,7 @@
 //
 
 #import "FirstViewController.h"
+#import "SecondViewController.h"
 
 @interface FirstViewController ()
 
@@ -28,29 +29,23 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     
-    self.optionIndices = [NSMutableIndexSet indexSetWithIndex:1];
+    self.optionIndices = [NSMutableIndexSet indexSetWithIndex:0];
     
     NSArray *images = @[
-                        [UIImage imageNamed:@"gear"],
-                        [UIImage imageNamed:@"globe"],
                         [UIImage imageNamed:@"profile"],
-                        [UIImage imageNamed:@"star"],
+                        [UIImage imageNamed:@"dropbox"],
+                        [UIImage imageNamed:@"photo"],
                         [UIImage imageNamed:@"gear"],
-                        [UIImage imageNamed:@"globe"],
-                        [UIImage imageNamed:@"profile"],
-                        [UIImage imageNamed:@"star"],
-                        [UIImage imageNamed:@"gear"]
+                        [UIImage imageNamed:@"back"]
+                        
                         ];
     NSArray *colors = @[
                         [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
-                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1],
+                        [UIColor colorWithRed:61/255.f green:154/255.f blue:232/255.f alpha:1],
                         [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
                         [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
-                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
-                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1],
-                        [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
-                        [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
-                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1]
+                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1]
+
                         
                         ];
     
@@ -112,6 +107,10 @@
 -(void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index {
     NSLog(@"Tapped item at index %lu",(unsigned long)index);
     if (index == 3) {
+        SecondViewController *second = [self.storyboard instantiateViewControllerWithIdentifier:@"SecondViewController"];
+        [self presentViewController:second animated:YES completion:nil];
+    }
+    if (index == 4) {
         [sidebar dismissAnimated:YES];
     }
 }
@@ -123,6 +122,17 @@
     else {
         [self.optionIndices removeIndex:index];
     }
+}
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller
+    
+    NSLog(@"The method is called");
+    
+        
+    
 }
 
 
