@@ -7,7 +7,9 @@
 //
 
 #import "FirstViewController.h"
-#import "SecondViewController.h"
+#import "detailSegue.h"
+
+#import "itemDetailViewController.h"
 
 @interface FirstViewController ()
 
@@ -107,8 +109,8 @@
 -(void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index {
     NSLog(@"Tapped item at index %lu",(unsigned long)index);
     if (index == 3) {
-        SecondViewController *second = [self.storyboard instantiateViewControllerWithIdentifier:@"SecondViewController"];
-        [self presentViewController:second animated:YES completion:nil];
+//        SecondViewController *second = [self.storyboard instantiateViewControllerWithIdentifier:@"SecondViewController"];
+//        [self presentViewController:second animated:YES completion:nil];
     }
     if (index == 4) {
         [sidebar dismissAnimated:YES];
@@ -128,12 +130,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller
-    
     NSLog(@"The method is called");
     
-        
-    
+
 }
+
 
 
 

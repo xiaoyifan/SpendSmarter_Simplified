@@ -10,6 +10,5 @@
 
 @interface itemDetailViewController : UIViewController
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 
 @end
