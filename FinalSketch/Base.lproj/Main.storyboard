@@ -329,6 +329,7 @@
                                 <action selector="back:" destination="rJy-Rz-io0" id="knX-cn-JOl"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="rR5-54-85U"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
