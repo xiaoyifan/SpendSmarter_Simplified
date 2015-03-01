@@ -8,7 +8,7 @@
 
 #import "FirstViewController.h"
 #import "detailSegue.h"
-
+#import "ItemTableViewCell.h"
 #import "itemDetailViewController.h"
 
 @interface FirstViewController ()
@@ -26,8 +26,7 @@
     [super viewDidLoad];
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
-    self.view.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:240/255.0 alpha:1];
-    self.mainTableView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:240/255.0 alpha:1];
+    
     // Do any additional setup after loading the view, typically from a nib.
     
     
@@ -77,35 +76,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 //    cell.contentView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:220/255.0 alpha:1];
-    NSLog(@"%ld", (long)indexPath.row);
-    
-    UIImage *image = [UIImage imageNamed:@"Chicago.jpg"];
-    cell.backgroundView = [self initializeImageViewWithName:image
-                                                    InWidth:cell.contentView.window.frame.size.width
-                                                  andHeight:cell.contentView.window.frame.size.height];
-    cell.selectedBackgroundView =  [self initializeImageViewWithName:image
-                                                             InWidth:cell.contentView.window.frame.size.width
-                                                           andHeight:cell.contentView.window.frame.size.height];
-    
-    cell.textLabel.text = @"Hello table";
+   
+
+    cell.itemDescription.text = @"Chicago. Jan 27th";
+    cell.itemTitle.text = @"Steak. basic stuff for life";
+    if (indexPath.row % 2 ==0) {
+        cell.itemImage.image = [UIImage imageNamed:@"superstar.png"];
+    }
+    else{
+        cell.itemImage.image = [UIImage imageNamed:@"kazuki.png"];        
+    }
+    cell.itemPrice.text = @"$150";
+    cell.itemPrice.backgroundColor = [UIColor blackColor];
+    cell.itemPrice.alpha = 0.7;
+    [cell setNeedsDisplay];
     
     return cell;
 
 }
 
--(UIImageView *)initializeImageViewWithName:(UIImage *)image
-                                    InWidth:(CGFloat)width
-                                  andHeight:(CGFloat)height{
-    UIImageView *av = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-    av.backgroundColor = [UIColor clearColor];
-    av.opaque = NO;
-    av.image = image;
-    
-    return av;
-}
 
+
+#pragma mark - sidebar delegate
 -(void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index {
     NSLog(@"Tapped item at index %lu",(unsigned long)index);
     if (index == 3) {
@@ -128,9 +122,29 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller
     NSLog(@"The method is called");
+    
+    if ([segue.identifier isEqualToString:@"detailSegue"])
+    {
+        NSIndexPath *indexPath = [self.mainTableView indexPathForSelectedRow];
+        
+        //NSDictionary * dataItem = [self.itemData objectAtIndex:indexPath.row];
+        
+        //itemDetailViewController *destVC = [[segue destinationViewController] topViewController];
+        
+        //[destVC setItemDictionary:dataItem];
+        
+        
+    }
+    
+    if ([segue.identifier isEqualToString:@"addDetailSegue"])
+    {
+        
+        
+        
+    }
+    
     
 
 }

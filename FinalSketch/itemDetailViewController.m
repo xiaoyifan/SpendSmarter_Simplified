@@ -18,12 +18,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.mainScrollView.delegate = self;
+    self.mainScrollView.scrollEnabled = YES;
+    //self.mainScrollView.contentSize = self.view.frame.size;
+    
+    self.itemImage.image = [UIImage imageNamed:@"superstar.png"];
+    
+}
+
+- (void)viewDidLayoutSubviews {
+    [self.mainScrollView setContentSize:CGSizeMake(self.view.frame.size.width, 1150)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - (IBAction)back:(id)sender {
     CATransition *transition = [CATransition animation];
@@ -37,14 +63,6 @@
 
 }
 
-
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-}
 
 
 @end
