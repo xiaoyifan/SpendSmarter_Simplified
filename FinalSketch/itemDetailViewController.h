@@ -10,7 +10,10 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface itemDetailViewController : UIViewController<UIScrollViewDelegate>
+
+@interface itemDetailViewController : UIViewController<UIScrollViewDelegate>{
+
+}
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 

@@ -9,6 +9,8 @@
 
 #import "itemDetailViewController.h"
 #import "FirstViewController.h"
+#import "CKCalendarView.h"
+
 
 @interface itemDetailViewController ()<CLLocationManagerDelegate>
 
@@ -27,8 +29,6 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager requestAlwaysAuthorization];
-    
-    [self.locationManager startUpdatingLocation];
     
     
     
@@ -57,6 +57,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - calendar
+
+
+
+#pragma mark - location service implementation
+- (IBAction)showCalendar:(id)sender {
+    CKCalendarView *calendar = [[CKCalendarView alloc] init];
+    [self.view addSubview:calendar];
+    calendar.delegate = self;
+    
+    
+}
+
+- (IBAction)myLocation:(id)sender {
+    float spanX = 0.00725;
+    float spanY = 0.00725;
+    MKCoordinateRegion region;
+    region.center.latitude = self.mapView.userLocation.coordinate.latitude;
+    region.center.longitude = self.mapView.userLocation.coordinate.longitude;
+    region.span.latitudeDelta = spanX;
+    region.span.longitudeDelta = spanY;
+    [self.mapView setRegion:region animated:YES];
+}
 
 
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
@@ -66,6 +89,8 @@
         [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
         [self.locationManager setHeadingFilter:kCLDistanceFilterNone];
         self.locationManager.activityType = CLActivityTypeFitness;
+        
+        [self.locationManager startUpdatingLocation];
     }
     else if(status == kCLAuthorizationStatusDenied){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Loacation serice not authorized" message:@"This app needs you to authorize locations service to work" delegate:nil cancelButtonTitle:@"Gotcha" otherButtonTitles:nil, nil];
@@ -82,6 +107,12 @@
     NSLog(@"%@", locations); 
 }
 
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError
+                                                                       *)error
+{ 
+    NSLog(@"Could not find location: %@", error); 
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     static NSString *identifier = @"MyLocation";
     if ([annotation isKindOfClass:[CLLocation class]]) {
@@ -91,7 +122,7 @@
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
             annotationView.enabled = YES;
             annotationView.canShowCallout = YES;
-            annotationView.image = [UIImage imageNamed:@"arrest.png"];//here we use a nice image instead of the default pins
+//            annotationView.image = [UIImage imageNamed:@"arrest.png"];//here we use a nice image instead of the default pins
         } else {
             annotationView.annotation = annotation;
         }
@@ -101,14 +132,6 @@
     
     return nil;
 }
-
-
-
-
-
-
-
-
 
 
 

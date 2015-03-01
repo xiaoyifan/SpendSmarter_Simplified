@@ -363,12 +363,18 @@
                                         <state key="normal" image="location">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="myLocation:" destination="rJy-Rz-io0" eventType="touchUpInside" id="nZ5-nN-o0h"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fc5-rX-U3H">
                                         <rect key="frame" x="172" y="365" width="30" height="30"/>
                                         <state key="normal" image="calendar">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="showCalendar:" destination="rJy-Rz-io0" eventType="touchUpInside" id="5e1-Ns-GtX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93367266414141403" green="0.93367266414141403" blue="0.93367266414141403" alpha="1" colorSpace="calibratedRGB"/>
