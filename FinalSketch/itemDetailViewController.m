@@ -12,7 +12,7 @@
 #import "CKCalendarView.h"
 
 
-@interface itemDetailViewController ()<CLLocationManagerDelegate>
+@interface itemDetailViewController ()<CLLocationManagerDelegate, CKCalendarDelegate>
 
 @end
 
@@ -61,15 +61,25 @@
 
 
 
-#pragma mark - location service implementation
+
 - (IBAction)showCalendar:(id)sender {
     CKCalendarView *calendar = [[CKCalendarView alloc] init];
+    calendar.center  = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     [self.view addSubview:calendar];
     calendar.delegate = self;
     
-    
 }
 
+
+
+
+- (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
+    self.dateLabel.text = [NSString stringWithFormat:@"%@",date];
+}
+
+
+
+#pragma mark - location service implementation
 - (IBAction)myLocation:(id)sender {
     float spanX = 0.00725;
     float spanY = 0.00725;
