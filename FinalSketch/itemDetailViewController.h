@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "MyLocation.h"
 
 
-@interface itemDetailViewController : UIViewController<UIScrollViewDelegate>{
+@interface itemDetailViewController : UIViewController<UIScrollViewDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate>{
 
 }
 

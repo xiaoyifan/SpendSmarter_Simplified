@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface addItemViewController : UIViewController
+@interface addItemViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end

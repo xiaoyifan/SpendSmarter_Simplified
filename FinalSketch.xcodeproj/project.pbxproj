@@ -15,6 +15,8 @@
 		CC0E2AB21A9D76F00017A9E4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0E2AB01A9D76F00017A9E4 /* LaunchScreen.xib */; };
 		CC0E2ABE1A9D76F00017A9E4 /* FinalSketchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0E2ABD1A9D76F00017A9E4 /* FinalSketchTests.m */; };
 		CC0E2AC81A9D8CE00017A9E4 /* description.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CC0E2AC71A9D8CE00017A9E4 /* description.rtf */; };
+		CC3D75681AA4EAA50082EC70 /* MyLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3D75671AA4EAA50082EC70 /* MyLocation.m */; };
+		CC3D756E1AA51EDD0082EC70 /* mapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3D756D1AA51EDD0082EC70 /* mapViewController.m */; };
 		CC45E0031AA1571B00E5B8CA /* itemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC45E0021AA1571B00E5B8CA /* itemDetailViewController.m */; };
 		CC51F8B41AA1274E00619BDC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC51F8B31AA1274E00619BDC /* Accelerate.framework */; };
 		CC51F8B61AA1276F00619BDC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC51F8B51AA1276F00619BDC /* QuartzCore.framework */; };
@@ -70,6 +72,10 @@
 		CC0E2ABC1A9D76F00017A9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC0E2ABD1A9D76F00017A9E4 /* FinalSketchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinalSketchTests.m; sourceTree = "<group>"; };
 		CC0E2AC71A9D8CE00017A9E4 /* description.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = description.rtf; sourceTree = "<group>"; };
+		CC3D75661AA4EAA50082EC70 /* MyLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLocation.h; sourceTree = "<group>"; };
+		CC3D75671AA4EAA50082EC70 /* MyLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLocation.m; sourceTree = "<group>"; };
+		CC3D756C1AA51EDD0082EC70 /* mapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapViewController.h; sourceTree = "<group>"; };
+		CC3D756D1AA51EDD0082EC70 /* mapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mapViewController.m; sourceTree = "<group>"; };
 		CC45E0011AA1571B00E5B8CA /* itemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itemDetailViewController.h; sourceTree = "<group>"; };
 		CC45E0021AA1571B00E5B8CA /* itemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itemDetailViewController.m; sourceTree = "<group>"; };
 		CC51F8B31AA1274E00619BDC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -159,14 +165,13 @@
 		CC0E2A9D1A9D76F00017A9E4 /* FinalSketch */ = {
 			isa = PBXGroup;
 			children = (
+				CC3D756B1AA5151A0082EC70 /* addItemView */,
+				CC3D756A1AA5150C0082EC70 /* detailDisplayView */,
+				CCD6EFB81AA1AA6200413769 /* customSegue */,
+				CC3D75691AA4F8570082EC70 /* Location */,
 				CCE16CB11AA3C89700BBA47F /* calendar */,
 				CC778B511AA2B930003862F5 /* MainPage */,
-				CCD6EFB81AA1AA6200413769 /* customSegue */,
 				CCD240471AA199F400577608 /* SideBar */,
-				CC45E0011AA1571B00E5B8CA /* itemDetailViewController.h */,
-				CC45E0021AA1571B00E5B8CA /* itemDetailViewController.m */,
-				CCD6EFB21AA1A8DC00413769 /* addItemViewController.h */,
-				CCD6EFB31AA1A8DC00413769 /* addItemViewController.m */,
 				CC0E2AAB1A9D76F00017A9E4 /* Main.storyboard */,
 				CC0E2AAE1A9D76F00017A9E4 /* Images.xcassets */,
 				CC0E2AB01A9D76F00017A9E4 /* LaunchScreen.xib */,
@@ -213,6 +218,35 @@
 				CC0E2ABC1A9D76F00017A9E4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CC3D75691AA4F8570082EC70 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				CC3D75661AA4EAA50082EC70 /* MyLocation.h */,
+				CC3D75671AA4EAA50082EC70 /* MyLocation.m */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
+		CC3D756A1AA5150C0082EC70 /* detailDisplayView */ = {
+			isa = PBXGroup;
+			children = (
+				CC45E0011AA1571B00E5B8CA /* itemDetailViewController.h */,
+				CC45E0021AA1571B00E5B8CA /* itemDetailViewController.m */,
+			);
+			name = detailDisplayView;
+			sourceTree = "<group>";
+		};
+		CC3D756B1AA5151A0082EC70 /* addItemView */ = {
+			isa = PBXGroup;
+			children = (
+				CCD6EFB21AA1A8DC00413769 /* addItemViewController.h */,
+				CCD6EFB31AA1A8DC00413769 /* addItemViewController.m */,
+				CC3D756C1AA51EDD0082EC70 /* mapViewController.h */,
+				CC3D756D1AA51EDD0082EC70 /* mapViewController.m */,
+			);
+			name = addItemView;
 			sourceTree = "<group>";
 		};
 		CC778B511AA2B930003862F5 /* MainPage */ = {
@@ -394,8 +428,10 @@
 				CC778B541AA2B958003862F5 /* ItemTableViewCell.m in Sources */,
 				CCD6EFB71AA1A9D900413769 /* addDetailSegue.m in Sources */,
 				CCD6EFB41AA1A8DC00413769 /* addItemViewController.m in Sources */,
+				CC3D75681AA4EAA50082EC70 /* MyLocation.m in Sources */,
 				CC45E0031AA1571B00E5B8CA /* itemDetailViewController.m in Sources */,
 				CC51F8D21AA12CA900619BDC /* RNFrostedSidebar.m in Sources */,
+				CC3D756E1AA51EDD0082EC70 /* mapViewController.m in Sources */,
 				CC0E2AA41A9D76F00017A9E4 /* AppDelegate.m in Sources */,
 				CC0E2AA71A9D76F00017A9E4 /* FirstViewController.m in Sources */,
 				CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */,

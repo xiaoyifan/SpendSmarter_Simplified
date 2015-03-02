@@ -12,7 +12,7 @@
 #import "CKCalendarView.h"
 
 
-@interface itemDetailViewController ()<CLLocationManagerDelegate, CKCalendarDelegate>
+@interface itemDetailViewController ()<CLLocationManagerDelegate, CKCalendarDelegate,MKMapViewDelegate>
 
 @end
 
@@ -26,27 +26,23 @@
     //self.mainScrollView.contentSize = self.view.frame.size;
     
     self.itemImage.image = [UIImage imageNamed:@"superstar.png"];
+    
+    
+    //Location settings
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager requestAlwaysAuthorization];
-    
-    
-    
     self.mapView.showsUserLocation = YES;
+    self.mapView.delegate = self;
+
     
 }
 
-//-(void)viewWillAppear:(BOOL)animated{
-//    CLLocationCoordinate2D zoomLocation;
-//    zoomLocation.latitude = 39.281516;
-//    zoomLocation.longitude= -76.580806;
-//    
-//    // 2
-//    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
-//    
-//    // 3
-//    [self.mapView setRegion:viewRegion animated:YES];
-//}
+-(void)viewWillAppear:(BOOL)animatedP{
+    [self initialPosition];
+    
+}
+
 
 - (void)viewDidLayoutSubviews {
     [self.mainScrollView setContentSize:CGSizeMake(self.view.frame.size.width, 1150)];
@@ -59,9 +55,6 @@
 
 #pragma mark - calendar
 
-
-
-
 - (IBAction)showCalendar:(id)sender {
     CKCalendarView *calendar = [[CKCalendarView alloc] init];
     calendar.center  = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
@@ -69,9 +62,6 @@
     calendar.delegate = self;
     
 }
-
-
-
 
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
     self.dateLabel.text = [NSString stringWithFormat:@"%@",date];
@@ -81,12 +71,27 @@
 
 
 #pragma mark - location service implementation
+
+-(void)initialPosition{
+    float spanX = 0.00725;
+    float spanY = 0.00725;
+    MKCoordinateRegion region;
+    region.center.latitude = self.mapView.userLocation.coordinate.latitude;
+    region.center.longitude = self.mapView.userLocation.coordinate.longitude;
+    NSLog(@"initial position %f, %f", region.center.latitude, region.center.longitude);
+    region.span.latitudeDelta = spanX;
+    region.span.longitudeDelta = spanY;
+    [self.mapView setRegion:region animated:YES];
+}
+
 - (IBAction)myLocation:(id)sender {
     float spanX = 0.00725;
     float spanY = 0.00725;
     MKCoordinateRegion region;
     region.center.latitude = self.mapView.userLocation.coordinate.latitude;
     region.center.longitude = self.mapView.userLocation.coordinate.longitude;
+    NSLog(@"My location %f, %f", region.center.latitude, region.center.longitude);
+
     region.span.latitudeDelta = spanX;
     region.span.longitudeDelta = spanY;
     [self.mapView setRegion:region animated:YES];
@@ -124,19 +129,29 @@
     NSLog(@"Could not find location: %@", error); 
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+
+
+- (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    
     static NSString *identifier = @"MyLocation";
-    if ([annotation isKindOfClass:[CLLocation class]]) {
+    
+    if ([annotation isKindOfClass:[MyLocation class]]) {
         
-        MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        MyLocation *location = (MyLocation *) annotation;
+        MKPinAnnotationView *annotationView = (MKPinAnnotationView *) [theMapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         if (annotationView == nil) {
-            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-            annotationView.enabled = YES;
-            annotationView.canShowCallout = YES;
-//            annotationView.image = [UIImage imageNamed:@"arrest.png"];//here we use a nice image instead of the default pins
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:location reuseIdentifier:identifier];
         } else {
-            annotationView.annotation = annotation;
+            annotationView.annotation = location;
         }
+        
+        // Set the pin properties
+        annotationView.animatesDrop = YES;
+        annotationView.enabled = YES;
+        annotationView.canShowCallout = YES;
+        annotationView.pinColor = MKPinAnnotationColorPurple;
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         
         return annotationView;
     }
@@ -144,6 +159,57 @@
     return nil;
 }
 
+
+- (IBAction)mapViewLongTapToDropPin:(UILongPressGestureRecognizer *)sender {
+ 
+    NSLog(@"The map view is tapped");
+    CGPoint point = [sender locationInView:self.mapView];
+    CLLocationCoordinate2D locCoord = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+    // Then all you have to do is create the annotation and add it to the map
+    
+    CLLocationCoordinate2D coordinates;
+        coordinates.latitude = locCoord.latitude;
+        coordinates.longitude =locCoord.longitude;
+    
+    for (MyLocation *annotation in self.mapView.annotations) {
+        
+        if ((annotation.coordinate.latitude == coordinates.latitude)&&(annotation.coordinate.longitude == coordinates.longitude) ) {
+            return;
+        }
+        else{
+                [self.mapView removeAnnotation:annotation];
+            MyLocation *annotation = [[MyLocation alloc] initWithName:@"New" address:@"" coordinate:coordinates];
+            [self.mapView addAnnotation:annotation];
+        }
+        
+    }
+    //long tap to add the droppin in the mapView
+    //the pin won't be added to the same point twice
+    
+}
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"%@ %@",view,control);
+}
+
+
+#pragma mark-geo fencing
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
+{
+    NSLog(@"Exit Regions:%@",region);
+    UILocalNotification * notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"Goodbye";
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+{
+    NSLog(@"Enter region:%@",region);
+    UILocalNotification * notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"Hello";
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
 
 
 - (IBAction)back:(id)sender {
