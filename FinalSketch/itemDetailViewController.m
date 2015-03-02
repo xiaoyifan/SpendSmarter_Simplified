@@ -75,6 +75,7 @@
 
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
     self.dateLabel.text = [NSString stringWithFormat:@"%@",date];
+//    [calendar removeFromSuperview];
 }
 
 
