@@ -16,6 +16,8 @@
 
 }
 
+@property (nonatomic, retain) CLLocation* initialLocation;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *itemImage;

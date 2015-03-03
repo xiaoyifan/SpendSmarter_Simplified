@@ -38,10 +38,6 @@
     
 }
 
--(void)viewWillAppear:(BOOL)animatedP{
-    [self initialPosition];
-    
-}
 
 
 - (void)viewDidLayoutSubviews {
@@ -71,18 +67,6 @@
 
 
 #pragma mark - location service implementation
-
--(void)initialPosition{
-    float spanX = 0.00725;
-    float spanY = 0.00725;
-    MKCoordinateRegion region;
-    region.center.latitude = self.mapView.userLocation.coordinate.latitude;
-    region.center.longitude = self.mapView.userLocation.coordinate.longitude;
-    NSLog(@"initial position %f, %f", region.center.latitude, region.center.longitude);
-    region.span.latitudeDelta = spanX;
-    region.span.longitudeDelta = spanY;
-    [self.mapView setRegion:region animated:YES];
-}
 
 - (IBAction)myLocation:(id)sender {
     float spanX = 0.00725;
@@ -129,6 +113,20 @@
     NSLog(@"Could not find location: %@", error); 
 }
 
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    if ( !self.initialLocation )
+    {
+        self.initialLocation = userLocation.location;
+        
+        MKCoordinateRegion region;
+        region.center = mapView.userLocation.coordinate;
+        region.span = MKCoordinateSpanMake(0.1, 0.1);
+        
+        region = [mapView regionThatFits:region];
+        [mapView setRegion:region animated:YES];
+    }
+}
 
 
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
