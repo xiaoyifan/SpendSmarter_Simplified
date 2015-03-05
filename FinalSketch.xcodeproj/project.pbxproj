@@ -30,6 +30,7 @@
 		CC51F8C61AA128E800619BDC /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC51F8BE1AA128E800619BDC /* star@2x.png */; };
 		CC51F8D21AA12CA900619BDC /* RNFrostedSidebar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC51F8D11AA12CA900619BDC /* RNFrostedSidebar.m */; };
 		CC778B541AA2B958003862F5 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC778B531AA2B958003862F5 /* ItemTableViewCell.m */; };
+		CCB2F97C1AA8FEC4004893C8 /* singleItemDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB2F97B1AA8FEC4004893C8 /* singleItemDictionary.m */; };
 		CCBE44BC1AA37E59006CDF7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */; };
 		CCC73B551AA0217900BC5C2D /* Chicago.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCC73B541AA0217900BC5C2D /* Chicago.jpg */; };
 		CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD240491AA19D1A00577608 /* detailSegue.m */; };
@@ -92,6 +93,8 @@
 		CC51F8D11AA12CA900619BDC /* RNFrostedSidebar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFrostedSidebar.m; sourceTree = "<group>"; };
 		CC778B521AA2B958003862F5 /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
 		CC778B531AA2B958003862F5 /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
+		CCB2F97A1AA8FEC4004893C8 /* singleItemDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleItemDictionary.h; sourceTree = "<group>"; };
+		CCB2F97B1AA8FEC4004893C8 /* singleItemDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = singleItemDictionary.m; sourceTree = "<group>"; };
 		CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CCC73B541AA0217900BC5C2D /* Chicago.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Chicago.jpg; sourceTree = "<group>"; };
 		CCD240481AA19D1A00577608 /* detailSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detailSegue.h; path = ../detailSegue.h; sourceTree = "<group>"; };
@@ -165,6 +168,7 @@
 		CC0E2A9D1A9D76F00017A9E4 /* FinalSketch */ = {
 			isa = PBXGroup;
 			children = (
+				CCB2F9791AA8FE89004893C8 /* Item */,
 				CC3D756B1AA5151A0082EC70 /* addItemView */,
 				CC3D756A1AA5150C0082EC70 /* detailDisplayView */,
 				CCD6EFB81AA1AA6200413769 /* customSegue */,
@@ -258,6 +262,15 @@
 				CC778B531AA2B958003862F5 /* ItemTableViewCell.m */,
 			);
 			name = MainPage;
+			sourceTree = "<group>";
+		};
+		CCB2F9791AA8FE89004893C8 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				CCB2F97A1AA8FEC4004893C8 /* singleItemDictionary.h */,
+				CCB2F97B1AA8FEC4004893C8 /* singleItemDictionary.m */,
+			);
+			name = Item;
 			sourceTree = "<group>";
 		};
 		CCD240471AA199F400577608 /* SideBar */ = {
@@ -425,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCE16CB41AA3C8F300BBA47F /* CKCalendarView.m in Sources */,
+				CCB2F97C1AA8FEC4004893C8 /* singleItemDictionary.m in Sources */,
 				CC778B541AA2B958003862F5 /* ItemTableViewCell.m in Sources */,
 				CCD6EFB71AA1A9D900413769 /* addDetailSegue.m in Sources */,
 				CCD6EFB41AA1A8DC00413769 /* addItemViewController.m in Sources */,
