@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gOC-mk-4dR">
-                                <rect key="frame" x="0.0" y="63" width="375" height="330"/>
+                                <rect key="frame" x="0.0" y="63" width="375" height="304"/>
                                 <color key="backgroundColor" red="1" green="0.97946832666134298" blue="0.91276440370496414" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lP8-Ub-LwS">
                                     <size key="itemSize" width="50" height="50"/>
@@ -195,8 +195,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-Oq-OH1">
                                 <rect key="frame" x="8" y="396" width="40" height="40"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogk-uc-ME9">
+                                <rect key="frame" x="27" y="367" width="348" height="26"/>
+                                <color key="backgroundColor" red="1" green="0.97946832669999995" blue="0.9127644037" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ys-Jb-qND">
+                                <rect key="frame" x="0.0" y="367" width="24" height="24"/>
+                                <state key="normal" image="smallplane">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.97946832669999995" blue="0.9127644037" alpha="1" colorSpace="calibratedRGB"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" none="YES" keyboardKey="YES"/>
                         </accessibility>
@@ -272,6 +285,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="dateLabel" destination="TDq-Mh-Zd7" id="cGM-D5-wNL"/>
+                        <outlet property="locationLabel" destination="Ogk-uc-ME9" id="EJT-Lj-Ln5"/>
                         <outlet property="priceLabel" destination="DAo-jp-WgI" id="z06-6u-hHK"/>
                         <outlet property="smallImageView" destination="fF1-Oq-OH1" id="yjd-ob-Oyr"/>
                     </connections>
@@ -299,17 +313,35 @@
                                     <outletCollection property="gestureRecognizers" destination="NiN-xU-fpK" appends="YES" id="Ct6-pr-9Xy"/>
                                 </connections>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Long Press to Select Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tv-5H-iJt">
+                                <rect key="frame" x="0.0" y="638" width="375" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fJf-6c-9iQ"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="fJf-6c-9iQ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="eT0-0j-Zqm">
+                            <connections>
+                                <segue destination="T3h-Ix-Htj" kind="unwind" unwindAction="unwindToList:" id="zcQ-LX-1wZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="location" id="DS2-Wz-Aaj">
+                            <connections>
+                                <action selector="myLocation:" destination="ya5-Oh-aPk" id="x0G-fd-nWH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="mapView" destination="rgM-3u-Wcj" id="kgb-0L-lKR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zU9-M8-VgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="T3h-Ix-Htj" userLabel="Exit" sceneMemberID="exit"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="NiN-xU-fpK">
                     <connections>
                         <action selector="mapViewLongTapToDropPin:" destination="ya5-Oh-aPk" id="Dwe-qc-cbh"/>
@@ -731,6 +763,7 @@
         <image name="lineChart" width="25" height="25"/>
         <image name="location" width="50" height="50"/>
         <image name="plane" width="50" height="50"/>
+        <image name="smallplane" width="26" height="26"/>
         <image name="sync" width="50" height="50"/>
         <image name="user" width="16" height="16"/>
     </resources>

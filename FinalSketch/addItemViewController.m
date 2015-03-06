@@ -37,6 +37,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue{
+    
+    mapViewController *source = [segue sourceViewController];
+    CLLocation *itemLocation = source.selectedLocation;
+    NSString *address = source.selectedLocationAddress;
+    NSLog(@"the selected location is: %f, %f", itemLocation.coordinate.latitude, itemLocation.coordinate.longitude);
+    
+    if (itemLocation != nil) {
+        self.locationLabel.text = [NSString stringWithFormat:@"%@",address];
+    }
+    
+}
+
 - (IBAction)numberTapped:(id)sender {
     
     

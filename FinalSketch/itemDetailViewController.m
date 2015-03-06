@@ -176,7 +176,7 @@
         }
         else{
                 [self.mapView removeAnnotation:annotation];
-            MyLocation *annotation = [[MyLocation alloc] initWithName:@"New" address:@"" coordinate:coordinates];
+            MyLocation *annotation = [[MyLocation alloc] initWithName:@"Address" address:@"" coordinate:coordinates];
             [self.mapView addAnnotation:annotation];
         }
         

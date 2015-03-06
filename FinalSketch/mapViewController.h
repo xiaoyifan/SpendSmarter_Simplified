@@ -19,4 +19,8 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
+@property (strong, nonatomic) CLLocation* selectedLocation;
+@property (strong, nonatomic) NSString* selectedLocationAddress;
+
+
 @end

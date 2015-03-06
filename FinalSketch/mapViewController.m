@@ -11,6 +11,9 @@
 
 @interface mapViewController ()<CLLocationManagerDelegate, MKMapViewDelegate>
 
+@property (strong, nonatomic) CLGeocoder *geoCoder;
+
+
 @end
 
 @implementation mapViewController
@@ -23,6 +26,8 @@
     [self.locationManager requestAlwaysAuthorization];
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
+    
+    self.geoCoder = [[CLGeocoder alloc] init];
     
     // Do any additional setup after loading the view.
 }
@@ -68,6 +73,7 @@
         NSLog(@"wrong location status");
     }
 }
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray
                                                                          *)locations
 {
@@ -143,8 +149,32 @@
         }
         else{
             [self.mapView removeAnnotation:annotation];
-            MyLocation *annotation = [[MyLocation alloc] initWithName:@"New" address:@"" coordinate:coordinates];
+            MyLocation *annotation = [[MyLocation alloc] initWithName:@"Address selected" address:@"" coordinate:coordinates];
             [self.mapView addAnnotation:annotation];
+            
+            if ( !self.selectedLocation )
+            {
+                self.selectedLocation = [[CLLocation alloc] initWithLatitude:coordinates.latitude longitude:coordinates.longitude];
+                
+                [self.geoCoder reverseGeocodeLocation:self.selectedLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+                    NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+                    if (error == nil && [placemarks count] > 0) {
+                        CLPlacemark *placemark = [placemarks lastObject];
+                        self.selectedLocationAddress = [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@",
+                                                (placemark.subThoroughfare)?placemark.subThoroughfare:@"",
+                                                (placemark.thoroughfare)?placemark.thoroughfare:@"",
+                                                (placemark.postalCode)?placemark.postalCode:@"",
+                                                (placemark.locality)?placemark.locality:@"",
+                                                (placemark.administrativeArea)?placemark.administrativeArea:@"",
+                                                (placemark.country)?placemark.country:@""];
+                    } else {
+                        NSLog(@"%@", error.debugDescription);
+                    }
+                } ];
+
+            
+            }
+            //Update the selected location
         }
         
     }
@@ -189,7 +219,7 @@
 //    
 //}
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -197,6 +227,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end
