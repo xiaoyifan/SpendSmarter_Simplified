@@ -7,8 +7,9 @@
 //
 
 #import "mapViewController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
-@interface mapViewController ()
+@interface mapViewController ()<CLLocationManagerDelegate, MKMapViewDelegate>
 
 @end
 
@@ -16,6 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self.locationManager requestAlwaysAuthorization];
+    self.mapView.showsUserLocation = YES;
+    self.mapView.delegate = self;
+    
     // Do any additional setup after loading the view.
 }
 
@@ -23,6 +31,163 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma mark - location service implementation
+
+- (IBAction)myLocation:(id)sender {
+    float spanX = 0.00725;
+    float spanY = 0.00725;
+    MKCoordinateRegion region;
+    region.center.latitude = self.mapView.userLocation.coordinate.latitude;
+    region.center.longitude = self.mapView.userLocation.coordinate.longitude;
+    NSLog(@"My location %f, %f", region.center.latitude, region.center.longitude);
+    
+    region.span.latitudeDelta = spanX;
+    region.span.longitudeDelta = spanY;
+    [self.mapView setRegion:region animated:YES];
+}
+
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse|| status == kCLAuthorizationStatusAuthorizedAlways) {
+        [self.locationManager setDistanceFilter:100];
+        [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+        [self.locationManager setHeadingFilter:kCLDistanceFilterNone];
+        self.locationManager.activityType = CLActivityTypeFitness;
+        
+        [self.locationManager startUpdatingLocation];
+    }
+    else if(status == kCLAuthorizationStatusDenied){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Loacation serice not authorized" message:@"This app needs you to authorize locations service to work" delegate:nil cancelButtonTitle:@"Gotcha" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else{
+        NSLog(@"wrong location status");
+    }
+}
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray
+                                                                         *)locations
+{
+    NSLog(@"%@", locations);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError
+                                                                       *)error
+{
+    NSLog(@"Could not find location: %@", error);
+}
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    if ( !self.initialLocation )
+    {
+        self.initialLocation = userLocation.location;
+        
+        MKCoordinateRegion region;
+        region.center = mapView.userLocation.coordinate;
+        region.span = MKCoordinateSpanMake(0.1, 0.1);
+        
+        region = [mapView regionThatFits:region];
+        [mapView setRegion:region animated:YES];
+    }
+}
+
+
+- (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    
+    static NSString *identifier = @"MyLocation";
+    
+    if ([annotation isKindOfClass:[MyLocation class]]) {
+        
+        MyLocation *location = (MyLocation *) annotation;
+        MKPinAnnotationView *annotationView = (MKPinAnnotationView *) [theMapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (annotationView == nil) {
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:location reuseIdentifier:identifier];
+        } else {
+            annotationView.annotation = location;
+        }
+        
+        // Set the pin properties
+        annotationView.animatesDrop = YES;
+        annotationView.enabled = YES;
+        annotationView.canShowCallout = YES;
+        annotationView.pinColor = MKPinAnnotationColorPurple;
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
+        return annotationView;
+    }
+    
+    return nil;
+}
+
+
+- (IBAction)mapViewLongTapToDropPin:(UILongPressGestureRecognizer *)sender {
+    
+    NSLog(@"The map view is tapped");
+    CGPoint point = [sender locationInView:self.mapView];
+    CLLocationCoordinate2D locCoord = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+    // Then all you have to do is create the annotation and add it to the map
+    
+    CLLocationCoordinate2D coordinates;
+    coordinates.latitude = locCoord.latitude;
+    coordinates.longitude =locCoord.longitude;
+    
+    for (MyLocation *annotation in self.mapView.annotations) {
+        
+        if ((annotation.coordinate.latitude == coordinates.latitude)&&(annotation.coordinate.longitude == coordinates.longitude) ) {
+            return;
+        }
+        else{
+            [self.mapView removeAnnotation:annotation];
+            MyLocation *annotation = [[MyLocation alloc] initWithName:@"New" address:@"" coordinate:coordinates];
+            [self.mapView addAnnotation:annotation];
+        }
+        
+    }
+    //long tap to add the droppin in the mapView
+    //the pin won't be added to the same point twice
+    
+}
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"%@ %@",view,control);
+}
+
+
+#pragma mark-geo fencing
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
+{
+    NSLog(@"Exit Regions:%@",region);
+    UILocalNotification * notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"Goodbye";
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+{
+    NSLog(@"Enter region:%@",region);
+    UILocalNotification * notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"Hello";
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+
+//- (IBAction)back:(id)sender {
+//    CATransition *transition = [CATransition animation];
+//    transition.duration = 0.6;
+//    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//    transition.type = kCATransitionPush;
+//    transition.subtype = kCATransitionFromLeft;
+//    [self.view.window.layer addAnimation:transition forKey:nil];
+//    
+//    [self dismissViewControllerAnimated:NO completion:nil];
+//    
+//}
 
 /*
 #pragma mark - Navigation

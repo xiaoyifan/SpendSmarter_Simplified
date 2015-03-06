@@ -29,7 +29,8 @@
 //set basic properties for the single item
 
 
--(void)initWithTitle: (NSString *)title
+
+-(instancetype)initWithTitle: (NSString *)title
       andDescription:(NSString *)description
       andImage:(UIImage *)image
       andCategory:(NSString *)category

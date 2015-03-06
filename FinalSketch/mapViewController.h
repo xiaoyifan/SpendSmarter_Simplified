@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "MyLocation.h"
 
-@interface mapViewController : UIViewController
+@interface mapViewController : UIViewController<UIGestureRecognizerDelegate, CLLocationManagerDelegate>
+
+@property (nonatomic, retain) IBOutlet MKMapView *mapView;
+
+@property (nonatomic, retain) CLLocation* initialLocation;
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end

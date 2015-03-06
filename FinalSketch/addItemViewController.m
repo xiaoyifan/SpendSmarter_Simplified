@@ -12,13 +12,9 @@
 
 
 
-@interface addItemViewController()<CKCalendarDelegate, UIImagePickerControllerDelegate>
+@interface addItemViewController()<CKCalendarDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate, MKMapViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
-@property (weak, nonatomic) IBOutlet UIImageView *smallImageView;
-
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 @property BOOL inputingDecimal;
 @property int decimalCount;
@@ -85,6 +81,14 @@
     transition.type = kCATransitionPush;
     transition.subtype = kCATransitionFromTop;
     [self.view.window.layer addAnimation:transition forKey:nil];
+    
+//    singleItemDictionary *newItem = [singleItemDictionary alloc] initWithTitle:self.title
+//                                                                 andDescription:self.description
+//                                                                 andImage:self.smallImageView.image
+//                                                                 andCategory:self.category
+//                                                                 andlocation:self.location
+//                                                                 andDate:self.date
+//                                                                 andPrice:self.price];
     
     [self dismissViewControllerAnimated:NO completion:nil];
     
