@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "mapViewController.h"
 
-@interface addItemViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIGestureRecognizerDelegate, CLLocationManagerDelegate>
+@interface addItemViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIGestureRecognizerDelegate, CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
@@ -22,6 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 

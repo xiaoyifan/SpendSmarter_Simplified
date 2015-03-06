@@ -14,12 +14,10 @@
 
 @interface addItemViewController()<CKCalendarDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate, MKMapViewDelegate>
 
-
-
 @property BOOL inputingDecimal;
 @property int decimalCount;
 
-
+@property (nonatomic, strong) NSMutableArray *categoryArray;
 
 @end
 
@@ -30,6 +28,19 @@
     self.inputingDecimal = false;
     self.decimalCount = 0;
     // Do any additional setup after loading the view.
+    
+    
+//    NSMutableArray *users= [[NSMutableArray alloc] init];
+//    
+//    NSArray *keys = [[NSArray alloc] initWithObjects:@"Name", @"Surname", nil];
+//    
+//    NSArray *details = [[NSArray alloc] initWithObjects:@"Bob",@"Hope", nil];
+//    
+//    NSDictionary *person = [[NSMutableDictionary alloc] initWithObjects:details forKeys:keys];
+//    
+//    [users addObject:person];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,7 +120,24 @@
 }
 
 
+#pragma mark - collection view delegate implementation
 
+
+- (NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section {
+//    return [sectionArray count];
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
+    cell.layer.borderWidth = 1;
+    cell.layer.borderColor = [[UIColor whiteColor]CGColor];
+    UIImageView *image = [[UIImageView alloc]init];
+    image.image = [UIImage imageWithData:[self.categoryArray objectAtIndex:indexPath.row]];
+    image.frame = CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height);
+    [cell addSubview:image];
+    return cell;
+}
 
 
 #pragma mark - dismiss the view controller
