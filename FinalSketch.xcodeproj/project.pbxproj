@@ -45,6 +45,13 @@
 		CCE16CB41AA3C8F300BBA47F /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE16CB31AA3C8F300BBA47F /* CKCalendarView.m */; };
 		CCE16CB61AA3CA1000BBA47F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE16CB51AA3CA1000BBA47F /* CoreGraphics.framework */; };
 		CCE16CB81AA3CA8A00BBA47F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE16CB71AA3CA8A00BBA47F /* UIKit.framework */; };
+		CCE31EF91AAB803400777414 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE31EF81AAB803400777414 /* Dropbox.framework */; };
+		CCE31EFB1AAB806700777414 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE31EFA1AAB806700777414 /* CFNetwork.framework */; };
+		CCE31EFD1AAB807500777414 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE31EFC1AAB807500777414 /* Security.framework */; };
+		CCE31EFF1AAB808400777414 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE31EFE1AAB808400777414 /* SystemConfiguration.framework */; };
+		CCE31F011AAB80A300777414 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE31F001AAB80A300777414 /* libc++.dylib */; };
+		CCE31F031AAB80AF00777414 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE31F021AAB80AF00777414 /* libz.dylib */; };
+		CCE31F071AAB9D1A00777414 /* galleryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE31F061AAB9D1A00777414 /* galleryTableViewController.m */; };
 		CCFEE26B1AA2E773002583E2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFEE26A1AA2E773002583E2 /* MapKit.framework */; };
 		CCFEE26D1AA2FD05002583E2 /* superstar.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFEE26C1AA2FD05002583E2 /* superstar.png */; };
 		CCFEE26F1AA2FE4E002583E2 /* kazuki.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFEE26E1AA2FE4E002583E2 /* kazuki.png */; };
@@ -117,6 +124,14 @@
 		CCE16CB31AA3C8F300BBA47F /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
 		CCE16CB51AA3CA1000BBA47F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CCE16CB71AA3CA8A00BBA47F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CCE31EF81AAB803400777414 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dropbox.framework; sourceTree = "<group>"; };
+		CCE31EFA1AAB806700777414 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CCE31EFC1AAB807500777414 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CCE31EFE1AAB808400777414 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CCE31F001AAB80A300777414 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		CCE31F021AAB80AF00777414 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		CCE31F051AAB9D1A00777414 /* galleryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = galleryTableViewController.h; sourceTree = "<group>"; };
+		CCE31F061AAB9D1A00777414 /* galleryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = galleryTableViewController.m; sourceTree = "<group>"; };
 		CCFEE26A1AA2E773002583E2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CCFEE26C1AA2FD05002583E2 /* superstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = superstar.png; sourceTree = "<group>"; };
 		CCFEE26E1AA2FE4E002583E2 /* kazuki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kazuki.png; sourceTree = "<group>"; };
@@ -127,6 +142,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCE31F031AAB80AF00777414 /* libz.dylib in Frameworks */,
+				CCE31F011AAB80A300777414 /* libc++.dylib in Frameworks */,
+				CCE31EFF1AAB808400777414 /* SystemConfiguration.framework in Frameworks */,
+				CCE31EFD1AAB807500777414 /* Security.framework in Frameworks */,
+				CCE31EFB1AAB806700777414 /* CFNetwork.framework in Frameworks */,
+				CCE31EF91AAB803400777414 /* Dropbox.framework in Frameworks */,
 				CCE16CB81AA3CA8A00BBA47F /* UIKit.framework in Frameworks */,
 				CCE16CB61AA3CA1000BBA47F /* CoreGraphics.framework in Frameworks */,
 				CCBE44BC1AA37E59006CDF7D /* CoreLocation.framework in Frameworks */,
@@ -149,6 +170,11 @@
 		CC0E2A921A9D76F00017A9E4 = {
 			isa = PBXGroup;
 			children = (
+				CCE31F021AAB80AF00777414 /* libz.dylib */,
+				CCE31F001AAB80A300777414 /* libc++.dylib */,
+				CCE31EFE1AAB808400777414 /* SystemConfiguration.framework */,
+				CCE31EFC1AAB807500777414 /* Security.framework */,
+				CCE31EFA1AAB806700777414 /* CFNetwork.framework */,
 				CCE16CB71AA3CA8A00BBA47F /* UIKit.framework */,
 				CCE16CB51AA3CA1000BBA47F /* CoreGraphics.framework */,
 				CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */,
@@ -156,6 +182,7 @@
 				CC51F8B51AA1276F00619BDC /* QuartzCore.framework */,
 				CC51F8B31AA1274E00619BDC /* Accelerate.framework */,
 				CC0E2AC71A9D8CE00017A9E4 /* description.rtf */,
+				CCE31EF81AAB803400777414 /* Dropbox.framework */,
 				CC0E2A9D1A9D76F00017A9E4 /* FinalSketch */,
 				CC0E2ABA1A9D76F00017A9E4 /* FinalSketchTests */,
 				CC0E2A9C1A9D76F00017A9E4 /* Products */,
@@ -174,6 +201,7 @@
 		CC0E2A9D1A9D76F00017A9E4 /* FinalSketch */ = {
 			isa = PBXGroup;
 			children = (
+				CCE31F041AAB9CF300777414 /* gallery */,
 				CC13C3D91AAAB20600D58CAF /* Item.h */,
 				CC13C3DA1AAAB20600D58CAF /* Item.m */,
 				CC13C3D61AAAB1C700D58CAF /* FileSession.h */,
@@ -315,6 +343,15 @@
 			name = calendar;
 			sourceTree = "<group>";
 		};
+		CCE31F041AAB9CF300777414 /* gallery */ = {
+			isa = PBXGroup;
+			children = (
+				CCE31F051AAB9D1A00777414 /* galleryTableViewController.h */,
+				CCE31F061AAB9D1A00777414 /* galleryTableViewController.m */,
+			);
+			name = gallery;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -453,6 +490,7 @@
 				CC0E2AA41A9D76F00017A9E4 /* AppDelegate.m in Sources */,
 				CC0E2AA71A9D76F00017A9E4 /* FirstViewController.m in Sources */,
 				CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */,
+				CCE31F071AAB9D1A00777414 /* galleryTableViewController.m in Sources */,
 				CC0E2AA11A9D76F00017A9E4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +615,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FinalSketch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -587,6 +629,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FinalSketch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

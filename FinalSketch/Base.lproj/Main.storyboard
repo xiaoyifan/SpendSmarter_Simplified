@@ -488,6 +488,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mainTableView" destination="zav-hZ-jTX" id="XPf-Xe-wp9"/>
+                        <outlet property="syncButton" destination="gkR-4l-NaU" id="cD2-Wy-buc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -599,6 +600,52 @@
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="WWY-Ga-zQH"/>
             </objects>
             <point key="canvasLocation" x="2132.5" y="219.5"/>
+        </scene>
+        <!--Gallery Table View Controller-->
+        <scene sceneID="ZAT-db-NAH">
+            <objects>
+                <viewController storyboardIdentifier="galleryVC" id="ORO-IR-ho1" customClass="galleryTableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o7m-9J-1Zz"/>
+                        <viewControllerLayoutGuide type="bottom" id="LVL-QW-9R3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ddd-ZS-MgD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ups-ji-vLZ">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="picCell" id="Hit-3Y-1Ta">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hit-3Y-1Ta" id="ICw-Wy-mui">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOx-lG-bqQ">
+                                <rect key="frame" x="162" y="14" width="50" height="50"/>
+                                <state key="normal" image="cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissVC:" destination="ORO-IR-ho1" eventType="touchUpInside" id="kQZ-Hf-Pei"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableview" destination="Ups-ji-vLZ" id="L91-vN-8bv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tIj-iK-Ckt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2277.5" y="1006.5"/>
         </scene>
         <!--bar-->
         <scene sceneID="wg7-f3-ORb">

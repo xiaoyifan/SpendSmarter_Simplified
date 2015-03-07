@@ -24,7 +24,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
-@property (weak, nonatomic) CLLocation *itemLocation;
+@property (strong, nonatomic) CLLocation *itemLocation;
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 

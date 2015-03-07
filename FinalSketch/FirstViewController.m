@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) RNFrostedSidebar *callout;
 @property (nonatomic, strong) NSMutableIndexSet *optionIndices;
+@property (weak, nonatomic) IBOutlet UIButton *syncButton;
 
 @end
 
@@ -62,16 +63,24 @@
     self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
 
     [self.mainTableView reloadData];
+    
+    
+    self.account = [[DBAccountManager sharedManager] linkedAccount];
+    if (!self.account) {
+        self.syncButton.enabled = NO;
+    }
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     NSURL *fileURL = [FileSession getListURL];
-    
     self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
-
-    
     [self.mainTableView reloadData];
-    NSLog(@"viewWillAppear Called");
+    
+    if (self.account) {
+        self.syncButton.enabled = YES;
+    }
+    
 }
 
 
@@ -92,7 +101,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSLog(@"%lu",(unsigned long)self.itemArray.count);
     return self.itemArray.count;
 }
 
@@ -101,7 +109,7 @@
     ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
     Item *item = [self.itemArray objectAtIndex:indexPath.row];
-    
+    NSLog(@"item location is: %f, %f", item.location.coordinate.latitude, item.location.coordinate.longitude);
 //    [self setObject:self.itemTitle forKey:@"title"];
 //    [self setObject:self.itemDescription forKey:@"description"];
 //    [self setObject:self.image forKey:@"image"];
@@ -139,6 +147,21 @@
 #pragma mark - sidebar delegate
 -(void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index {
     NSLog(@"Tapped item at index %lu",(unsigned long)index);
+    
+    if (index == 1) {
+        self.account = [[DBAccountManager sharedManager] linkedAccount];
+        if (self.account) {
+            NSLog(@"App already linked");
+        } else {
+            [[DBAccountManager sharedManager] linkFromController:self];
+        }
+    }
+    
+    if (index == 2) {
+       UITableViewController *gallery = [self.storyboard instantiateViewControllerWithIdentifier:@"galleryVC"];
+        [self presentViewController:gallery animated:YES completion:nil];
+    }
+    
     if (index == 3) {
 //        SecondViewController *second = [self.storyboard instantiateViewControllerWithIdentifier:@"SecondViewController"];
 //        [self presentViewController:second animated:YES completion:nil];

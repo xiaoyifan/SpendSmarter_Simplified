@@ -28,8 +28,9 @@
     self.itemImage.image = self.detailItem.image;
     self.dateLabel.text  =self.detailItem.date;
     self.itemTitle.text  =self.detailItem.title;
-    self.itemDescription.text = self.detailItem.description;
-
+    self.itemDescription.text = self.detailItem.itemDescription;
+    
+    //The location will be initialized in the delegate
     
     
     //Location settings
@@ -38,6 +39,8 @@
     [self.locationManager requestAlwaysAuthorization];
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
+    
+    NSLog(@"the item location: %f, %f", self.detailItem.location.coordinate.latitude, self.detailItem.location.coordinate.longitude);
 
     
 }
@@ -118,17 +121,26 @@
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
+{NSLog(@"self location: %@", self.detailItem.location);
     if ( !self.initialLocation )
     {
-        self.initialLocation = userLocation.location;
-        
         MKCoordinateRegion region;
-        region.center = mapView.userLocation.coordinate;
+        if (!self.detailItem.location) {
+            self.initialLocation = self.mapView.userLocation.location;
+            region.center = self.mapView.userLocation.location.coordinate;
+        }
+        else{
+            self.initialLocation = self.detailItem.location;
+            region.center = self.detailItem.location.coordinate;
+        }
+        
         region.span = MKCoordinateSpanMake(0.1, 0.1);
         
         region = [mapView regionThatFits:region];
         [mapView setRegion:region animated:YES];
+        
+         MyLocation *annotation = [[MyLocation alloc] initWithName:self.detailItem.locationDescription address:@"" coordinate:self.detailItem.location.coordinate];
+        [self.mapView addAnnotation:annotation];
     }
 }
 

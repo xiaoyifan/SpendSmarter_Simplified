@@ -46,7 +46,11 @@
     mapViewController *source = [segue sourceViewController];
     CLLocation *itemLocation = source.selectedLocation;
     NSString *address = source.selectedLocationAddress;
-    NSLog(@"the selected location is: %f, %f", itemLocation.coordinate.latitude, itemLocation.coordinate.longitude);
+    self.itemLocation = [[CLLocation alloc] initWithLatitude:itemLocation.coordinate.latitude longitude:itemLocation.coordinate.longitude];
+    
+    NSLog(@"the selected location is: %f, %f", self.itemLocation.coordinate.latitude, self.itemLocation.coordinate.longitude);
+
+    
     
     if (itemLocation != nil) {
         self.locationLabel.text = [NSString stringWithFormat:@"%@",address];
@@ -108,7 +112,16 @@
     newItem.category = self.categorySelected;
     newItem.categoryPic = self.categoryPic;
    
-    newItem.location = self.itemLocation;
+    if (self.itemLocation != nil) {
+        newItem.location = [[CLLocation alloc] initWithLatitude:self.itemLocation.coordinate.latitude
+                                                      longitude:self.itemLocation.coordinate.longitude];
+    }
+    else{
+        newItem.location = nil;
+    }
+    
+    NSLog(@"added location: %f, %f", self.itemLocation.coordinate.latitude, self.itemLocation.coordinate.longitude);
+    
     newItem.locationDescription = self.locationLabel.text;
     newItem.price = self.priceLabel.text;
     

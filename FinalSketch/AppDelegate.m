@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "addItemViewController.h"
+#import <Dropbox/Dropbox.h>
+
+#define app_key   @"v9c9clnv9q9j6p4"
+#define app_secret  @"yp4lzatozsmxgpu"
 
 @interface AppDelegate ()
 
@@ -18,10 +21,41 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    DBAccountManager* accountMgr = [[DBAccountManager alloc]
+                                    initWithAppKey:app_key
+                                    secret:app_secret];
+    [DBAccountManager setSharedManager:accountMgr];
     
+    DBAccount *account = [[DBAccountManager sharedManager] linkedAccount];
+    
+    NSLog(@"The account: %@", account);
+    
+    if (account) {
+        [DBDatastoreManager setSharedManager:[DBDatastoreManager managerForAccount:account]];
+    }
+    else{
+        [DBDatastoreManager setSharedManager:[DBDatastoreManager localManagerForAccountManager:[DBAccountManager sharedManager]]];
+    }
     
     return YES;
 }
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+  sourceApplication:(NSString *)source annotation:(id)annotation {
+    DBAccount *account = [[DBAccountManager sharedManager] handleOpenURL:url];
+    if (account) {
+        NSLog(@"App linked successfully!");
+        // Migrate any local datastores to the linked account
+        DBDatastoreManager *localManager = [DBDatastoreManager localManagerForAccountManager:
+                                            [DBAccountManager sharedManager]];
+        [localManager migrateToAccount:account error:nil];
+        // Now use Dropbox datastores
+        [DBDatastoreManager setSharedManager:[DBDatastoreManager managerForAccount:account]];
+        return YES;
+    }
+    return NO;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
