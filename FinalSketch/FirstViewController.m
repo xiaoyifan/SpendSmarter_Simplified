@@ -10,6 +10,8 @@
 #import "detailSegue.h"
 #import "ItemTableViewCell.h"
 #import "itemDetailViewController.h"
+#import "FileSession.h"
+#import "Item.h"
 
 @interface FirstViewController ()
 
@@ -55,20 +57,23 @@
     
     
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults arrayForKey:@"itemArray"] == nil) {
-        self.itemArray = [[NSMutableArray alloc]init];
-        [defaults setObject:self.itemArray forKey:@"itemArray"];
-        [defaults synchronize];
-    }
-    else{
-        self.itemArray = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"itemArray"]];
-        
-        //if the array exists, get the array from NSUserDefault and change it to NSMutableArray
-    }
+    NSURL *fileURL = [FileSession getListURL];
+    
+    self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
 
     [self.mainTableView reloadData];
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    NSURL *fileURL = [FileSession getListURL];
+    
+    self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
+
+    
+    [self.mainTableView reloadData];
+    NSLog(@"viewWillAppear Called");
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -95,7 +100,7 @@
     
     ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    NSMutableDictionary *item = [self.itemArray objectAtIndex:indexPath.row];
+    Item *item = [self.itemArray objectAtIndex:indexPath.row];
     
 //    [self setObject:self.itemTitle forKey:@"title"];
 //    [self setObject:self.itemDescription forKey:@"description"];
@@ -106,12 +111,12 @@
 //    [self setObject:self.itemDate forKey:@"date"];
 //    [self setObject:self.itemPrice forKey:@"price"];
    
-    cell.itemTitle.text = [item objectForKey:@"title"];
-    cell.itemDescription.text = [item objectForKey:@"description"];
+    cell.itemTitle.text = item.title;
+    cell.itemDescription.text = item.itemDescription;
 
-    cell.itemImage.image = [item objectForKey:@"image"];
+    cell.itemImage.image = item.image;
     
-    cell.itemPrice.text = [item objectForKey:@"price"];
+    cell.itemPrice.text = item.price;
 
     cell.itemPrice.backgroundColor = [UIColor blackColor];
     cell.itemPrice.alpha = 0.7;
@@ -162,12 +167,6 @@
         
     }
     
-    if ([segue.identifier isEqualToString:@"addDetailSegue"])
-    {
-        
-        
-        
-    }
     
     
 

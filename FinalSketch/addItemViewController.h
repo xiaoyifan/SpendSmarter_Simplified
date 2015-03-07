@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 xiaoyifan. All rights reserved.
 //
 
-#import "singleItemDictionary.h"
+#import "Item.h"
 #import <UIKit/UIKit.h>
 #import "mapViewController.h"
 
@@ -18,7 +18,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *categoryImageView;
 
-@property (strong, nonatomic) NSMutableDictionary *categorySelected;
+@property (strong, nonatomic) NSString *categorySelected;
+
+@property (strong, nonatomic) UIImage *categoryPic;
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 

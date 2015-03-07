@@ -5,7 +5,7 @@
 //  Created by XiaoYifan on 2/28/15.
 //  Copyright (c) 2015 xiaoyifan. All rights reserved.
 //
-
+#import "FileSession.h"
 #import "addItemViewController.h"
 #import "CKCalendarView.h"
 #import <MobileCoreServices/MobileCoreServices.h>
@@ -99,31 +99,35 @@
     transition.subtype = kCATransitionFromTop;
     [self.view.window.layer addAnimation:transition forKey:nil];
     
-    singleItemDictionary *newItem = [[singleItemDictionary alloc] initWithTitle:self.title
-                                                                 andDescription:self.description
-                                                                       andImage:self.smallImageView.image
-                                                                    andCategory:self.categorySelected
-                                                                    andlocation:self.itemLocation
-                                                         andLocationDescription:self.locationLabel.text
-                                                                        andDate:self.dateLabel.text
-                                                                       andPrice:self.priceLabel.text];
+    Item *newItem = [[Item alloc] init];
+//    @property (strong,nonatomic) NSString *title;
+//    @property (strong,nonatomic) NSString *itemDescription;
+//    @property (strong,nonatomic) NSString *date;
+//    @property (strong,nonatomic) UIImage *image;
+//    @property (strong,nonatomic) NSString *category;
+//    @property (strong,nonatomic) NSString *categoryPic;
+//    @property (strong,nonatomic) CLLocation *location;
+//    @property (strong,nonatomic) NSString *locationDescription;
+//    @property (strong,nonatomic) NSString *price;
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults arrayForKey:@"itemArray"] == nil) {
-        NSMutableArray *itemArray = [[NSMutableArray alloc]init];
-        [itemArray insertObject:newItem atIndex:0];
-        [defaults setObject:itemArray forKey:@"itemArray"];
-        [defaults synchronize];
-    }
-    else{
-       NSMutableArray *itemArray = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"itemArray"]];
-        [itemArray insertObject:newItem atIndex:0];
-        [defaults setObject:itemArray forKey:@"itemArray"];
-        [defaults synchronize];
-        
-        //if the array exists, get the array from NSUserDefault and change it to NSMutableArray
-    }
+    newItem.title = @"New Item";
+    newItem.itemDescription = @"essentials";
+    newItem.date = self.dateLabel.text;
+    newItem.image = self.smallImageView.image;
+    newItem.category = self.categorySelected;
+    newItem.categoryPic = self.categoryImageView.image;
+    newItem.location = self.itemLocation;
+    newItem.locationDescription = self.locationLabel.text;
+    newItem.price = self.priceLabel.text;
     
+    
+    NSURL *fileURL = [FileSession getListURL];
+
+    NSMutableArray *itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
+
+    [itemArray addObject:newItem];
+    
+    [FileSession writeData:itemArray ToList:fileURL];
     
     [self dismissViewControllerAnimated:NO completion:nil];
     
@@ -144,7 +148,8 @@
     cell.layer.borderColor = [[UIColor clearColor]CGColor];
     UIImageView *image = [[UIImageView alloc]init];
     NSMutableDictionary *dic = [self.categoryArray objectAtIndex:indexPath.row];
-    self.categorySelected  = dic;
+    self.categorySelected  = [dic objectForKey:@"description"];
+    self.categoryPic = [dic objectForKey:@"pic"];
     
     image.image = [dic objectForKey:@"pic"];
     image.frame = CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height);
