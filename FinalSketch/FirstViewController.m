@@ -52,7 +52,22 @@
     
     self.callout = [[RNFrostedSidebar alloc] initWithImages:images selectedIndices:self.optionIndices borderColors:colors];
     self.callout.delegate = self;
+    
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults arrayForKey:@"itemArray"] == nil) {
+        self.itemArray = [[NSMutableArray alloc]init];
+        [defaults setObject:self.itemArray forKey:@"itemArray"];
+        [defaults synchronize];
+    }
+    else{
+        self.itemArray = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"itemArray"]];
+        
+        //if the array exists, get the array from NSUserDefault and change it to NSMutableArray
+    }
 
+    [self.mainTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,24 +86,33 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    
+    NSLog(@"%lu",(unsigned long)self.itemArray.count);
+    return self.itemArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-//    cell.contentView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:220/255.0 alpha:1];
+    
+    NSMutableDictionary *item = [self.itemArray objectAtIndex:indexPath.row];
+    
+//    [self setObject:self.itemTitle forKey:@"title"];
+//    [self setObject:self.itemDescription forKey:@"description"];
+//    [self setObject:self.image forKey:@"image"];
+//    [self setObject:self.itemCategory forKey:@"category"];
+//    [self setObject:self.itemLocation forKey:@"location"];
+//    [self setObject:self.locationDescription forKey:@"locationDescription"];
+//    [self setObject:self.itemDate forKey:@"date"];
+//    [self setObject:self.itemPrice forKey:@"price"];
    
+    cell.itemTitle.text = [item objectForKey:@"title"];
+    cell.itemDescription.text = [item objectForKey:@"description"];
 
-    cell.itemDescription.text = @"Chicago. Jan 27th";
-    cell.itemTitle.text = @"Steak. basic stuff for life";
-    if (indexPath.row % 2 ==0) {
-        cell.itemImage.image = [UIImage imageNamed:@"superstar.png"];
-    }
-    else{
-        cell.itemImage.image = [UIImage imageNamed:@"kazuki.png"];        
-    }
-    cell.itemPrice.text = @"$150";
+    cell.itemImage.image = [item objectForKey:@"image"];
+    
+    cell.itemPrice.text = [item objectForKey:@"price"];
+
     cell.itemPrice.backgroundColor = [UIColor blackColor];
     cell.itemPrice.alpha = 0.7;
     [cell setNeedsDisplay];

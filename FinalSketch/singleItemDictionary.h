@@ -18,13 +18,15 @@
 
 @property UIImage* image;
 
-@property NSString* itemCategory;
+@property NSMutableDictionary* itemCategory;
 
 @property CLLocation *itemLocation;
 
-@property NSDate *itemDate;
+@property NSString *locationDescription;
 
-@property double itemPrice;
+@property NSString *itemDate;
+
+@property NSString * itemPrice;
 
 //set basic properties for the single item
 
@@ -33,9 +35,10 @@
 -(instancetype)initWithTitle: (NSString *)title
       andDescription:(NSString *)description
       andImage:(UIImage *)image
-      andCategory:(NSString *)category
+      andCategory:(NSMutableDictionary *)category
       andlocation:(CLLocation *)location
-      andDate:(NSDate *)date
-      andPrice:(double)price;
+      andLocationDescription: (NSString *)locationDescription
+      andDate:(NSString *)date
+      andPrice:(NSString *)price;
 
 @end

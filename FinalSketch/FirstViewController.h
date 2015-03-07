@@ -11,6 +11,7 @@
 
 @interface FirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, RNFrostedSidebarDelegate>
 
+@property (nonatomic, strong) NSMutableArray *itemArray;
 
 @end
 

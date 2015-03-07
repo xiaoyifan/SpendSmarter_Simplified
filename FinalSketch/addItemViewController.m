@@ -9,15 +9,13 @@
 #import "addItemViewController.h"
 #import "CKCalendarView.h"
 #import <MobileCoreServices/MobileCoreServices.h>
-
+#import "categoryArrayInitializer.h"
 
 
 @interface addItemViewController()<CKCalendarDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property BOOL inputingDecimal;
 @property int decimalCount;
-
-@property (nonatomic, strong) NSMutableArray *categoryArray;
 
 @end
 
@@ -28,17 +26,12 @@
     self.inputingDecimal = false;
     self.decimalCount = 0;
     // Do any additional setup after loading the view.
+
+    categoryArrayInitializer *initializer = [[categoryArrayInitializer alloc] init];
     
-    
-//    NSMutableArray *users= [[NSMutableArray alloc] init];
-//    
-//    NSArray *keys = [[NSArray alloc] initWithObjects:@"Name", @"Surname", nil];
-//    
-//    NSArray *details = [[NSArray alloc] initWithObjects:@"Bob",@"Hope", nil];
-//    
-//    NSDictionary *person = [[NSMutableDictionary alloc] initWithObjects:details forKeys:keys];
-//    
-//    [users addObject:person];
+    self.categoryArray = [initializer getTheCategories];
+    //the category array contains the catogories
+    [self.collectionView reloadData];
     
     
 }
@@ -106,16 +99,33 @@
     transition.subtype = kCATransitionFromTop;
     [self.view.window.layer addAnimation:transition forKey:nil];
     
-//    singleItemDictionary *newItem = [singleItemDictionary alloc] initWithTitle:self.title
-//                                                                 andDescription:self.description
-//                                                                 andImage:self.smallImageView.image
-//                                                                 andCategory:self.category
-//                                                                 andlocation:self.location
-//                                                                 andDate:self.date
-//                                                                 andPrice:self.price];
+    singleItemDictionary *newItem = [[singleItemDictionary alloc] initWithTitle:self.title
+                                                                 andDescription:self.description
+                                                                       andImage:self.smallImageView.image
+                                                                    andCategory:self.categorySelected
+                                                                    andlocation:self.itemLocation
+                                                         andLocationDescription:self.locationLabel.text
+                                                                        andDate:self.dateLabel.text
+                                                                       andPrice:self.priceLabel.text];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults arrayForKey:@"itemArray"] == nil) {
+        NSMutableArray *itemArray = [[NSMutableArray alloc]init];
+        [itemArray insertObject:newItem atIndex:0];
+        [defaults setObject:itemArray forKey:@"itemArray"];
+        [defaults synchronize];
+    }
+    else{
+       NSMutableArray *itemArray = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"itemArray"]];
+        [itemArray insertObject:newItem atIndex:0];
+        [defaults setObject:itemArray forKey:@"itemArray"];
+        [defaults synchronize];
+        
+        //if the array exists, get the array from NSUserDefault and change it to NSMutableArray
+    }
+    
     
     [self dismissViewControllerAnimated:NO completion:nil];
-    
     
 }
 
@@ -125,20 +135,36 @@
 
 - (NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section {
 //    return [sectionArray count];
-    return 1;
+    return self.categoryArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
     cell.layer.borderWidth = 1;
-    cell.layer.borderColor = [[UIColor whiteColor]CGColor];
+    cell.layer.borderColor = [[UIColor clearColor]CGColor];
     UIImageView *image = [[UIImageView alloc]init];
-    image.image = [UIImage imageWithData:[self.categoryArray objectAtIndex:indexPath.row]];
+    NSMutableDictionary *dic = [self.categoryArray objectAtIndex:indexPath.row];
+    self.categorySelected  = dic;
+    
+    image.image = [dic objectForKey:@"pic"];
     image.frame = CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height);
     [cell addSubview:image];
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSMutableDictionary *dic = [self.categoryArray objectAtIndex:indexPath.row];
+    NSString *description = [dic objectForKey:@"description"];
+    self.categoryImageView.image = [dic objectForKey:@"pic"];
+
+    NSLog(@"%@", description);
+
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(50, 50, 50, 50);
+}
 
 #pragma mark - dismiss the view controller
 - (IBAction)back:(id)sender {
