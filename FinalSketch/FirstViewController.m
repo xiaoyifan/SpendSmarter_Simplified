@@ -117,6 +117,14 @@
     cell.itemImage.image = item.image;
     
     cell.itemPrice.text = item.price;
+    
+    cell.categoryImage.image = item.categoryPic;
+    NSLog(@"%@", item.category);
+    
+    
+    cell.dateLabel.text = item.date;
+    
+    cell.locationLabel.text = item.locationDescription;
 
     cell.itemPrice.backgroundColor = [UIColor blackColor];
     cell.itemPrice.alpha = 0.7;
@@ -158,11 +166,11 @@
     {
         NSIndexPath *indexPath = [self.mainTableView indexPathForSelectedRow];
         
-        //NSDictionary * dataItem = [self.itemData objectAtIndex:indexPath.row];
+        Item * dataItem = [self.itemArray objectAtIndex:indexPath.row];
         
-        //itemDetailViewController *destVC = [[segue destinationViewController] topViewController];
+        itemDetailViewController *destVC = (itemDetailViewController *)[[segue destinationViewController] topViewController];
         
-        //[destVC setItemDictionary:dataItem];
+        [destVC setDetailItem:dataItem];
         
         
     }

@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "MyLocation.h"
+#import "Item.h"
 
 
 @interface itemDetailViewController : UIViewController<UIScrollViewDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate>{
@@ -33,5 +34,7 @@
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
+
+@property (strong,nonatomic) Item *detailItem;
 
 @end

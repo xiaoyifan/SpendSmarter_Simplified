@@ -16,7 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *smallImageView;
 
-@property (weak, nonatomic) IBOutlet UIImageView *categoryImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *categoryImageView;
 
 @property (strong, nonatomic) NSString *categorySelected;
 

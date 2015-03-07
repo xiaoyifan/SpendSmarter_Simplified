@@ -100,22 +100,14 @@
     [self.view.window.layer addAnimation:transition forKey:nil];
     
     Item *newItem = [[Item alloc] init];
-//    @property (strong,nonatomic) NSString *title;
-//    @property (strong,nonatomic) NSString *itemDescription;
-//    @property (strong,nonatomic) NSString *date;
-//    @property (strong,nonatomic) UIImage *image;
-//    @property (strong,nonatomic) NSString *category;
-//    @property (strong,nonatomic) NSString *categoryPic;
-//    @property (strong,nonatomic) CLLocation *location;
-//    @property (strong,nonatomic) NSString *locationDescription;
-//    @property (strong,nonatomic) NSString *price;
     
     newItem.title = @"New Item";
     newItem.itemDescription = @"essentials";
     newItem.date = self.dateLabel.text;
     newItem.image = self.smallImageView.image;
     newItem.category = self.categorySelected;
-    newItem.categoryPic = self.categoryImageView.image;
+    newItem.categoryPic = self.categoryPic;
+   
     newItem.location = self.itemLocation;
     newItem.locationDescription = self.locationLabel.text;
     newItem.price = self.priceLabel.text;
@@ -162,6 +154,8 @@
     NSMutableDictionary *dic = [self.categoryArray objectAtIndex:indexPath.row];
     NSString *description = [dic objectForKey:@"description"];
     self.categoryImageView.image = [dic objectForKey:@"pic"];
+    self.categoryPic = [dic objectForKey:@"pic"];
+    self.categorySelected = description;
 
     NSLog(@"%@", description);
 

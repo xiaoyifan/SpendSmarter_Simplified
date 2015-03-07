@@ -17,7 +17,7 @@
 @property (strong,nonatomic) NSString *date;
 @property (strong,nonatomic) UIImage *image;
 @property (strong,nonatomic) NSString *category;
-@property (strong, nonatomic) UIImage *categoryPic;
+@property (strong,nonatomic) UIImage *categoryPic;
 @property (strong,nonatomic) CLLocation *location;
 @property (strong,nonatomic) NSString *locationDescription;
 @property (strong,nonatomic) NSString *price;

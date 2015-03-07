@@ -18,7 +18,7 @@
                                               inDomain:NSUserDomainMask appropriateForURL:nil
                                                 create:YES error:&err];
     NSURL* file = [docs URLByAppendingPathComponent:@"items.plist"];
-    //NSLog(@"FILE: %@",file);
+    NSLog(@"FILE: %@",file);
     return file;
 }
 

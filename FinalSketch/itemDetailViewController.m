@@ -25,7 +25,11 @@
     self.mainScrollView.scrollEnabled = YES;
     //self.mainScrollView.contentSize = self.view.frame.size;
     
-    self.itemImage.image = [UIImage imageNamed:@"superstar.png"];
+    self.itemImage.image = self.detailItem.image;
+    self.dateLabel.text  =self.detailItem.date;
+    self.itemTitle.text  =self.detailItem.title;
+    self.itemDescription.text = self.detailItem.description;
+
     
     
     //Location settings
@@ -41,7 +45,7 @@
 
 
 - (void)viewDidLayoutSubviews {
-    [self.mainScrollView setContentSize:CGSizeMake(self.view.frame.size.width, 1150)];
+    [self.mainScrollView setContentSize:CGSizeMake(self.view.frame.size.width, 1450)];
 }
 
 - (void)didReceiveMemoryWarning {
