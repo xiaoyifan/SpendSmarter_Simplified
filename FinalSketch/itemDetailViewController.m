@@ -108,6 +108,8 @@
         NSLog(@"wrong location status");
     }
 }
+
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray
                                                                          *)locations
 { 

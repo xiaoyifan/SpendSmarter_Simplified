@@ -640,6 +640,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="cancelButton" destination="xOx-lG-bqQ" id="JtL-MB-hMG"/>
                         <outlet property="tableview" destination="Ups-ji-vLZ" id="L91-vN-8bv"/>
                     </connections>
                 </viewController>

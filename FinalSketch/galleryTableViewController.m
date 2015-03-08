@@ -12,6 +12,8 @@
 
 @interface galleryTableViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
 @end
 
 @implementation galleryTableViewController
@@ -20,6 +22,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor lightGrayColor];
+    self.cancelButton.tintColor = [UIColor blackColor];
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     
