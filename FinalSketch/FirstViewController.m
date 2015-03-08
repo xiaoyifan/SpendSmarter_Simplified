@@ -58,7 +58,7 @@
     
     
     
-    NSURL *fileURL = [FileSession getListURL];
+    NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
     
     self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
 
@@ -73,7 +73,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    NSURL *fileURL = [FileSession getListURL];
+    NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
     self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
     [self.mainTableView reloadData];
     

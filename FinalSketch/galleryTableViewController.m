@@ -26,7 +26,7 @@
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     
-    NSURL *fileURL = [FileSession getListURL];
+    NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
     self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
     
     [self.tableview reloadData];
@@ -42,9 +42,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 
 #pragma mark - Table view data source
 

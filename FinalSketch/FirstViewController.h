@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) NSMutableArray *itemArray;
 
+@property (nonatomic, strong) NSMapTable *map;
+
 @property (nonatomic, strong) DBAccount *account;
 
 @end

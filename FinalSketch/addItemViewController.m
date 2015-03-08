@@ -126,7 +126,7 @@
     newItem.price = self.priceLabel.text;
     
     
-    NSURL *fileURL = [FileSession getListURL];
+    NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
 
     NSMutableArray *itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
 

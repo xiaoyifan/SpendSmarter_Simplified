@@ -219,6 +219,7 @@
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
+
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
     NSLog(@"Enter region:%@",region);

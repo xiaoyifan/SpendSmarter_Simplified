@@ -12,7 +12,7 @@
 
 //store files in plist
 //this method is used to get the URL of that file
-+(NSURL *)getListURL;
++(NSURL *)getListURLOf:(NSString *)string;
 
 //write data to that file
 +(void)writeData:(id)object ToList:(NSURL*)url;

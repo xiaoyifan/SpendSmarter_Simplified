@@ -11,13 +11,13 @@
 @implementation FileSession
 
 
-+(NSURL *)getListURL
++(NSURL *)getListURLOf:(NSString *)string
 {
     NSError* err = nil;
     NSURL *docs = [[NSFileManager new] URLForDirectory:NSDocumentDirectory
                                               inDomain:NSUserDomainMask appropriateForURL:nil
                                                 create:YES error:&err];
-    NSURL* file = [docs URLByAppendingPathComponent:@"items.plist"];
+    NSURL* file = [docs URLByAppendingPathComponent:string];
     NSLog(@"FILE: %@",file);
     return file;
 }
