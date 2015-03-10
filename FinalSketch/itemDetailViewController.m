@@ -39,8 +39,6 @@
     [self.locationManager requestAlwaysAuthorization];
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
-    
-    NSLog(@"the item location: %f, %f", self.detailItem.location.coordinate.latitude, self.detailItem.location.coordinate.longitude);
 
     
 }

@@ -12,6 +12,7 @@
 #import "itemDetailViewController.h"
 #import "FileSession.h"
 #import "Item.h"
+#import "Map.h"
 
 @interface FirstViewController ()
 
@@ -56,11 +57,20 @@
     self.callout = [[RNFrostedSidebar alloc] initWithImages:images selectedIndices:self.optionIndices borderColors:colors];
     self.callout.delegate = self;
     
+    NSLog(@"%@",self.account);
+    
+    
     
     
     NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
     
     self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
+    
+    NSURL *mapURL = [FileSession getListURLOf:@"map.plist"];
+    
+    self.map = [NSMutableArray arrayWithArray:[FileSession readDataFromList:mapURL]];
+    
+    
 
     [self.mainTableView reloadData];
     
@@ -77,8 +87,12 @@
     self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
     [self.mainTableView reloadData];
     
-    if (self.account) {
-        self.syncButton.enabled = YES;
+    NSURL *mapURL = [FileSession getListURLOf:@"map.plist"];
+    self.map = [NSMutableArray arrayWithArray:[FileSession readDataFromList:mapURL]];
+    
+    for (Map *item in self.map) {
+        NSLog(@"%@", item.categoryString);
+        NSLog(@"%@", item.itemNumber);
     }
     
 }
@@ -109,15 +123,7 @@
     ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
     Item *item = [self.itemArray objectAtIndex:indexPath.row];
-    NSLog(@"item location is: %f, %f", item.location.coordinate.latitude, item.location.coordinate.longitude);
-//    [self setObject:self.itemTitle forKey:@"title"];
-//    [self setObject:self.itemDescription forKey:@"description"];
-//    [self setObject:self.image forKey:@"image"];
-//    [self setObject:self.itemCategory forKey:@"category"];
-//    [self setObject:self.itemLocation forKey:@"location"];
-//    [self setObject:self.locationDescription forKey:@"locationDescription"];
-//    [self setObject:self.itemDate forKey:@"date"];
-//    [self setObject:self.itemPrice forKey:@"price"];
+
    
     cell.itemTitle.text = item.title;
     cell.itemDescription.text = item.itemDescription;
@@ -127,8 +133,6 @@
     cell.itemPrice.text = item.price;
     
     cell.categoryImage.image = item.categoryPic;
-    NSLog(@"%@", item.category);
-    
     
     cell.dateLabel.text = item.date;
     
@@ -146,25 +150,51 @@
 
 #pragma mark - sidebar delegate
 -(void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index {
-    NSLog(@"Tapped item at index %lu",(unsigned long)index);
     
     if (index == 1) {
         self.account = [[DBAccountManager sharedManager] linkedAccount];
         if (self.account) {
             NSLog(@"App already linked");
+            NSLog(@"%@", self.account.info);
+                self.syncButton.enabled = NO;
+            DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:self.account];
+            [DBFilesystem setSharedFilesystem:filesystem];
+            
+            DBPath *newPath = [[DBPath root] childPath:@"iAccount"];
+            
+            DBPath *itemPath = [newPath childPath:@"items.plist"];
+            DBFile *itemFile = [[DBFilesystem sharedFilesystem] createFile:itemPath error:nil];
+            
+            DBPath *mapPath = [newPath childPath:@"map.plist"];
+            DBFile *mapFile = [[DBFilesystem sharedFilesystem] createFile:mapPath error:nil];
+            
+            
+            NSURL *itemUrl = [FileSession getListURLOf:@"items.plist"];
+            [itemFile writeData:[NSData dataWithContentsOfURL:itemUrl] error:nil];
+            
+            NSURL *mapUrl = [FileSession getListURLOf:@"map.plist"];
+            [mapFile writeData:[NSData dataWithContentsOfURL:mapUrl] error:nil];
+            NSLog(@"mapPath is %@", mapPath);
+            NSLog(@"mapURL is %@", mapUrl);
+            
+            //could initialize a alert view here that you gonna unlink your Dropbox account here
         } else {
             [[DBAccountManager sharedManager] linkFromController:self];
+            self.account = [[DBAccountManager sharedManager] linkedAccount];
+            if (self.account) {
+                DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:self.account];
+                [DBFilesystem setSharedFilesystem:filesystem];
+            }
+            self.syncButton.enabled = YES;
         }
     }
-    
-    if (index == 2) {
+    else if (index == 2) {
        UITableViewController *gallery = [self.storyboard instantiateViewControllerWithIdentifier:@"galleryVC"];
         [self presentViewController:gallery animated:YES completion:nil];
     }
     
     if (index == 3) {
-//        SecondViewController *second = [self.storyboard instantiateViewControllerWithIdentifier:@"SecondViewController"];
-//        [self presentViewController:second animated:YES completion:nil];
+
     }
     if (index == 4) {
         [sidebar dismissAnimated:YES];

@@ -7,6 +7,7 @@
 //
 
 #import "Item.h"
+#import "Map.h"
 #import <UIKit/UIKit.h>
 #import "mapViewController.h"
 

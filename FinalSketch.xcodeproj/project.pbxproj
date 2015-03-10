@@ -52,6 +52,7 @@
 		CCE31F011AAB80A300777414 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE31F001AAB80A300777414 /* libc++.dylib */; };
 		CCE31F031AAB80AF00777414 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE31F021AAB80AF00777414 /* libz.dylib */; };
 		CCE31F071AAB9D1A00777414 /* galleryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE31F061AAB9D1A00777414 /* galleryTableViewController.m */; };
+		CCE325341AAC20CE002DBF0E /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE325331AAC20CE002DBF0E /* Map.m */; };
 		CCFEE26B1AA2E773002583E2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFEE26A1AA2E773002583E2 /* MapKit.framework */; };
 		CCFEE26D1AA2FD05002583E2 /* superstar.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFEE26C1AA2FD05002583E2 /* superstar.png */; };
 		CCFEE26F1AA2FE4E002583E2 /* kazuki.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFEE26E1AA2FE4E002583E2 /* kazuki.png */; };
@@ -132,6 +133,8 @@
 		CCE31F021AAB80AF00777414 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CCE31F051AAB9D1A00777414 /* galleryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = galleryTableViewController.h; sourceTree = "<group>"; };
 		CCE31F061AAB9D1A00777414 /* galleryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = galleryTableViewController.m; sourceTree = "<group>"; };
+		CCE325321AAC20CE002DBF0E /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		CCE325331AAC20CE002DBF0E /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
 		CCFEE26A1AA2E773002583E2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CCFEE26C1AA2FD05002583E2 /* superstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = superstar.png; sourceTree = "<group>"; };
 		CCFEE26E1AA2FE4E002583E2 /* kazuki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kazuki.png; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				CCE31F041AAB9CF300777414 /* gallery */,
+				CCE325321AAC20CE002DBF0E /* Map.h */,
+				CCE325331AAC20CE002DBF0E /* Map.m */,
 				CC13C3D91AAAB20600D58CAF /* Item.h */,
 				CC13C3DA1AAAB20600D58CAF /* Item.m */,
 				CC13C3D61AAAB1C700D58CAF /* FileSession.h */,
@@ -491,6 +496,7 @@
 				CC0E2AA71A9D76F00017A9E4 /* FirstViewController.m in Sources */,
 				CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */,
 				CCE31F071AAB9D1A00777414 /* galleryTableViewController.m in Sources */,
+				CCE325341AAC20CE002DBF0E /* Map.m in Sources */,
 				CC0E2AA11A9D76F00017A9E4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

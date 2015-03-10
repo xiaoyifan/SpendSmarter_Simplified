@@ -12,8 +12,7 @@
 @interface FirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, RNFrostedSidebarDelegate>
 
 @property (nonatomic, strong) NSMutableArray *itemArray;
-
-@property (nonatomic, strong) NSMapTable *map;
+@property (nonatomic, strong) NSMutableArray *map;
 
 @property (nonatomic, strong) DBAccount *account;
 

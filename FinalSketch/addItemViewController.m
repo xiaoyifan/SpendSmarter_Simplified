@@ -5,6 +5,7 @@
 //  Created by XiaoYifan on 2/28/15.
 //  Copyright (c) 2015 xiaoyifan. All rights reserved.
 //
+
 #import "FileSession.h"
 #import "addItemViewController.h"
 #import "CKCalendarView.h"
@@ -134,7 +135,36 @@
     
     [FileSession writeData:itemArray ToList:fileURL];
     
+    [self addToMap];
+    
     [self dismissViewControllerAnimated:NO completion:nil];
+    
+}
+
+-(void) addToMap{
+    
+    NSURL *mapURL = [FileSession getListURLOf:@"map.plist"];
+    
+    NSMutableArray *mapArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:mapURL]];
+    
+    int flag = 0;
+    
+    for (Map *obj in mapArray) {
+        if ([self.categorySelected isEqualToString:obj.categoryString]) {
+            flag = 1;
+            obj.itemNumber = @([obj.itemNumber integerValue]+1);
+            //if category existed, add 1
+        }
+    }
+    
+    if (flag == 0) {
+        Map *mapItem = [[Map alloc] init];
+        mapItem.itemNumber = @(1);
+        mapItem.categoryString = self.categorySelected;
+        [mapArray addObject:mapItem];
+    }
+    
+    [FileSession writeData:mapArray ToList:mapURL];
     
 }
 
