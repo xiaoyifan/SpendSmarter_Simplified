@@ -33,6 +33,8 @@
 		CC51F8C61AA128E800619BDC /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC51F8BE1AA128E800619BDC /* star@2x.png */; };
 		CC51F8D21AA12CA900619BDC /* RNFrostedSidebar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC51F8D11AA12CA900619BDC /* RNFrostedSidebar.m */; };
 		CC778B541AA2B958003862F5 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC778B531AA2B958003862F5 /* ItemTableViewCell.m */; };
+		CC88E47A1AAEAECE006560A0 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88E4771AAEAECE006560A0 /* XYPieChart.m */; };
+		CC88E47B1AAEAECE006560A0 /* pieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88E4791AAEAECE006560A0 /* pieChartViewController.m */; };
 		CCBE44BC1AA37E59006CDF7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */; };
 		CCC73B551AA0217900BC5C2D /* Chicago.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCC73B541AA0217900BC5C2D /* Chicago.jpg */; };
 		CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD240491AA19D1A00577608 /* detailSegue.m */; };
@@ -109,6 +111,10 @@
 		CC51F8D11AA12CA900619BDC /* RNFrostedSidebar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFrostedSidebar.m; sourceTree = "<group>"; };
 		CC778B521AA2B958003862F5 /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
 		CC778B531AA2B958003862F5 /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
+		CC88E4761AAEAECE006560A0 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
+		CC88E4771AAEAECE006560A0 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
+		CC88E4781AAEAECE006560A0 /* pieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pieChartViewController.h; sourceTree = "<group>"; };
+		CC88E4791AAEAECE006560A0 /* pieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pieChartViewController.m; sourceTree = "<group>"; };
 		CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CCC73B541AA0217900BC5C2D /* Chicago.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Chicago.jpg; sourceTree = "<group>"; };
 		CCD240481AA19D1A00577608 /* detailSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detailSegue.h; path = ../detailSegue.h; sourceTree = "<group>"; };
@@ -204,6 +210,7 @@
 		CC0E2A9D1A9D76F00017A9E4 /* FinalSketch */ = {
 			isa = PBXGroup;
 			children = (
+				CC88E4751AAEAEBB006560A0 /* pieChart */,
 				CCE31F041AAB9CF300777414 /* gallery */,
 				CCE325321AAC20CE002DBF0E /* Map.h */,
 				CCE325331AAC20CE002DBF0E /* Map.m */,
@@ -306,6 +313,17 @@
 				CC778B531AA2B958003862F5 /* ItemTableViewCell.m */,
 			);
 			name = MainPage;
+			sourceTree = "<group>";
+		};
+		CC88E4751AAEAEBB006560A0 /* pieChart */ = {
+			isa = PBXGroup;
+			children = (
+				CC88E4761AAEAECE006560A0 /* XYPieChart.h */,
+				CC88E4771AAEAECE006560A0 /* XYPieChart.m */,
+				CC88E4781AAEAECE006560A0 /* pieChartViewController.h */,
+				CC88E4791AAEAECE006560A0 /* pieChartViewController.m */,
+			);
+			name = pieChart;
 			sourceTree = "<group>";
 		};
 		CCD240471AA199F400577608 /* SideBar */ = {
@@ -487,8 +505,10 @@
 				CC13C3D81AAAB1C700D58CAF /* FileSession.m in Sources */,
 				CCD6EFB41AA1A8DC00413769 /* addItemViewController.m in Sources */,
 				CC3D75681AA4EAA50082EC70 /* MyLocation.m in Sources */,
+				CC88E47A1AAEAECE006560A0 /* XYPieChart.m in Sources */,
 				CC45E0031AA1571B00E5B8CA /* itemDetailViewController.m in Sources */,
 				CC13C3DB1AAAB20600D58CAF /* Item.m in Sources */,
+				CC88E47B1AAEAECE006560A0 /* pieChartViewController.m in Sources */,
 				CC51F8D21AA12CA900619BDC /* RNFrostedSidebar.m in Sources */,
 				CC13C3DE1AAACFDE00D58CAF /* categoryArrayInitializer.m in Sources */,
 				CC3D756E1AA51EDD0082EC70 /* mapViewController.m in Sources */,
