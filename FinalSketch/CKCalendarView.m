@@ -482,7 +482,7 @@
     [self selectDate:date makeVisible:YES];
     [self.delegate calendar:self didSelectDate:date];
     [self setNeedsLayout];
-    [self removeFromSuperview];
+//    [self removeFromSuperview];
 }
 
 #pragma mark - Theming getters/setters

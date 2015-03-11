@@ -37,6 +37,7 @@
 		CC4726831AB02E83007B2AF5 /* CameraStyleKitClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4726741AB02E83007B2AF5 /* CameraStyleKitClass.m */; };
 		CC4726841AB02E83007B2AF5 /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4726771AB02E83007B2AF5 /* CaptureSessionManager.m */; };
 		CC4726851AB02E83007B2AF5 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4726791AB02E83007B2AF5 /* Constants.m */; };
+		CC47268E1AB04909007B2AF5 /* KLCPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = CC47268D1AB04909007B2AF5 /* KLCPopup.m */; };
 		CC51F8B41AA1274E00619BDC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC51F8B31AA1274E00619BDC /* Accelerate.framework */; };
 		CC51F8B61AA1276F00619BDC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC51F8B51AA1276F00619BDC /* QuartzCore.framework */; };
 		CC51F8BF1AA128E800619BDC /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = CC51F8B71AA128E800619BDC /* gear.png */; };
@@ -140,6 +141,8 @@
 		CC4726771AB02E83007B2AF5 /* CaptureSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureSessionManager.m; sourceTree = "<group>"; };
 		CC4726781AB02E83007B2AF5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		CC4726791AB02E83007B2AF5 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		CC47268C1AB04909007B2AF5 /* KLCPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLCPopup.h; sourceTree = "<group>"; };
+		CC47268D1AB04909007B2AF5 /* KLCPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLCPopup.m; sourceTree = "<group>"; };
 		CC51F8B31AA1274E00619BDC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		CC51F8B51AA1276F00619BDC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CC51F8B71AA128E800619BDC /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 		CC0E2A9D1A9D76F00017A9E4 /* FinalSketch */ = {
 			isa = PBXGroup;
 			children = (
+				CC47268C1AB04909007B2AF5 /* KLCPopup.h */,
+				CC47268D1AB04909007B2AF5 /* KLCPopup.m */,
 				CC4726871AB04529007B2AF5 /* SplashScreen */,
 				CC4726861AB04513007B2AF5 /* Data */,
 				CC47265E1AB02E83007B2AF5 /* CustomizableCamera */,
@@ -666,6 +671,7 @@
 				CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */,
 				CCE31F071AAB9D1A00777414 /* galleryTableViewController.m in Sources */,
 				CC47267D1AB02E83007B2AF5 /* CameraFocalReticule.m in Sources */,
+				CC47268E1AB04909007B2AF5 /* KLCPopup.m in Sources */,
 				CCE325341AAC20CE002DBF0E /* Map.m in Sources */,
 				CC0E2AA11A9D76F00017A9E4 /* main.m in Sources */,
 			);

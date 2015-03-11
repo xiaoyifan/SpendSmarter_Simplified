@@ -673,7 +673,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Pie" image="barChart" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Pie" image="pieChart" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="pieChartRight" destination="MPV-5B-FRy" id="tcG-r1-j9f"/>
                         <outlet property="selectedSliceLabel" destination="kjj-Nr-k9j" id="cyY-9I-MHd"/>
@@ -754,7 +754,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorTransitionMaskImage="Chicago.jpg" id="Ae9-EY-igX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.97573646043935292" blue="0.55625132591103621" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -807,7 +807,6 @@
     <resources>
         <image name="Chicago.jpg" width="1017" height="585"/>
         <image name="add" width="50" height="50"/>
-        <image name="barChart" width="25" height="25"/>
         <image name="budget" width="25" height="25"/>
         <image name="burgerButton" width="50" height="50"/>
         <image name="calendar" width="50" height="50"/>
@@ -816,6 +815,7 @@
         <image name="cancel" width="50" height="50"/>
         <image name="lineChart" width="25" height="25"/>
         <image name="location" width="50" height="50"/>
+        <image name="pieChart" width="25" height="25"/>
         <image name="plane" width="50" height="50"/>
         <image name="smallplane" width="26" height="26"/>
         <image name="sync" width="50" height="50"/>

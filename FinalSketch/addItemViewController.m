@@ -12,6 +12,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "categoryArrayInitializer.h"
 #import "CameraSessionView.h"
+#import "KLCPopup.h"
 
 
 @interface addItemViewController()<CKCalendarDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate, MKMapViewDelegate, CACameraSessionDelegate>
@@ -20,6 +21,7 @@
 @property int decimalCount;
 
 @property (nonatomic, strong) CameraSessionView *cameraView;
+@property (nonatomic, strong) KLCPopup *calendarPopup;
 
 @end
 
@@ -286,14 +288,26 @@
 - (IBAction)showCalendar:(id)sender {
     
     CKCalendarView *calendar = [[CKCalendarView alloc] init];
-    calendar.center  = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
-    [self.view addSubview:calendar];
+    
+    
+//    calendar.center  = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+//    [self.view addSubview:calendar];
     calendar.delegate = self;
+    
+    self.calendarPopup = [KLCPopup popupWithContentView:calendar
+                                               showType: KLCPopupShowTypeSlideInFromLeft
+                                            dismissType: KLCPopupDismissTypeSlideOutToRight
+                                               maskType: KLCPopupMaskTypeDimmed
+                               dismissOnBackgroundTouch:YES
+                                  dismissOnContentTouch:NO];
+    [self.calendarPopup show];
+    
 }
 
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
     self.dateLabel.text = [NSString stringWithFormat:@"%@",date];
     //    [calendar removeFromSuperview];
+    [self.calendarPopup dismiss:YES];
 }
 
 
