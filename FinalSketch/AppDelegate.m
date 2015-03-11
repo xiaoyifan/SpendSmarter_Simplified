@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import <Dropbox/Dropbox.h>
 #import "FileSession.h"
+#import "FinalSketch-Swift.h"
+
 
 #define app_key   @"v9c9clnv9q9j6p4"
 #define app_secret  @"yp4lzatozsmxgpu"
@@ -27,16 +29,6 @@
                                     secret:app_secret];
     [DBAccountManager setSharedManager:accountMgr];
     
-//    DBAccount *account = [[DBAccountManager sharedManager] linkedAccount];
-//    
-//    NSLog(@"The account: %@", account);
-//    
-//    if (account) {
-//        [DBDatastoreManager setSharedManager:[DBDatastoreManager managerForAccount:account]];
-//    }
-//    else{
-//        [DBDatastoreManager setSharedManager:[DBDatastoreManager localManagerForAccountManager:[DBAccountManager sharedManager]]];
-//    }
     
     return YES;
 }

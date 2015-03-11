@@ -6,19 +6,15 @@
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>18C51A61-2613-4EC7-ABDB-1710E1AF813A</string>
-	<key>IDESourceControlProjectName</key>
-	<string>FinalSketch</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C1943DADFA87B3AFAB700D7DEE535BC6A1ACEC95</key>
 		<string>https://github.com/xiaoyifan/FinalSketch.git</string>
 	</dict>
-	<key>IDESourceControlProjectPath</key>
-	<string>FinalSketch.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C1943DADFA87B3AFAB700D7DEE535BC6A1ACEC95</key>
-		<string>../..</string>
+		<string>finalsketch/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/xiaoyifan/FinalSketch.git</string>
@@ -34,7 +30,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>C1943DADFA87B3AFAB700D7DEE535BC6A1ACEC95</string>
 			<key>IDESourceControlWCCName</key>
-			<string>FinalSketch</string>
+			<string>finalsketch</string>
 		</dict>
 	</array>
 </dict>

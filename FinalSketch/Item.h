@@ -20,6 +20,6 @@
 @property (strong,nonatomic) UIImage *categoryPic;
 @property (strong,nonatomic) CLLocation *location;
 @property (strong,nonatomic) NSString *locationDescription;
-@property (strong,nonatomic) NSString *price;
+@property (strong,nonatomic) NSNumber *price;
 
 @end

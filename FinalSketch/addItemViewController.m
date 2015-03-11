@@ -124,7 +124,9 @@
     NSLog(@"added location: %f, %f", self.itemLocation.coordinate.latitude, self.itemLocation.coordinate.longitude);
     
     newItem.locationDescription = self.locationLabel.text;
-    newItem.price = self.priceLabel.text;
+    
+    NSString *priceLabel = [self.priceLabel.text substringFromIndex:1];
+    newItem.price = [[NSNumber alloc] initWithDouble:[priceLabel doubleValue]];
     
     
     NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
@@ -149,17 +151,21 @@
     
     int flag = 0;
     
+    NSString *priceLabel = [self.priceLabel.text substringFromIndex:1];
+    NSNumber *price = [[NSNumber alloc] initWithDouble:[priceLabel doubleValue]];
+    
     for (Map *obj in mapArray) {
         if ([self.categorySelected isEqualToString:obj.categoryString]) {
             flag = 1;
-            obj.itemNumber = @([obj.itemNumber integerValue]+1);
+
+            obj.itemNumber = @([obj.itemNumber integerValue]+[price doubleValue]);
             //if category existed, add 1
         }
     }
     
     if (flag == 0) {
         Map *mapItem = [[Map alloc] init];
-        mapItem.itemNumber = @(1);
+        mapItem.itemNumber = price;
         mapItem.categoryString = self.categorySelected;
         [mapArray addObject:mapItem];
     }

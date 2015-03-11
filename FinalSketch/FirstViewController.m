@@ -13,6 +13,8 @@
 #import "FileSession.h"
 #import "Item.h"
 #import "Map.h"
+#import "FinalSketch-Swift.h"
+
 
 @interface FirstViewController ()
 
@@ -28,6 +30,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    ViewController *vc = [[ViewController alloc] init];
+    [self presentViewController:vc animated:NO completion:nil];
+    [self.view addSubview:vc.view];
+    
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     
@@ -130,8 +137,8 @@
 
     cell.itemImage.image = item.image;
     
-    cell.itemPrice.text = item.price;
-    
+    cell.itemPrice.text = [NSString stringWithFormat:@"$%@",[item.price stringValue]];
+
     cell.categoryImage.image = item.categoryPic;
     
     cell.dateLabel.text = item.date;
