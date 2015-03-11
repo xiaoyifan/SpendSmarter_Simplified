@@ -181,7 +181,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Lhe-CO-kM0">
                                 <rect key="frame" x="0.0" y="63" width="375" height="296"/>
-                                <color key="backgroundColor" red="1" green="0.97946832669999995" blue="0.9127644037" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pqi-aD-3Iv">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -207,7 +207,7 @@
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogk-uc-ME9">
                                 <rect key="frame" x="27" y="367" width="348" height="26"/>
-                                <color key="backgroundColor" red="1" green="0.97946832669999995" blue="0.9127644037" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -216,7 +216,7 @@
                                 <rect key="frame" x="56" y="396" width="40" height="40"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.97946832669999995" blue="0.9127644037" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" none="YES" keyboardKey="YES"/>
                         </accessibility>
@@ -236,7 +236,7 @@
                             </button>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="gHI-RQ-4MY">
-                            <rect key="frame" x="113" y="6" width="150" height="33"/>
+                            <rect key="frame" x="138" y="6" width="99" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDq-Mh-Zd7">
@@ -251,11 +251,11 @@
                         </view>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="7GW-uP-b4S">
                             <view key="customView" contentMode="scaleToFill" id="D0B-6l-R2Z">
-                                <rect key="frame" x="0.0" y="0.0" width="83" height="33"/>
+                                <rect key="frame" x="259" y="5" width="80" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLq-qp-6oc">
-                                        <rect key="frame" x="57" y="4" width="26" height="26"/>
+                                        <rect key="frame" x="56" y="5" width="24" height="24"/>
                                         <color key="tintColor" red="0.55932370580808088" green="0.55932370580808088" blue="0.55932370580808088" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="calendar-gray">
                                             <color key="titleColor" red="0.55932370580808088" green="0.55932370580808088" blue="0.55932370580808088" alpha="1" colorSpace="calibratedRGB"/>
@@ -266,7 +266,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqy-fW-SP9">
-                                        <rect key="frame" x="23" y="4" width="26" height="26"/>
+                                        <rect key="frame" x="29" y="5" width="24" height="24"/>
                                         <state key="normal" image="plane">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -275,7 +275,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nk-Up-dib">
-                                        <rect key="frame" x="-11" y="4" width="26" height="26"/>
+                                        <rect key="frame" x="0.0" y="5" width="24" height="24"/>
                                         <state key="normal" image="camera-gray">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>

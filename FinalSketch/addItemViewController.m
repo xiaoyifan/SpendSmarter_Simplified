@@ -11,12 +11,15 @@
 #import "CKCalendarView.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "categoryArrayInitializer.h"
+#import "CameraSessionView.h"
 
 
-@interface addItemViewController()<CKCalendarDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate, MKMapViewDelegate>
+@interface addItemViewController()<CKCalendarDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate, MKMapViewDelegate, CACameraSessionDelegate>
 
 @property BOOL inputingDecimal;
 @property int decimalCount;
+
+@property (nonatomic, strong) CameraSessionView *cameraView;
 
 @end
 
@@ -33,7 +36,6 @@
     self.categoryArray = [initializer getTheCategories];
     //the category array contains the catogories
     [self.collectionView reloadData];
-    
     
 }
 
@@ -232,59 +234,53 @@
 #pragma mark - picture taking and delegate
 - (IBAction)TakingPicture:(id)sender {
     
-    UIImagePickerController *camera = [[UIImagePickerController alloc]init];
+    self.cameraView = [[CameraSessionView alloc] initWithFrame:self.view.frame];
+    self.cameraView.delegate = self;
+    [self.cameraView setTopBarColor:[UIColor colorWithRed:61/255.0 green:154/255.0 blue:232/255.0 alpha: 0.64]];
+
+    [self.navigationController setNavigationBarHidden: YES animated:YES];
     
-    camera.delegate = self;
+    CATransition *applicationLoadViewIn =[CATransition animation];
+    [applicationLoadViewIn setDuration:0.6];
+    [applicationLoadViewIn setType:kCATransitionFromLeft];
+    [applicationLoadViewIn setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+    [[self.cameraView layer]addAnimation:applicationLoadViewIn forKey:kCATransitionFromLeft];
     
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        camera.sourceType = UIImagePickerControllerSourceTypeCamera;
-    }
-    
-    NSString *desired = (NSString *)kUTTypeImage;
-    if ([[UIImagePickerController availableMediaTypesForSourceType:camera.sourceType] containsObject:desired]) {
-        camera.mediaTypes  = @[desired];
-    }
-    
-    camera.allowsEditing = YES;
-    [self presentViewController:camera animated:YES completion:nil];
+    [self.view bringSubviewToFront:self.cameraView];
+
+    [self.view addSubview:self.cameraView];
     
     
 }
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    //Show error alert if image could not be saved
+    [self.navigationController setNavigationBarHidden: NO animated:YES];
 
-    UIImage *image = info[UIImagePickerControllerEditedImage];
-    if (!image) {
-        image = info[UIImagePickerControllerOriginalImage];
-    }
-
-    
-    UIImageWriteToSavedPhotosAlbum(image, nil,nil, NULL);
-    
-    [self dismissViewControllerAnimated:YES
-                             completion:^(void){
-                                 
-                                 self.smallImageView.image = image;
-                                 
-                                 NSLog(@"the photo is taken");
-                                 
-                             }];
-    
-    
-    
+    if (error) [[[UIAlertView alloc] initWithTitle:@"Error!" message:@"Image couldn't be saved" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
 }
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)camera{
+-(void)didCaptureImage:(UIImage *)image {
+    //Use the image that is received
+    self.smallImageView.image = image;
+    [self.navigationController setNavigationBarHidden: NO animated:YES];
     
-    [self dismissViewControllerAnimated:YES
-                             completion:^(void){
-                                 
-                                 NSLog(@"the photo taking is cancelled.");
-                                 
-                             }];
-    
+
+    NSLog(@"the photo is taken");
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image: didFinishSavingWithError: contextInfo:), nil);
+    [self.cameraView removeFromSuperview];
 }
 
+-(void)didPressDismiss{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+
+
+- (BOOL)prefersStatusBarHidden {
+    return NO;
+}
 
 #pragma mark - calendar function and delegate
 - (IBAction)showCalendar:(id)sender {
