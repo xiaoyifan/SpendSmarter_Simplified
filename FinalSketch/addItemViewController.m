@@ -137,11 +137,12 @@
 
     NSMutableArray *itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
 
-    [itemArray addObject:newItem];
+    [itemArray insertObject:newItem atIndex:0];
     
     [FileSession writeData:itemArray ToList:fileURL];
     
     [self addToMap];
+    [self addToTimeline];
     
     [self dismissViewControllerAnimated:NO completion:nil];
     
@@ -175,6 +176,37 @@
     }
     
     [FileSession writeData:mapArray ToList:mapURL];
+    
+}
+
+-(void) addToTimeline{
+    
+    NSURL *timelineURL = [FileSession getListURLOf:@"timeline.plist"];
+    
+    NSMutableArray *timelineArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:timelineURL]];
+    
+    int flag = 0;
+    
+    NSString *priceLabel = [self.priceLabel.text substringFromIndex:1];
+    NSNumber *price = [[NSNumber alloc] initWithDouble:[priceLabel doubleValue]];
+    
+    for (Timeline *obj in timelineArray) {
+        if ([self.dateLabel.text isEqualToString:obj.timelabel]) {
+            flag = 1;
+            
+            obj.dailyAmount = @([obj.dailyAmount integerValue]+[price doubleValue]);
+            //if category existed, add 1
+        }
+    }
+    
+    if (flag == 0) {
+        Timeline *dailyItem = [[Timeline alloc] init];
+        dailyItem.dailyAmount = price;
+        dailyItem.timelabel = self.dateLabel.text;
+        [timelineArray addObject:dailyItem];
+    }
+    
+    [FileSession writeData:timelineArray ToList:timelineURL];
     
 }
 
@@ -305,7 +337,11 @@
 }
 
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
-    self.dateLabel.text = [NSString stringWithFormat:@"%@",date];
+    
+    NSDateFormatter *dateformat = [[NSDateFormatter alloc]init];
+    [dateformat setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateStr = [dateformat stringFromDate:date];
+    self.dateLabel.text = [NSString stringWithFormat:@"%@",dateStr];
     //    [calendar removeFromSuperview];
     [self.calendarPopup dismiss:YES];
 }

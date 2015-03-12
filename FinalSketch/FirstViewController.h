@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSMutableArray *itemArray;
 @property (nonatomic, strong) NSMutableArray *map;
-
+@property (nonatomic, strong) NSMutableArray *timeline;
 @property (nonatomic, strong) DBAccount *account;
 
 @end

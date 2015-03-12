@@ -49,6 +49,7 @@
 		CC51F8C51AA128E800619BDC /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = CC51F8BD1AA128E800619BDC /* star.png */; };
 		CC51F8C61AA128E800619BDC /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC51F8BE1AA128E800619BDC /* star@2x.png */; };
 		CC51F8D21AA12CA900619BDC /* RNFrostedSidebar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC51F8D11AA12CA900619BDC /* RNFrostedSidebar.m */; };
+		CC624FBF1AB1427B0029E4FE /* Timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = CC624FBE1AB1427B0029E4FE /* Timeline.m */; };
 		CC778B541AA2B958003862F5 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC778B531AA2B958003862F5 /* ItemTableViewCell.m */; };
 		CC88E47A1AAEAECE006560A0 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88E4771AAEAECE006560A0 /* XYPieChart.m */; };
 		CC88E47B1AAEAECE006560A0 /* pieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88E4791AAEAECE006560A0 /* pieChartViewController.m */; };
@@ -155,6 +156,8 @@
 		CC51F8BE1AA128E800619BDC /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		CC51F8D01AA12CA900619BDC /* RNFrostedSidebar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFrostedSidebar.h; sourceTree = "<group>"; };
 		CC51F8D11AA12CA900619BDC /* RNFrostedSidebar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFrostedSidebar.m; sourceTree = "<group>"; };
+		CC624FBD1AB1427B0029E4FE /* Timeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timeline.h; sourceTree = "<group>"; };
+		CC624FBE1AB1427B0029E4FE /* Timeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timeline.m; sourceTree = "<group>"; };
 		CC778B521AA2B958003862F5 /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
 		CC778B531AA2B958003862F5 /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
 		CC88E4761AAEAECE006560A0 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
@@ -429,6 +432,8 @@
 				CC13C3DA1AAAB20600D58CAF /* Item.m */,
 				CC13C3D61AAAB1C700D58CAF /* FileSession.h */,
 				CC13C3D71AAAB1C700D58CAF /* FileSession.m */,
+				CC624FBD1AB1427B0029E4FE /* Timeline.h */,
+				CC624FBE1AB1427B0029E4FE /* Timeline.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -673,6 +678,7 @@
 				CC47267D1AB02E83007B2AF5 /* CameraFocalReticule.m in Sources */,
 				CC47268E1AB04909007B2AF5 /* KLCPopup.m in Sources */,
 				CCE325341AAC20CE002DBF0E /* Map.m in Sources */,
+				CC624FBF1AB1427B0029E4FE /* Timeline.m in Sources */,
 				CC0E2AA11A9D76F00017A9E4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

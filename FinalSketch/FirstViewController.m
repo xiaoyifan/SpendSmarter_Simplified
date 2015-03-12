@@ -13,6 +13,7 @@
 #import "FileSession.h"
 #import "Item.h"
 #import "Map.h"
+#import "Timeline.h"
 #import "FinalSketch-Swift.h"
 
 
@@ -102,6 +103,14 @@
         NSLog(@"%@", item.itemNumber);
     }
     
+    NSURL *timelineURL = [FileSession getListURLOf:@"timeline.plist"];
+    self.timeline = [NSMutableArray arrayWithArray:[FileSession readDataFromList:timelineURL]];
+    
+    for (Timeline *item in self.timeline) {
+        NSLog(@"%@", item.timelabel);
+        NSLog(@"%@", item.dailyAmount);
+    }
+    
 }
 
 
@@ -139,7 +148,12 @@
     
     cell.itemPrice.text = [NSString stringWithFormat:@"$%@",[item.price stringValue]];
 
-    cell.categoryImage.image = item.categoryPic;
+//    cell.categoryImage.image =  item.categoryPic;
+    
+    UIImageView *picView = [[UIImageView alloc] initWithImage:item.categoryPic];
+    cell.categoryImage = picView;
+    
+    cell.categoryImage.backgroundColor = [UIColor grayColor];
     
     cell.dateLabel.text = item.date;
     
