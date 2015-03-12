@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Bus-50.png"
+      "filename" : "Bus-Side-View-48.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Bus-64.png"
+      "filename" : "Bus-Side-View-128.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Bus-100.png"
+      "filename" : "Bus-Side-View-256.png"
     }
   ],
   "info" : {

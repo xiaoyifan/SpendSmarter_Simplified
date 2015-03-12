@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "DJ-50.png"
+      "filename" : "Playing-Cards-48.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "DJ-64.png"
+      "filename" : "Playing-Cards-128.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "DJ-100.png"
+      "filename" : "Playing-Cards-256.png"
     }
   ],
   "info" : {

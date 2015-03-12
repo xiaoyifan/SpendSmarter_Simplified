@@ -247,7 +247,7 @@
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(50, 50, 50, 50);
+    return UIEdgeInsetsMake(20, 50, 20, 50);
 }
 
 #pragma mark - dismiss the view controller

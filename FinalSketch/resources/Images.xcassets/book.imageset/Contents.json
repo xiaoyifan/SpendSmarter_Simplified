@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Book-50.png"
+      "filename" : "Book-Open-48.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Book-64.png"
+      "filename" : "Book-Open-128.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Book-100.png"
+      "filename" : "Book-Open-256.png"
     }
   ],
   "info" : {

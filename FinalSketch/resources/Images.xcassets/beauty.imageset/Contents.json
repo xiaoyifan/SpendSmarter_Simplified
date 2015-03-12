@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Lipstick-50.png"
+      "filename" : "Girl-48.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Lipstick-64.png"
+      "filename" : "Girl-128.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Lipstick-100.png"
+      "filename" : "Girl-256.png"
     }
   ],
   "info" : {

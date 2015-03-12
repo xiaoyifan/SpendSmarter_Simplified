@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Airplane-50.png"
+      "filename" : "Aeroplane-48.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Airplane-64.png"
+      "filename" : "Aeroplane-128.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Airplane-100.png"
+      "filename" : "Aeroplane-256.png"
     }
   ],
   "info" : {

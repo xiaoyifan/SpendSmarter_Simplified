@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Medical Doctor-50.png"
+      "filename" : "Doctor-Nurse-48.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Medical Doctor-64.png"
+      "filename" : "Doctor-Nurse-128.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Medical Doctor-100.png"
+      "filename" : "Doctor-Nurse-256.png"
     }
   ],
   "info" : {

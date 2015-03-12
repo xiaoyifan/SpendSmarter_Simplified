@@ -58,6 +58,7 @@
 		CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD240491AA19D1A00577608 /* detailSegue.m */; };
 		CCD6EFB41AA1A8DC00413769 /* addItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD6EFB31AA1A8DC00413769 /* addItemViewController.m */; };
 		CCD6EFB71AA1A9D900413769 /* addDetailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD6EFB61AA1A9D900413769 /* addDetailSegue.m */; };
+		CCDA2E681AB19A9A00122E2A /* mapTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDA2E671AB19A9A00122E2A /* mapTabViewController.m */; };
 		CCE16C9C1AA3C14F00BBA47F /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CCE16C981AA3C14F00BBA47F /* left_arrow.png */; };
 		CCE16C9D1AA3C14F00BBA47F /* left_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCE16C991AA3C14F00BBA47F /* left_arrow@2x.png */; };
 		CCE16C9E1AA3C14F00BBA47F /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CCE16C9A1AA3C14F00BBA47F /* right_arrow.png */; };
@@ -172,6 +173,8 @@
 		CCD6EFB31AA1A8DC00413769 /* addItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addItemViewController.m; sourceTree = "<group>"; };
 		CCD6EFB51AA1A9D900413769 /* addDetailSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addDetailSegue.h; sourceTree = "<group>"; };
 		CCD6EFB61AA1A9D900413769 /* addDetailSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addDetailSegue.m; sourceTree = "<group>"; };
+		CCDA2E661AB19A9A00122E2A /* mapTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapTabViewController.h; sourceTree = "<group>"; };
+		CCDA2E671AB19A9A00122E2A /* mapTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mapTabViewController.m; sourceTree = "<group>"; };
 		CCE16C981AA3C14F00BBA47F /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
 		CCE16C991AA3C14F00BBA47F /* left_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_arrow@2x.png"; sourceTree = "<group>"; };
 		CCE16C9A1AA3C14F00BBA47F /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
@@ -261,6 +264,7 @@
 		CC0E2A9D1A9D76F00017A9E4 /* FinalSketch */ = {
 			isa = PBXGroup;
 			children = (
+				CCDA2E651AB19A5800122E2A /* mapTab */,
 				CC47268C1AB04909007B2AF5 /* KLCPopup.h */,
 				CC47268D1AB04909007B2AF5 /* KLCPopup.m */,
 				CC4726871AB04529007B2AF5 /* SplashScreen */,
@@ -490,6 +494,15 @@
 			name = customSegue;
 			sourceTree = "<group>";
 		};
+		CCDA2E651AB19A5800122E2A /* mapTab */ = {
+			isa = PBXGroup;
+			children = (
+				CCDA2E661AB19A9A00122E2A /* mapTabViewController.h */,
+				CCDA2E671AB19A9A00122E2A /* mapTabViewController.m */,
+			);
+			name = mapTab;
+			sourceTree = "<group>";
+		};
 		CCE16C971AA3C14F00BBA47F /* resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,6 +662,7 @@
 				CCE16CB41AA3C8F300BBA47F /* CKCalendarView.m in Sources */,
 				CC3174571AAFF19D009ACC88 /* RMParallaxItem.swift in Sources */,
 				CC778B541AA2B958003862F5 /* ItemTableViewCell.m in Sources */,
+				CCDA2E681AB19A9A00122E2A /* mapTabViewController.m in Sources */,
 				CC4726851AB02E83007B2AF5 /* Constants.m in Sources */,
 				CC47267C1AB02E83007B2AF5 /* CameraFlashButton.m in Sources */,
 				CCD6EFB71AA1A9D900413769 /* addDetailSegue.m in Sources */,

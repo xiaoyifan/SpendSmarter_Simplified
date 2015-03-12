@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Music-50.png"
+      "filename" : "Headphone-01-48.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Music-64.png"
+      "filename" : "Headphone-01-128.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Music-100.png"
+      "filename" : "Headphone-01-256.png"
     }
   ],
   "info" : {

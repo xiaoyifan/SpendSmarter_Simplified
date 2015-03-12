@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Bank-50.png"
+      "filename" : "Dollar-Tag-48.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Bank-64.png"
+      "filename" : "Dollar-Tag-128.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Bank-100.png"
+      "filename" : "Dollar-Tag-256.png"
     }
   ],
   "info" : {
