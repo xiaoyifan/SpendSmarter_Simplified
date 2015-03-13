@@ -154,7 +154,12 @@
         region = [mapView regionThatFits:region];
         [mapView setRegion:region animated:YES];
         
-         MyLocation *annotation = [[MyLocation alloc] initWithName:self.detailItem.locationDescription address:@"" coordinate:self.detailItem.location.coordinate];
+         MyLocation *annotation = [[MyLocation alloc] initWithName:[NSString stringWithFormat:@"$%@", [self.detailItem.price stringValue]]
+                                                           address:self.detailItem.locationDescription
+                                                        coordinate:self.detailItem.location.coordinate];
+        
+        
+
         [self.mapView addAnnotation:annotation];
     }
 }
@@ -207,7 +212,10 @@
         }
         else{
                 [self.mapView removeAnnotation:annotation];
-            MyLocation *annotation = [[MyLocation alloc] initWithName:@"Address" address:@"" coordinate:coordinates];
+            MyLocation *annotation = [[MyLocation alloc] initWithName:self.detailItem.title
+                                                              address:[NSString stringWithFormat:@"$%@", [self.detailItem.price stringValue]]
+
+                                                           coordinate:coordinates];
             [self.mapView addAnnotation:annotation];
         }
         

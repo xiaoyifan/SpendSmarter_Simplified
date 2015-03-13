@@ -15,7 +15,7 @@
 #import "KLCPopup.h"
 
 
-@interface addItemViewController()<CKCalendarDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate, MKMapViewDelegate, CACameraSessionDelegate>
+@interface addItemViewController()<CKCalendarDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate, MKMapViewDelegate, CACameraSessionDelegate, UIAlertViewDelegate>
 
 @property BOOL inputingDecimal;
 @property int decimalCount;
@@ -107,6 +107,14 @@
     transition.type = kCATransitionPush;
     transition.subtype = kCATransitionFromTop;
     [self.view.window.layer addAnimation:transition forKey:nil];
+    
+    if ([self.priceLabel.text isEqualToString:@"$"]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Price field required"
+                                                        message:@"you should enter the price field" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    
     
     Item *newItem = [[Item alloc] init];
     
@@ -320,6 +328,22 @@
 
 -(void)didCaptureImage:(UIImage *)image {
     //Use the image that is received
+    
+    CGSize imageSize = image.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    if (width != height) {
+        CGFloat newDimension = MIN(width, height);
+        CGFloat widthOffset = (width - newDimension) / 2;
+        CGFloat heightOffset = (height - newDimension) / 2;
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(newDimension, newDimension), NO, 0.);
+        [image drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
+                       blendMode:kCGBlendModeCopy
+                           alpha:1.];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
     self.smallImageView.image = image;
     [self.navigationController setNavigationBarHidden: NO animated:YES];
     
