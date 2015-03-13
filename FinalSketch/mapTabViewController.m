@@ -39,8 +39,9 @@
     for (int i=0; i<self.itemArray.count; i++) {
         
         Item *item = [self.itemArray objectAtIndex:i];
+        NSString *detailLabel = [NSString stringWithFormat:@"$%@",item.price];
      
-        MyLocation *annotation = [[MyLocation alloc] initWithName:item.title address:@"" coordinate:item.location.coordinate];
+        MyLocation *annotation = [[MyLocation alloc] initWithName:item.title address:detailLabel coordinate:item.location.coordinate];
         [self.mapView addAnnotation:annotation];
         
     }
@@ -48,6 +49,8 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    
+    NSLog(@"%d", status);
     
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse|| status == kCLAuthorizationStatusAuthorizedAlways) {
         [self.locationManager setDistanceFilter:100];

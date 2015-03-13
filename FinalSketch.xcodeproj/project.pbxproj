@@ -14,6 +14,8 @@
 		CC0E2AB21A9D76F00017A9E4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0E2AB01A9D76F00017A9E4 /* LaunchScreen.xib */; };
 		CC0E2ABE1A9D76F00017A9E4 /* FinalSketchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0E2ABD1A9D76F00017A9E4 /* FinalSketchTests.m */; };
 		CC0E2AC81A9D8CE00017A9E4 /* description.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CC0E2AC71A9D8CE00017A9E4 /* description.rtf */; };
+		CC1194E91AB289FD00F78DE2 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1194E81AB289FD00F78DE2 /* XYPieChart.m */; };
+		CC1194ED1AB28DE800F78DE2 /* JTNumberScrollAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1194EC1AB28DE800F78DE2 /* JTNumberScrollAnimatedView.m */; };
 		CC13C3D81AAAB1C700D58CAF /* FileSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CC13C3D71AAAB1C700D58CAF /* FileSession.m */; };
 		CC13C3DB1AAAB20600D58CAF /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = CC13C3DA1AAAB20600D58CAF /* Item.m */; };
 		CC13C3DE1AAACFDE00D58CAF /* categoryArrayInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CC13C3DD1AAACFDE00D58CAF /* categoryArrayInitializer.m */; };
@@ -51,7 +53,6 @@
 		CC51F8D21AA12CA900619BDC /* RNFrostedSidebar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC51F8D11AA12CA900619BDC /* RNFrostedSidebar.m */; };
 		CC624FBF1AB1427B0029E4FE /* Timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = CC624FBE1AB1427B0029E4FE /* Timeline.m */; };
 		CC778B541AA2B958003862F5 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC778B531AA2B958003862F5 /* ItemTableViewCell.m */; };
-		CC88E47A1AAEAECE006560A0 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88E4771AAEAECE006560A0 /* XYPieChart.m */; };
 		CC88E47B1AAEAECE006560A0 /* pieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88E4791AAEAECE006560A0 /* pieChartViewController.m */; };
 		CCBE44BC1AA37E59006CDF7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */; };
 		CCC73B551AA0217900BC5C2D /* Chicago.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCC73B541AA0217900BC5C2D /* Chicago.jpg */; };
@@ -103,6 +104,10 @@
 		CC0E2ABC1A9D76F00017A9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC0E2ABD1A9D76F00017A9E4 /* FinalSketchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinalSketchTests.m; sourceTree = "<group>"; };
 		CC0E2AC71A9D8CE00017A9E4 /* description.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = description.rtf; sourceTree = "<group>"; };
+		CC1194E71AB289FD00F78DE2 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
+		CC1194E81AB289FD00F78DE2 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
+		CC1194EB1AB28DE800F78DE2 /* JTNumberScrollAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTNumberScrollAnimatedView.h; sourceTree = "<group>"; };
+		CC1194EC1AB28DE800F78DE2 /* JTNumberScrollAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTNumberScrollAnimatedView.m; sourceTree = "<group>"; };
 		CC13C3D61AAAB1C700D58CAF /* FileSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSession.h; sourceTree = "<group>"; };
 		CC13C3D71AAAB1C700D58CAF /* FileSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSession.m; sourceTree = "<group>"; };
 		CC13C3D91AAAB20600D58CAF /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -161,8 +166,6 @@
 		CC624FBE1AB1427B0029E4FE /* Timeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timeline.m; sourceTree = "<group>"; };
 		CC778B521AA2B958003862F5 /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
 		CC778B531AA2B958003862F5 /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
-		CC88E4761AAEAECE006560A0 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
-		CC88E4771AAEAECE006560A0 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
 		CC88E4781AAEAECE006560A0 /* pieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pieChartViewController.h; sourceTree = "<group>"; };
 		CC88E4791AAEAECE006560A0 /* pieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pieChartViewController.m; sourceTree = "<group>"; };
 		CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -264,6 +267,7 @@
 		CC0E2A9D1A9D76F00017A9E4 /* FinalSketch */ = {
 			isa = PBXGroup;
 			children = (
+				CC1194EA1AB28DCB00F78DE2 /* numberAnimationView */,
 				CCDA2E651AB19A5800122E2A /* mapTab */,
 				CC47268C1AB04909007B2AF5 /* KLCPopup.h */,
 				CC47268D1AB04909007B2AF5 /* KLCPopup.m */,
@@ -325,6 +329,15 @@
 				CC0E2ABC1A9D76F00017A9E4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CC1194EA1AB28DCB00F78DE2 /* numberAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				CC1194EB1AB28DE800F78DE2 /* JTNumberScrollAnimatedView.h */,
+				CC1194EC1AB28DE800F78DE2 /* JTNumberScrollAnimatedView.m */,
+			);
+			name = numberAnimationView;
 			sourceTree = "<group>";
 		};
 		CC3D75691AA4F8570082EC70 /* Location */ = {
@@ -466,8 +479,8 @@
 		CC88E4751AAEAEBB006560A0 /* pieChart */ = {
 			isa = PBXGroup;
 			children = (
-				CC88E4761AAEAECE006560A0 /* XYPieChart.h */,
-				CC88E4771AAEAECE006560A0 /* XYPieChart.m */,
+				CC1194E71AB289FD00F78DE2 /* XYPieChart.h */,
+				CC1194E81AB289FD00F78DE2 /* XYPieChart.m */,
 				CC88E4781AAEAECE006560A0 /* pieChartViewController.h */,
 				CC88E4791AAEAECE006560A0 /* pieChartViewController.m */,
 			);
@@ -670,10 +683,10 @@
 				CC3174581AAFF19D009ACC88 /* RMParallax.swift in Sources */,
 				CC47267A1AB02E83007B2AF5 /* CameraSessionView.m in Sources */,
 				CC4726801AB02E83007B2AF5 /* LaunchCameraButton.m in Sources */,
+				CC1194ED1AB28DE800F78DE2 /* JTNumberScrollAnimatedView.m in Sources */,
 				CCD6EFB41AA1A8DC00413769 /* addItemViewController.m in Sources */,
 				CC3D75681AA4EAA50082EC70 /* MyLocation.m in Sources */,
 				CC47267B1AB02E83007B2AF5 /* CameraDismissButton.m in Sources */,
-				CC88E47A1AAEAECE006560A0 /* XYPieChart.m in Sources */,
 				CC45E0031AA1571B00E5B8CA /* itemDetailViewController.m in Sources */,
 				CC4726841AB02E83007B2AF5 /* CaptureSessionManager.m in Sources */,
 				CC13C3DB1AAAB20600D58CAF /* Item.m in Sources */,
@@ -693,6 +706,7 @@
 				CC47268E1AB04909007B2AF5 /* KLCPopup.m in Sources */,
 				CCE325341AAC20CE002DBF0E /* Map.m in Sources */,
 				CC624FBF1AB1427B0029E4FE /* Timeline.m in Sources */,
+				CC1194E91AB289FD00F78DE2 /* XYPieChart.m in Sources */,
 				CC0E2AA11A9D76F00017A9E4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

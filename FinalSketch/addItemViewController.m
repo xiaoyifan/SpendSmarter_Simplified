@@ -112,7 +112,16 @@
     
     newItem.title = @"New Item";
     newItem.itemDescription = @"essentials";
-    newItem.date = self.dateLabel.text;
+    if (self.dateLabel.text.length!=0) {
+        newItem.date = self.dateLabel.text;
+    }
+    else{
+        NSDate *today = [[NSDate alloc] init];
+        NSDateFormatter *dateformat = [[NSDateFormatter alloc]init];
+        [dateformat setDateFormat:@"yyyy-MM-dd"];
+        NSString *dateStr = [dateformat stringFromDate:today];
+        newItem.date = dateStr;
+    }
     newItem.image = self.smallImageView.image;
     newItem.category = self.categorySelected;
     newItem.categoryPic = self.categoryPic;
@@ -243,6 +252,7 @@
     self.categorySelected = description;
 
     NSLog(@"%@", description);
+    
 
 }
 

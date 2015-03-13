@@ -10,8 +10,15 @@
 #import <QuartzCore/QuartzCore.h>
 #import "FileSession.h"
 #import "Map.h"
+#import "JTNumberScrollAnimatedView.h"
 
 @interface pieChartViewController ()
+
+@property (weak, nonatomic) IBOutlet JTNumberScrollAnimatedView *spentAmountView;
+
+@property (weak, nonatomic) IBOutlet JTNumberScrollAnimatedView *remainAmountView;
+
+@property (weak, nonatomic) IBOutlet JTNumberScrollAnimatedView *thisCategoryAmountView;
 
 @end
 
@@ -37,8 +44,9 @@
     [self.pieChartRight setDataSource:self];
     [self.pieChartRight setStartPieAngle:M_PI_2];
     [self.pieChartRight setAnimationSpeed:1.0];
+    [self.pieChartRight setShowPercentage:YES];
     [self.pieChartRight setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24]];
-    [self.pieChartRight setLabelRadius:170];
+    [self.pieChartRight setLabelRadius:self.pieChartRight.bounds.size.width*0.35];
     [self.pieChartRight setPieBackgroundColor:[UIColor colorWithRed:255/255.0 green:255/255.0 blue:240/255.0 alpha:1]]; //ivory
     // set location of pie centre
 
@@ -47,7 +55,7 @@
     // [self.pieChartRight setLabelShadowColor:[UIColor blackColor]];
     [self.pieChartRight setLabelColor:[UIColor blackColor]];
     
-    //[self.percentageLabel.layer setCornerRadius:90];
+//    [self.percentageLabel.layer setCornerRadius:90];
     
     
     // change color: use color for slices at index
@@ -72,6 +80,21 @@
                        [UIColor colorWithRed:240/255.0 green:98/255.0 blue:146/255.0 alpha:1], //1. pink
                        [UIColor colorWithRed:186/255.0 green:104/255.0 blue:200/255.0 alpha:1], //11. purple
                        nil];
+    
+    self.spentAmountView.textColor = [UIColor grayColor];
+    self.spentAmountView.font = [UIFont fontWithName:@"HelveticaNeue-light" size:20];
+    
+    self.spentAmountView.minLength = 3;
+    
+    self.remainAmountView.textColor = [UIColor grayColor];
+    self.remainAmountView.font = [UIFont fontWithName:@"HelveticaNeue-light" size:20];
+    
+    self.spentAmountView.minLength = 3;
+    
+    self.thisCategoryAmountView.textColor =  [UIColor grayColor];
+    self.thisCategoryAmountView.font = [UIFont fontWithName:@"HelveticaNeue-light" size:20];
+    self.thisCategoryAmountView.minLength =3;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,6 +131,16 @@
         [self.slices addObject:one];
     }
     [self.pieChartRight reloadData];
+    
+  
+    [self.spentAmountView setValue:[NSNumber numberWithInt:(rand() % 5000)]];
+    
+    [self.remainAmountView setValue:[NSNumber numberWithInt:(rand() % 5000)]];
+    
+     [self.thisCategoryAmountView setValue:[NSNumber numberWithInt:0]];
+
+    [self.spentAmountView startAnimation];
+    [self.remainAmountView startAnimation];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -122,11 +155,6 @@
     [super viewDidDisappear:animated];
 }
 
-
-- (IBAction)showSlicePercentage:(id)sender {
-    UISwitch *perSwitch = (UISwitch *)sender;
-    [self.pieChartRight setShowPercentage:perSwitch.isOn];
-}
 
 #pragma mark - XYPieChart Data Source
 
@@ -155,6 +183,11 @@
 - (void)pieChart:(XYPieChart *)pieChart willDeselectSliceAtIndex:(NSUInteger)index
 {
     NSLog(@"will deselect slice at index %lu",(unsigned long)index);
+    self.selectedSliceLabel.text = @"Category";
+    
+    [self.thisCategoryAmountView setValue:@(0)];
+    
+    [self.thisCategoryAmountView startAnimation];
 }
 
 // TO set number "selectedSliceLabel" text
@@ -169,6 +202,14 @@
     NSLog(@"did select slice at index %lu",(unsigned long)index);
     
     self.selectedSliceLabel.text = [NSString stringWithFormat:@"%@",[[self.map objectAtIndex:index] categoryString]];
+    
+    NSNumber *number = [[self.map objectAtIndex:index] itemNumber];
+    
+    [self.thisCategoryAmountView setValue:number];
+    
+    [self.thisCategoryAmountView startAnimation];
+    
+   
 }
 
 

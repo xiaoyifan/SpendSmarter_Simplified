@@ -125,7 +125,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         _selectedSliceStroke = 3.0;
         
         self.pieRadius = MIN(frame.size.width/2, frame.size.height/2) - 10;
-        self.pieCenter = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+        self.pieCenter = CGPointMake(frame.size.width/2, frame.size.height/2);
         self.labelFont = [UIFont boldSystemFontOfSize:MAX((int)self.pieRadius/10, 5)];
         _labelColor = [UIColor whiteColor];
         _labelRadius = _pieRadius/2;
@@ -164,8 +164,9 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         _startPieAngle = M_PI_2*3;
         _selectedSliceStroke = 3.0;
         
-        self.pieRadius = MIN(self.frame.size.width/2, self.frame.size.height/2) - 10;
-        self.pieCenter = CGPointMake(self.frame.size.width/2,self.frame.size.height/2);
+        CGRect bounds = [[self layer] bounds];
+        self.pieRadius = MIN(bounds.size.width/2, bounds.size.height/2) - 10;
+        self.pieCenter = CGPointMake(bounds.size.width/2, bounds.size.height/2);
         self.labelFont = [UIFont boldSystemFontOfSize:MAX((int)self.pieRadius/10, 5)];
         _labelColor = [UIColor whiteColor];
         _labelRadius = _pieRadius/2;
@@ -188,7 +189,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     _pieRadius = pieRadius;
     CGPoint origin = _pieView.frame.origin;
     CGRect frame = CGRectMake(origin.x+_pieCenter.x-pieRadius, origin.y+_pieCenter.y-pieRadius, pieRadius*2, pieRadius*2);
-    _pieCenter = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+    _pieCenter = CGPointMake(frame.size.width/2, frame.size.height/2);
     [_pieView setFrame:frame];
     [_pieView.layer setCornerRadius:_pieRadius];
 }
@@ -213,7 +214,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
             label = [NSString stringWithFormat:@"%0.0f", layer.percentage*100];
         else
             label = (layer.text)?layer.text:[NSString stringWithFormat:@"%0.0f", layer.value];
-        CGSize size = [@"0" sizeWithAttributes:@{ NSFontAttributeName : [UIFont fontWithName:@"DBLCDTempBlack" size:24] }];
+        CGSize size = [label sizeWithFont:self.labelFont];
         
         if(M_PI*2*_labelRadius*layer.percentage < MAX(size.width,size.height))
         {
@@ -615,9 +616,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         [textLayer setShadowOpacity:1.0f];
         [textLayer setShadowRadius:2.0f];
     }
-    CGSize size = [@"0" sizeWithAttributes:@{ NSFontAttributeName : [UIFont fontWithName:@"DBLCDTempBlack" size:24] }];
-
-    
+    CGSize size = [@"0" sizeWithFont:self.labelFont];
     [CATransaction setDisableActions:YES];
     [textLayer setFrame:CGRectMake(0, 0, size.width, size.height)];
     [textLayer setPosition:CGPointMake(_pieCenter.x + (_labelRadius * cos(0)), _pieCenter.y + (_labelRadius * sin(0)))];
@@ -637,7 +636,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     else
         label = (pieLayer.text)?pieLayer.text:[NSString stringWithFormat:@"%0.0f", value];
     
-    CGSize size = [@"0" sizeWithAttributes:@{ NSFontAttributeName : [UIFont fontWithName:@"DBLCDTempBlack" size:24] }];
+    CGSize size = [label sizeWithFont:self.labelFont];
     
     [CATransaction setDisableActions:YES];
     if(M_PI*2*_labelRadius*pieLayer.percentage < MAX(size.width,size.height) || value <= 0)
