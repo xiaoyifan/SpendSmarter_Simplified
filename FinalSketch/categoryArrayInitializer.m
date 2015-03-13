@@ -19,12 +19,7 @@
 -(instancetype)init{
     
     self.array  =[[NSMutableArray alloc] init];
-    
-    NSMutableDictionary *dic1 = [[NSMutableDictionary alloc] init];
-    [dic1 setObject:@"food" forKey:@"description"];
-    [dic1 setObject:[UIImage imageNamed:@"food"] forKey:@"pic"];
-    
-    [self.array insertObject:dic1 atIndex:0];
+
     
     NSMutableDictionary *dic2 = [[NSMutableDictionary alloc] init];
     [dic2 setObject:@"clothing" forKey:@"description"];
@@ -113,11 +108,17 @@
     [self.array insertObject:dic15 atIndex:0];
     
     
+    NSMutableDictionary *dic1 = [[NSMutableDictionary alloc] init];
+    [dic1 setObject:@"food" forKey:@"description"];
+    [dic1 setObject:[UIImage imageNamed:@"food"] forKey:@"pic"];
+    
+    [self.array addObject:dic1];
+    
     NSMutableDictionary *dic16 = [[NSMutableDictionary alloc] init];
     [dic16 setObject:@"other" forKey:@"description"];
     [dic16 setObject:[UIImage imageNamed:@"other"] forKey:@"pic"];
     
-    [self.array insertObject:dic16 atIndex:0];
+    [self.array addObject:dic16];
     
     return self;
 }

@@ -23,6 +23,7 @@
 		CC3174571AAFF19D009ACC88 /* RMParallaxItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3174541AAFF19D009ACC88 /* RMParallaxItem.swift */; };
 		CC3174581AAFF19D009ACC88 /* RMParallax.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3174551AAFF19D009ACC88 /* RMParallax.swift */; };
 		CC31745A1AAFF725009ACC88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC3174591AAFF725009ACC88 /* Images.xcassets */; };
+		CC36CD5F1AB2C41400DA232C /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36CD5E1AB2C41400DA232C /* default.png */; };
 		CC3D75681AA4EAA50082EC70 /* MyLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3D75671AA4EAA50082EC70 /* MyLocation.m */; };
 		CC3D756E1AA51EDD0082EC70 /* mapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3D756D1AA51EDD0082EC70 /* mapViewController.m */; };
 		CC45E0031AA1571B00E5B8CA /* itemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC45E0021AA1571B00E5B8CA /* itemDetailViewController.m */; };
@@ -119,6 +120,7 @@
 		CC3174541AAFF19D009ACC88 /* RMParallaxItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMParallaxItem.swift; sourceTree = "<group>"; };
 		CC3174551AAFF19D009ACC88 /* RMParallax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMParallax.swift; sourceTree = "<group>"; };
 		CC3174591AAFF725009ACC88 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CC36CD5E1AB2C41400DA232C /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		CC3D75661AA4EAA50082EC70 /* MyLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLocation.h; sourceTree = "<group>"; };
 		CC3D75671AA4EAA50082EC70 /* MyLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLocation.m; sourceTree = "<group>"; };
 		CC3D756C1AA51EDD0082EC70 /* mapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapViewController.h; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				CC3174591AAFF725009ACC88 /* Images.xcassets */,
+				CC36CD5E1AB2C41400DA232C /* default.png */,
 				CCE16C981AA3C14F00BBA47F /* left_arrow.png */,
 				CCE16C991AA3C14F00BBA47F /* left_arrow@2x.png */,
 				CCE16C9A1AA3C14F00BBA47F /* right_arrow.png */,
@@ -641,6 +644,7 @@
 				CC0E2AAD1A9D76F00017A9E4 /* Main.storyboard in Resources */,
 				CC51F8C31AA128E800619BDC /* profile.png in Resources */,
 				CC51F8BF1AA128E800619BDC /* gear.png in Resources */,
+				CC36CD5F1AB2C41400DA232C /* default.png in Resources */,
 				CC51F8C51AA128E800619BDC /* star.png in Resources */,
 				CCE16C9C1AA3C14F00BBA47F /* left_arrow.png in Resources */,
 				CCFEE26F1AA2FE4E002583E2 /* kazuki.png in Resources */,

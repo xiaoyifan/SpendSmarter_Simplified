@@ -122,8 +122,20 @@
         NSString *dateStr = [dateformat stringFromDate:today];
         newItem.date = dateStr;
     }
-    newItem.image = self.smallImageView.image;
+    //Pick the date or default date
+    
+    if (self.smallImageView.image!=nil) {
+        
+        newItem.image = self.smallImageView.image;
+    }
+    else{
+        newItem.image = nil;
+    }
+    
+    //if no image added, just set to nil, add default image in the cell
+    
     newItem.category = self.categorySelected;
+    NSLog(@"The selected category is %@", self.categorySelected);
     newItem.categoryPic = self.categoryPic;
    
     if (self.itemLocation != nil) {
@@ -132,6 +144,7 @@
     }
     else{
         newItem.location = nil;
+        
     }
     
     NSLog(@"added location: %f, %f", self.itemLocation.coordinate.latitude, self.itemLocation.coordinate.longitude);
@@ -153,7 +166,7 @@
     [self addToMap];
     [self addToTimeline];
     
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

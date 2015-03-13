@@ -207,19 +207,6 @@
 }
 
 
-//- (IBAction)back:(id)sender {
-//    CATransition *transition = [CATransition animation];
-//    transition.duration = 0.6;
-//    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//    transition.type = kCATransitionPush;
-//    transition.subtype = kCATransitionFromLeft;
-//    [self.view.window.layer addAnimation:transition forKey:nil];
-//    
-//    [self dismissViewControllerAnimated:NO completion:nil];
-//    
-//}
-
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

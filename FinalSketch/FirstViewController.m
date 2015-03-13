@@ -30,6 +30,7 @@
 @implementation FirstViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     ViewController *vc = [[ViewController alloc] init];
@@ -106,6 +107,16 @@
     NSURL *timelineURL = [FileSession getListURLOf:@"timeline.plist"];
     self.timeline = [NSMutableArray arrayWithArray:[FileSession readDataFromList:timelineURL]];
     
+//    self.itemArray = nil;
+//    [FileSession writeData:self.itemArray ToList:fileURL];
+//    
+//    self.map = nil;
+//    [FileSession writeData:self.map ToList:mapURL];
+//    
+//    self.timeline = nil;
+//    [FileSession writeData:self.timeline ToList:timelineURL];
+    
+    
     for (Timeline *item in self.timeline) {
         NSLog(@"%@", item.timelabel);
         NSLog(@"%@", item.dailyAmount);
@@ -143,12 +154,16 @@
    
     cell.itemTitle.text = item.title;
     cell.itemDescription.text = item.itemDescription;
-
-    cell.itemImage.image = item.image;
+    
+    if (item.image != nil) {
+        cell.itemImage.image = item.image;
+    }
+    else{
+        cell.itemImage.image = [UIImage imageNamed:@"default.png"];
+    }
     
     cell.itemPrice.text = [NSString stringWithFormat:@"$%@",[item.price stringValue]];
 
-//    cell.categoryImage.image =  item.categoryPic;
     
     UIImageView *picView = [[UIImageView alloc] initWithImage:item.categoryPic];
     cell.categoryImage = picView;
@@ -246,11 +261,7 @@
         
         [destVC setDetailItem:dataItem];
         
-        
     }
-    
-    
-    
 
 }
 
