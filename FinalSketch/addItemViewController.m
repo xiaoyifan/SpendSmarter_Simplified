@@ -43,9 +43,11 @@
     //the category array contains the catogories
     [self.collectionView reloadData];
     
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
     self.savingView.hidden = YES;
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,6 +110,10 @@
 - (IBAction)doneIsTapped:(id)sender {
     //Save the data first
     
+    self.savingView.hidden = NO;
+    
+    NSLog(@"the view status: %d", self.savingView.hidden);
+    
     if ([self.priceLabel.text isEqualToString:@"$"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Price field required"
                                                         message:@"you should enter the price field" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -115,7 +121,6 @@
         return;
     }
 
-    self.savingView.hidden = NO;
     [self.savingIndicator startAnimating];
     
     Item *newItem = [[Item alloc] init];
@@ -183,7 +188,7 @@
     transition.subtype = kCATransitionFromTop;
     [self.view.window.layer addAnimation:transition forKey:nil];
 
-    self.savingView.hidden = NO;
+    self.savingView.hidden = YES;
     [self.savingIndicator stopAnimating];
     [self dismissViewControllerAnimated:NO completion:nil];
     

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Add Item View Controller-->
@@ -189,7 +189,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogk-uc-ME9">
                                 <rect key="frame" x="27" y="367" width="348" height="26"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -207,7 +207,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Lhe-CO-kM0">
                                 <rect key="frame" x="0.0" y="86" width="375" height="273"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pqi-aD-3Iv">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -247,7 +247,7 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" none="YES" keyboardKey="YES"/>
                         </accessibility>
@@ -777,10 +777,10 @@
             </objects>
             <point key="canvasLocation" x="-106.5" y="3.5"/>
         </scene>
-        <!--line-->
+        <!--bar-->
         <scene sceneID="EkY-2F-42D">
             <objects>
-                <viewController id="JVY-tX-wZD" sceneMemberID="viewController">
+                <viewController id="JVY-tX-wZD" customClass="RWDemoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V9K-ee-Xld"/>
                         <viewControllerLayoutGuide type="bottom" id="BHw-8f-qGQ"/>
@@ -790,7 +790,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="line" image="lineChart" id="jaz-ej-55b"/>
+                    <tabBarItem key="tabBarItem" title="bar" image="barChart" id="jaz-ej-55b"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWO-ME-q8s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -887,12 +887,12 @@
     <resources>
         <image name="Chicago.jpg" width="1017" height="585"/>
         <image name="add" width="50" height="50"/>
+        <image name="barChart" width="25" height="25"/>
         <image name="burgerButton" width="50" height="50"/>
         <image name="calendar" width="50" height="50"/>
         <image name="calendar-gray" width="50" height="50"/>
         <image name="camera-gray" width="50" height="50"/>
         <image name="cancel" width="50" height="50"/>
-        <image name="lineChart" width="25" height="25"/>
         <image name="location" width="50" height="50"/>
         <image name="map" width="32" height="32"/>
         <image name="pieChart" width="25" height="25"/>

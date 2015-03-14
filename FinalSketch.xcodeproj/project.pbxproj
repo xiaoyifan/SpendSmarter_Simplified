@@ -59,6 +59,8 @@
 		CC85A9E61AB3C133000E76ED /* UIImage+AHKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85A9E11AB3C133000E76ED /* UIImage+AHKAdditions.m */; };
 		CC85A9E71AB3C133000E76ED /* UIWindow+AHKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85A9E31AB3C133000E76ED /* UIWindow+AHKAdditions.m */; };
 		CC88E47B1AAEAECE006560A0 /* pieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88E4791AAEAECE006560A0 /* pieChartViewController.m */; };
+		CCB816D21AB423870093980B /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB816CF1AB423870093980B /* RWBarChartView.m */; };
+		CCB816D31AB423870093980B /* RWDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB816D11AB423870093980B /* RWDemoViewController.m */; };
 		CCBE44BC1AA37E59006CDF7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */; };
 		CCC73B551AA0217900BC5C2D /* Chicago.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCC73B541AA0217900BC5C2D /* Chicago.jpg */; };
 		CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD240491AA19D1A00577608 /* detailSegue.m */; };
@@ -182,6 +184,10 @@
 		CC85A9E31AB3C133000E76ED /* UIWindow+AHKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+AHKAdditions.m"; sourceTree = "<group>"; };
 		CC88E4781AAEAECE006560A0 /* pieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pieChartViewController.h; sourceTree = "<group>"; };
 		CC88E4791AAEAECE006560A0 /* pieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pieChartViewController.m; sourceTree = "<group>"; };
+		CCB816CE1AB423870093980B /* RWBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWBarChartView.h; sourceTree = "<group>"; };
+		CCB816CF1AB423870093980B /* RWBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBarChartView.m; sourceTree = "<group>"; };
+		CCB816D01AB423870093980B /* RWDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDemoViewController.h; sourceTree = "<group>"; };
+		CCB816D11AB423870093980B /* RWDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDemoViewController.m; sourceTree = "<group>"; };
 		CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CCC73B541AA0217900BC5C2D /* Chicago.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Chicago.jpg; sourceTree = "<group>"; };
 		CCD240481AA19D1A00577608 /* detailSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detailSegue.h; path = ../detailSegue.h; sourceTree = "<group>"; };
@@ -289,6 +295,7 @@
 				CC4726871AB04529007B2AF5 /* SplashScreen */,
 				CC4726861AB04513007B2AF5 /* Data */,
 				CC47265E1AB02E83007B2AF5 /* CustomizableCamera */,
+				CCB816CD1AB4229B0093980B /* barChart */,
 				CC88E4751AAEAEBB006560A0 /* pieChart */,
 				CCE31F041AAB9CF300777414 /* gallery */,
 				CC3D756B1AA5151A0082EC70 /* addItemView */,
@@ -525,6 +532,17 @@
 			name = pieChart;
 			sourceTree = "<group>";
 		};
+		CCB816CD1AB4229B0093980B /* barChart */ = {
+			isa = PBXGroup;
+			children = (
+				CCB816CE1AB423870093980B /* RWBarChartView.h */,
+				CCB816CF1AB423870093980B /* RWBarChartView.m */,
+				CCB816D01AB423870093980B /* RWDemoViewController.h */,
+				CCB816D11AB423870093980B /* RWDemoViewController.m */,
+			);
+			name = barChart;
+			sourceTree = "<group>";
+		};
 		CCD240471AA199F400577608 /* SideBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -713,6 +731,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC85A9E61AB3C133000E76ED /* UIImage+AHKAdditions.m in Sources */,
+				CCB816D21AB423870093980B /* RWBarChartView.m in Sources */,
 				CCE16CB41AA3C8F300BBA47F /* CKCalendarView.m in Sources */,
 				CC3174571AAFF19D009ACC88 /* RMParallaxItem.swift in Sources */,
 				CC778B541AA2B958003862F5 /* ItemTableViewCell.m in Sources */,
@@ -747,6 +766,7 @@
 				CCE31F071AAB9D1A00777414 /* galleryTableViewController.m in Sources */,
 				CC47267D1AB02E83007B2AF5 /* CameraFocalReticule.m in Sources */,
 				CC85A9E41AB3C133000E76ED /* AHKActionSheet.m in Sources */,
+				CCB816D31AB423870093980B /* RWDemoViewController.m in Sources */,
 				CC47268E1AB04909007B2AF5 /* KLCPopup.m in Sources */,
 				CCE325341AAC20CE002DBF0E /* Map.m in Sources */,
 				CC624FBF1AB1427B0029E4FE /* Timeline.m in Sources */,
