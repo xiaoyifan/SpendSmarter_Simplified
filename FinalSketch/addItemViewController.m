@@ -23,9 +23,9 @@
 @property (nonatomic, strong) CameraSessionView *cameraView;
 @property (nonatomic, strong) KLCPopup *calendarPopup;
 
-@property (weak, nonatomic) IBOutlet UIView *savingView;
+@property CGPoint mainOperationViewCenter;
 
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *savingIndicator;
+@property (weak, nonatomic) IBOutlet UIView *mainOperationView;
 
 @end
 
@@ -43,17 +43,42 @@
     //the category array contains the catogories
     [self.collectionView reloadData];
     
+    self.mainOperationViewCenter = self.mainOperationView.center;
+    
 }
 
-
--(void)viewWillAppear:(BOOL)animated{
-    self.savingView.hidden = YES;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (IBAction)pressedInfo:(id)sender {
+    
+    [UIView animateWithDuration:0.8 delay:0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         
+                         if (self.mainOperationView.center.y == self.mainOperationViewCenter.y) {
+                             self.mainOperationView.center = CGPointMake(self.mainOperationView.center.x, self.mainOperationView.center.y+250);
+                         }
+                         else{
+                             self.mainOperationView.center = CGPointMake(self.mainOperationView.center.x, self.mainOperationView.center.y-250);
+                         }
+                         
+                         
+                         
+                     }
+                     completion:^(BOOL completed){
+                         
+                     }
+     ];
+    
+    
+}
+
+
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue{
     
@@ -110,18 +135,12 @@
 - (IBAction)doneIsTapped:(id)sender {
     //Save the data first
     
-    self.savingView.hidden = NO;
-    
-    NSLog(@"the view status: %d", self.savingView.hidden);
-    
     if ([self.priceLabel.text isEqualToString:@"$"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Price field required"
                                                         message:@"you should enter the price field" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
-
-    [self.savingIndicator startAnimating];
     
     Item *newItem = [[Item alloc] init];
     
@@ -188,8 +207,6 @@
     transition.subtype = kCATransitionFromTop;
     [self.view.window.layer addAnimation:transition forKey:nil];
 
-    self.savingView.hidden = YES;
-    [self.savingIndicator stopAnimating];
     [self dismissViewControllerAnimated:NO completion:nil];
     
 }
