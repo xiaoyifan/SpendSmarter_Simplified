@@ -23,6 +23,10 @@
 @property (nonatomic, strong) CameraSessionView *cameraView;
 @property (nonatomic, strong) KLCPopup *calendarPopup;
 
+@property (weak, nonatomic) IBOutlet UIView *savingView;
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *savingIndicator;
+
 @end
 
 @implementation addItemViewController
@@ -38,6 +42,9 @@
     self.categoryArray = [initializer getTheCategories];
     //the category array contains the catogories
     [self.collectionView reloadData];
+    
+    self.savingView.hidden = YES;
+    
     
 }
 
@@ -101,20 +108,15 @@
 - (IBAction)doneIsTapped:(id)sender {
     //Save the data first
     
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.6;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromTop;
-    [self.view.window.layer addAnimation:transition forKey:nil];
-    
     if ([self.priceLabel.text isEqualToString:@"$"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Price field required"
                                                         message:@"you should enter the price field" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
-    
+
+    self.savingView.hidden = NO;
+    [self.savingIndicator startAnimating];
     
     Item *newItem = [[Item alloc] init];
     
@@ -174,7 +176,16 @@
     [self addToMap];
     [self addToTimeline];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.6;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    [self.view.window.layer addAnimation:transition forKey:nil];
+
+    self.savingView.hidden = NO;
+    [self.savingIndicator stopAnimating];
+    [self dismissViewControllerAnimated:NO completion:nil];
     
 }
 
@@ -195,6 +206,8 @@
 
             obj.itemNumber = @([obj.itemNumber integerValue]+[price doubleValue]);
             //if category existed, add 1
+            
+            NSLog(@"blablabla");
         }
     }
     
@@ -226,6 +239,7 @@
             
             obj.dailyAmount = @([obj.dailyAmount integerValue]+[price doubleValue]);
             //if category existed, add 1
+            NSLog(@"gogogogogogo");
         }
     }
     

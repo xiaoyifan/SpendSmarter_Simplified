@@ -11,6 +11,7 @@
 #import "FirstViewController.h"
 #import "CKCalendarView.h"
 #import "KLCPopup.h"
+#import "AHKActionSheet.h"
 
 
 @interface itemDetailViewController ()<CLLocationManagerDelegate, CKCalendarDelegate,MKMapViewDelegate>
@@ -262,6 +263,15 @@
 
 }
 
+- (IBAction)actionSheetTouched:(id)sender {
+    
+    AHKActionSheet *actionSheet = [[AHKActionSheet alloc] initWithTitle:nil];
+    [actionSheet addButtonWithTitle:@"Test" type:AHKActionSheetButtonTypeDefault handler:^(AHKActionSheet *as) {
+        NSLog(@"Test tapped");
+    }];
+    [actionSheet show];
+    
+}
 
 
 @end

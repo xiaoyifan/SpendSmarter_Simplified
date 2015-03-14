@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Add Item View Controller-->
@@ -231,6 +231,21 @@
                                     <outlet property="delegate" destination="QNn-Y2-XOV" id="vDL-Li-cbk"/>
                                 </connections>
                             </collectionView>
+                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lkm-7N-ZAv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="gDg-Tl-yPI">
+                                        <rect key="frame" x="177" y="266" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saving..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mj4-PI-gCw">
+                                        <rect key="frame" x="159" y="300" width="67" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration">
@@ -312,6 +327,8 @@
                         <outlet property="dateLabel" destination="TDq-Mh-Zd7" id="cGM-D5-wNL"/>
                         <outlet property="locationLabel" destination="Ogk-uc-ME9" id="EJT-Lj-Ln5"/>
                         <outlet property="priceLabel" destination="DAo-jp-WgI" id="z06-6u-hHK"/>
+                        <outlet property="savingIndicator" destination="gDg-Tl-yPI" id="aR1-EM-Wao"/>
+                        <outlet property="savingView" destination="Lkm-7N-ZAv" id="0jX-Xy-U1I"/>
                         <outlet property="smallImageView" destination="fF1-Oq-OH1" id="yjd-ob-Oyr"/>
                     </connections>
                 </viewController>
@@ -596,7 +613,11 @@
                                 <action selector="back:" destination="rJy-Rz-io0" id="knX-cn-JOl"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="ztx-qj-1gy"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="ztx-qj-1gy">
+                            <connections>
+                                <action selector="actionSheetTouched:" destination="rJy-Rz-io0" id="hEE-IF-sFA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -861,23 +882,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5G-Be-gIm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1714" y="-644"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="shC-xB-VqA">
-            <objects>
-                <viewController id="OJx-2g-tEM" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IuJ-NQ-frg"/>
-                        <viewControllerLayoutGuide type="bottom" id="MF5-dh-JEk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8KD-mo-yn3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ez7-tx-TBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

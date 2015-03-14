@@ -54,6 +54,10 @@
 		CC51F8D21AA12CA900619BDC /* RNFrostedSidebar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC51F8D11AA12CA900619BDC /* RNFrostedSidebar.m */; };
 		CC624FBF1AB1427B0029E4FE /* Timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = CC624FBE1AB1427B0029E4FE /* Timeline.m */; };
 		CC778B541AA2B958003862F5 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC778B531AA2B958003862F5 /* ItemTableViewCell.m */; };
+		CC85A9E41AB3C133000E76ED /* AHKActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85A9DD1AB3C133000E76ED /* AHKActionSheet.m */; };
+		CC85A9E51AB3C133000E76ED /* AHKActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85A9DF1AB3C133000E76ED /* AHKActionSheetViewController.m */; };
+		CC85A9E61AB3C133000E76ED /* UIImage+AHKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85A9E11AB3C133000E76ED /* UIImage+AHKAdditions.m */; };
+		CC85A9E71AB3C133000E76ED /* UIWindow+AHKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85A9E31AB3C133000E76ED /* UIWindow+AHKAdditions.m */; };
 		CC88E47B1AAEAECE006560A0 /* pieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88E4791AAEAECE006560A0 /* pieChartViewController.m */; };
 		CCBE44BC1AA37E59006CDF7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */; };
 		CCC73B551AA0217900BC5C2D /* Chicago.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCC73B541AA0217900BC5C2D /* Chicago.jpg */; };
@@ -168,6 +172,14 @@
 		CC624FBE1AB1427B0029E4FE /* Timeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timeline.m; sourceTree = "<group>"; };
 		CC778B521AA2B958003862F5 /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
 		CC778B531AA2B958003862F5 /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
+		CC85A9DC1AB3C133000E76ED /* AHKActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHKActionSheet.h; sourceTree = "<group>"; };
+		CC85A9DD1AB3C133000E76ED /* AHKActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHKActionSheet.m; sourceTree = "<group>"; };
+		CC85A9DE1AB3C133000E76ED /* AHKActionSheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHKActionSheetViewController.h; sourceTree = "<group>"; };
+		CC85A9DF1AB3C133000E76ED /* AHKActionSheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHKActionSheetViewController.m; sourceTree = "<group>"; };
+		CC85A9E01AB3C133000E76ED /* UIImage+AHKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AHKAdditions.h"; sourceTree = "<group>"; };
+		CC85A9E11AB3C133000E76ED /* UIImage+AHKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AHKAdditions.m"; sourceTree = "<group>"; };
+		CC85A9E21AB3C133000E76ED /* UIWindow+AHKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+AHKAdditions.h"; sourceTree = "<group>"; };
+		CC85A9E31AB3C133000E76ED /* UIWindow+AHKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+AHKAdditions.m"; sourceTree = "<group>"; };
 		CC88E4781AAEAECE006560A0 /* pieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pieChartViewController.h; sourceTree = "<group>"; };
 		CC88E4791AAEAECE006560A0 /* pieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pieChartViewController.m; sourceTree = "<group>"; };
 		CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -269,6 +281,7 @@
 		CC0E2A9D1A9D76F00017A9E4 /* FinalSketch */ = {
 			isa = PBXGroup;
 			children = (
+				CC85A9DA1AB3C123000E76ED /* ActionSheet */,
 				CC1194EA1AB28DCB00F78DE2 /* numberAnimationView */,
 				CCDA2E651AB19A5800122E2A /* mapTab */,
 				CC47268C1AB04909007B2AF5 /* KLCPopup.h */,
@@ -478,6 +491,29 @@
 			name = MainPage;
 			sourceTree = "<group>";
 		};
+		CC85A9DA1AB3C123000E76ED /* ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				CC85A9DB1AB3C133000E76ED /* Classes */,
+			);
+			name = ActionSheet;
+			sourceTree = "<group>";
+		};
+		CC85A9DB1AB3C133000E76ED /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CC85A9DC1AB3C133000E76ED /* AHKActionSheet.h */,
+				CC85A9DD1AB3C133000E76ED /* AHKActionSheet.m */,
+				CC85A9DE1AB3C133000E76ED /* AHKActionSheetViewController.h */,
+				CC85A9DF1AB3C133000E76ED /* AHKActionSheetViewController.m */,
+				CC85A9E01AB3C133000E76ED /* UIImage+AHKAdditions.h */,
+				CC85A9E11AB3C133000E76ED /* UIImage+AHKAdditions.m */,
+				CC85A9E21AB3C133000E76ED /* UIWindow+AHKAdditions.h */,
+				CC85A9E31AB3C133000E76ED /* UIWindow+AHKAdditions.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		CC88E4751AAEAEBB006560A0 /* pieChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -676,6 +712,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC85A9E61AB3C133000E76ED /* UIImage+AHKAdditions.m in Sources */,
 				CCE16CB41AA3C8F300BBA47F /* CKCalendarView.m in Sources */,
 				CC3174571AAFF19D009ACC88 /* RMParallaxItem.swift in Sources */,
 				CC778B541AA2B958003862F5 /* ItemTableViewCell.m in Sources */,
@@ -697,8 +734,10 @@
 				CC88E47B1AAEAECE006560A0 /* pieChartViewController.m in Sources */,
 				CC4726831AB02E83007B2AF5 /* CameraStyleKitClass.m in Sources */,
 				CC3174561AAFF19D009ACC88 /* ViewController.swift in Sources */,
+				CC85A9E71AB3C133000E76ED /* UIWindow+AHKAdditions.m in Sources */,
 				CC51F8D21AA12CA900619BDC /* RNFrostedSidebar.m in Sources */,
 				CC13C3DE1AAACFDE00D58CAF /* categoryArrayInitializer.m in Sources */,
+				CC85A9E51AB3C133000E76ED /* AHKActionSheetViewController.m in Sources */,
 				CC47267F1AB02E83007B2AF5 /* CameraToggleButton.m in Sources */,
 				CC3D756E1AA51EDD0082EC70 /* mapViewController.m in Sources */,
 				CC0E2AA41A9D76F00017A9E4 /* AppDelegate.m in Sources */,
@@ -707,6 +746,7 @@
 				CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */,
 				CCE31F071AAB9D1A00777414 /* galleryTableViewController.m in Sources */,
 				CC47267D1AB02E83007B2AF5 /* CameraFocalReticule.m in Sources */,
+				CC85A9E41AB3C133000E76ED /* AHKActionSheet.m in Sources */,
 				CC47268E1AB04909007B2AF5 /* KLCPopup.m in Sources */,
 				CCE325341AAC20CE002DBF0E /* Map.m in Sources */,
 				CC624FBF1AB1427B0029E4FE /* Timeline.m in Sources */,
