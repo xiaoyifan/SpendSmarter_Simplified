@@ -257,6 +257,9 @@
     
     if (index == 3) {
 
+        UITableViewController *settings = [self.storyboard instantiateViewControllerWithIdentifier:@"settingsViewController"];
+        [self presentViewController:settings animated:YES completion:nil];
+        
     }
     if (index == 4) {
         [sidebar dismissAnimated:YES];
