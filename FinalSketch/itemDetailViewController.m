@@ -12,6 +12,7 @@
 #import "CKCalendarView.h"
 #import "KLCPopup.h"
 #import "AHKActionSheet.h"
+#import <Social/Social.h>
 
 
 @interface itemDetailViewController ()<CLLocationManagerDelegate, CKCalendarDelegate,MKMapViewDelegate>
@@ -265,10 +266,80 @@
 
 - (IBAction)actionSheetTouched:(id)sender {
     
-    AHKActionSheet *actionSheet = [[AHKActionSheet alloc] initWithTitle:nil];
-    [actionSheet addButtonWithTitle:@"Test" type:AHKActionSheetButtonTypeDefault handler:^(AHKActionSheet *as) {
-        NSLog(@"Test tapped");
-    }];
+    AHKActionSheet *actionSheet = [[AHKActionSheet alloc] initWithTitle:NSLocalizedString(@"Wanna share this item to social network?", nil)];
+    [actionSheet addButtonWithTitle:NSLocalizedString(@"Facebook", nil)
+                              image:[UIImage imageNamed:@"facebook"]
+                               type:AHKActionSheetButtonTypeDefault
+                            handler:^(AHKActionSheet *as) {
+                                NSLog(@"Favorite tapped");
+                                if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+                                    SLComposeViewController *facebookPost = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+                                    
+                                    NSString *text = [NSString stringWithFormat:@"I just bought %@ at date %@. Cost me $%@ and it's cool!", self.itemTitle.text, self.dateLabel.text, self.detailItem.price];
+                                    [facebookPost setInitialText:text];
+                                    [facebookPost addImage:self.detailItem.image];
+                                    [self presentViewController:facebookPost animated:YES completion:nil];
+                                }
+                                else{
+                                    UIAlertView *alertView = [[UIAlertView alloc]
+                                                              initWithTitle:@"Sorry"
+                                                              message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup"
+                                                              delegate:self
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                                    [alertView show];
+                                }
+                            }];
+    
+    [actionSheet addButtonWithTitle:NSLocalizedString(@"Twitter", nil)
+                              image:[UIImage imageNamed:@"twitter"]
+                               type:AHKActionSheetButtonTypeDefault
+                            handler:^(AHKActionSheet *as) {
+                                NSLog(@"Share tapped");
+                                if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+                                    SLComposeViewController *twitterPost = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+                                    
+                                    NSString *text = [NSString stringWithFormat:@"I just bought %@ at date %@. Cost me $%@ and it's cool!", self.itemTitle.text, self.dateLabel.text, self.detailItem.price];
+                                    [twitterPost setInitialText:text];
+                                    [twitterPost addImage:self.detailItem.image];
+                                    [self presentViewController:twitterPost animated:YES completion:nil];
+                                }
+                                else{
+                                    UIAlertView *alertView = [[UIAlertView alloc]
+                                                              initWithTitle:@"Sorry"
+                                                              message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup"
+                                                              delegate:self
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                                    [alertView show];
+                                }
+                            }];
+    
+    [actionSheet addButtonWithTitle:NSLocalizedString(@"Weibo", nil)
+                              image:[UIImage imageNamed:@"weibo"]
+                               type:AHKActionSheetButtonTypeDefault
+                            handler:^(AHKActionSheet *as) {
+                                NSLog(@"Share tapped");
+                                if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeSinaWeibo]) {
+                                    SLComposeViewController *weiboPost = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+                                    
+                                    NSString *text = [NSString stringWithFormat:@"I just bought %@ at date %@. Cost me $%@ and it's cool!", self.itemTitle.text, self.dateLabel.text, self.detailItem.price];
+                                    [weiboPost setInitialText:text];
+                                    [weiboPost addImage:self.detailItem.image];
+                                    
+                                    [self presentViewController:weiboPost animated:YES completion:nil];
+                                }
+                                else{
+                                    UIAlertView *alertView = [[UIAlertView alloc]
+                                                              initWithTitle:@"Sorry"
+                                                              message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup"
+                                                              delegate:self
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                                    [alertView show];
+                                }
+                            }];
+
     [actionSheet show];
     
 }

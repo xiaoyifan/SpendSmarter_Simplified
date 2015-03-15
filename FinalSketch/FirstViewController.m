@@ -49,7 +49,7 @@
                         [UIImage imageNamed:@"profile"],
                         [UIImage imageNamed:@"dropbox"],
                         [UIImage imageNamed:@"photo"],
-                        [UIImage imageNamed:@"gear"],
+                        [UIImage imageNamed:@"Info"],
                         [UIImage imageNamed:@"back"]
                         
                         ];
@@ -212,8 +212,11 @@
 
 #pragma mark - sidebar delegate
 -(void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index {
-    
-    if (index == 1) {
+    if(index == 0)
+    {
+        //sync issue
+    }
+    else if (index == 1) {
         self.account = [[DBAccountManager sharedManager] linkedAccount];
         if (self.account) {
             NSLog(@"App already linked");
@@ -254,11 +257,10 @@
        UITableViewController *gallery = [self.storyboard instantiateViewControllerWithIdentifier:@"galleryVC"];
         [self presentViewController:gallery animated:YES completion:nil];
     }
-    
-    if (index == 3) {
-
-        UITableViewController *settings = [self.storyboard instantiateViewControllerWithIdentifier:@"settingsViewController"];
-        [self presentViewController:settings animated:YES completion:nil];
+    else if (index == 3) {
+        UIViewController *info = [self.storyboard instantiateViewControllerWithIdentifier:@"infoViewController"];
+        [self presentViewController:info animated:YES completion:nil];
+        
         
     }
     if (index == 4) {

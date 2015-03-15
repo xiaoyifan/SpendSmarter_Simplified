@@ -13,9 +13,9 @@ import UIKit
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let item1 = RMParallaxItem(image: UIImage(named: "item1")!, text: "SHARE LIGHTBOXES WITH YOUR TEAM")
-        let item2 = RMParallaxItem(image: UIImage(named: "item2")!, text: "FOLLOW WORLD CLASS PHOTOGRAPHERS")
-        let item3 = RMParallaxItem(image: UIImage(named: "item3")!, text: "EXPLORE OUR COLLECTION BY CATEGORY")
+        let item1 = RMParallaxItem(image: UIImage(named: "item1")!, text: "RECORD WHAT YOU PURCHASED")
+        let item2 = RMParallaxItem(image: UIImage(named: "item2")!, text: "EXPLORE OUR COLLECTION BY VISUAL WAYS")
+        let item3 = RMParallaxItem(image: UIImage(named: "item3")!, text: "CHANGE THE WAY WE MANAGE PERSONAL ACCOUNT")
         
         let rmParallaxViewController = RMParallax(items: [item1, item2, item3], motion: false)
         rmParallaxViewController.completionHandler = {
