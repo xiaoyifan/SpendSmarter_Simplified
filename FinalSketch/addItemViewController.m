@@ -13,6 +13,8 @@
 #import "categoryArrayInitializer.h"
 #import "CameraSessionView.h"
 #import "KLCPopup.h"
+#import "FinalSketch-Swift.h"
+
 
 
 @interface addItemViewController()<CKCalendarDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate, MKMapViewDelegate, CACameraSessionDelegate, UIAlertViewDelegate>
@@ -26,6 +28,12 @@
 @property CGPoint mainOperationViewCenter;
 
 @property (weak, nonatomic) IBOutlet UIView *mainOperationView;
+
+@property (weak, nonatomic) IBOutlet KaedeTextField *titleField;
+
+
+@property (weak, nonatomic) IBOutlet KaedeTextField *descriptionField;
+
 
 @end
 
@@ -44,6 +52,8 @@
     [self.collectionView reloadData];
     
     self.mainOperationViewCenter = self.mainOperationView.center;
+    self.titleField.delegate  =self;
+    self.descriptionField.delegate = self;
     
 }
 
@@ -56,15 +66,15 @@
 
 - (IBAction)pressedInfo:(id)sender {
     
-    [UIView animateWithDuration:0.8 delay:0
+    [UIView animateWithDuration:0.5 delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
                          if (self.mainOperationView.center.y == self.mainOperationViewCenter.y) {
-                             self.mainOperationView.center = CGPointMake(self.mainOperationView.center.x, self.mainOperationView.center.y+250);
+                             self.mainOperationView.center = CGPointMake(self.mainOperationView.center.x, self.mainOperationView.center.y+200);
                          }
                          else{
-                             self.mainOperationView.center = CGPointMake(self.mainOperationView.center.x, self.mainOperationView.center.y-250);
+                             self.mainOperationView.center = CGPointMake(self.mainOperationView.center.x, self.mainOperationView.center.y-200);
                          }
                          
                          
@@ -144,8 +154,21 @@
     
     Item *newItem = [[Item alloc] init];
     
-    newItem.title = @"New Item";
-    newItem.itemDescription = @"essentials";
+    if (self.titleField.text.length == 0) {
+        newItem.title = @"New Item";
+    }
+    else{
+        newItem.title = self.titleField.text;
+    }
+    
+    if (self.descriptionField.text.length == 0) {
+        newItem.itemDescription = @"essentials";
+    }
+    else{
+        newItem.itemDescription = self.descriptionField.text;
+
+    }
+    
     if (self.dateLabel.text.length!=0) {
         newItem.date = self.dateLabel.text;
     }
@@ -427,6 +450,18 @@
     self.dateLabel.text = [NSString stringWithFormat:@"%@",dateStr];
     //    [calendar removeFromSuperview];
     [self.calendarPopup dismiss:YES];
+}
+
+#pragma mark - textFieldDeleagate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    //NSLog(@"return key pressed");
+    if (textField == self.titleField || textField == self.descriptionField) {
+        [textField resignFirstResponder];
+        //the Keyboard is the first responder, should be resigned
+    }
+    return YES;
+    
 }
 
 

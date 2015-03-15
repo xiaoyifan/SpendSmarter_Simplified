@@ -19,6 +19,14 @@
 		CC13C3D81AAAB1C700D58CAF /* FileSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CC13C3D71AAAB1C700D58CAF /* FileSession.m */; };
 		CC13C3DB1AAAB20600D58CAF /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = CC13C3DA1AAAB20600D58CAF /* Item.m */; };
 		CC13C3DE1AAACFDE00D58CAF /* categoryArrayInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CC13C3DD1AAACFDE00D58CAF /* categoryArrayInitializer.m */; };
+		CC2787841AB4FE200097ACED /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC27877B1AB4FE200097ACED /* HoshiTextField.swift */; };
+		CC2787851AB4FE200097ACED /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC27877C1AB4FE200097ACED /* IsaoTextField.swift */; };
+		CC2787861AB4FE200097ACED /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC27877D1AB4FE200097ACED /* JiroTextField.swift */; };
+		CC2787871AB4FE200097ACED /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC27877E1AB4FE200097ACED /* KaedeTextField.swift */; };
+		CC2787881AB4FE200097ACED /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC27877F1AB4FE200097ACED /* MadokaTextField.swift */; };
+		CC2787891AB4FE200097ACED /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2787801AB4FE200097ACED /* MinoruTextField.swift */; };
+		CC27878A1AB4FE200097ACED /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2787821AB4FE200097ACED /* TextFieldsEffects.swift */; };
+		CC27878B1AB4FE200097ACED /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2787831AB4FE200097ACED /* YokoTextField.swift */; };
 		CC3174561AAFF19D009ACC88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3174531AAFF19D009ACC88 /* ViewController.swift */; };
 		CC3174571AAFF19D009ACC88 /* RMParallaxItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3174541AAFF19D009ACC88 /* RMParallaxItem.swift */; };
 		CC3174581AAFF19D009ACC88 /* RMParallax.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3174551AAFF19D009ACC88 /* RMParallax.swift */; };
@@ -121,6 +129,15 @@
 		CC13C3DA1AAAB20600D58CAF /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		CC13C3DC1AAACFDE00D58CAF /* categoryArrayInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = categoryArrayInitializer.h; sourceTree = "<group>"; };
 		CC13C3DD1AAACFDE00D58CAF /* categoryArrayInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = categoryArrayInitializer.m; sourceTree = "<group>"; };
+		CC27877B1AB4FE200097ACED /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
+		CC27877C1AB4FE200097ACED /* IsaoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsaoTextField.swift; sourceTree = "<group>"; };
+		CC27877D1AB4FE200097ACED /* JiroTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JiroTextField.swift; sourceTree = "<group>"; };
+		CC27877E1AB4FE200097ACED /* KaedeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaedeTextField.swift; sourceTree = "<group>"; };
+		CC27877F1AB4FE200097ACED /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
+		CC2787801AB4FE200097ACED /* MinoruTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinoruTextField.swift; sourceTree = "<group>"; };
+		CC2787811AB4FE200097ACED /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
+		CC2787821AB4FE200097ACED /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldsEffects.swift; sourceTree = "<group>"; };
+		CC2787831AB4FE200097ACED /* YokoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YokoTextField.swift; sourceTree = "<group>"; };
 		CC3174521AAFF19C009ACC88 /* FinalSketch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FinalSketch-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC3174531AAFF19D009ACC88 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CC3174541AAFF19D009ACC88 /* RMParallaxItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMParallaxItem.swift; sourceTree = "<group>"; };
@@ -480,6 +497,15 @@
 		CC4726871AB04529007B2AF5 /* SplashScreen */ = {
 			isa = PBXGroup;
 			children = (
+				CC27877B1AB4FE200097ACED /* HoshiTextField.swift */,
+				CC27877C1AB4FE200097ACED /* IsaoTextField.swift */,
+				CC27877D1AB4FE200097ACED /* JiroTextField.swift */,
+				CC27877E1AB4FE200097ACED /* KaedeTextField.swift */,
+				CC27877F1AB4FE200097ACED /* MadokaTextField.swift */,
+				CC2787801AB4FE200097ACED /* MinoruTextField.swift */,
+				CC2787811AB4FE200097ACED /* TextFieldEffects.h */,
+				CC2787821AB4FE200097ACED /* TextFieldsEffects.swift */,
+				CC2787831AB4FE200097ACED /* YokoTextField.swift */,
 				CC3174531AAFF19D009ACC88 /* ViewController.swift */,
 				CC3174541AAFF19D009ACC88 /* RMParallaxItem.swift */,
 				CC3174551AAFF19D009ACC88 /* RMParallax.swift */,
@@ -732,7 +758,10 @@
 			files = (
 				CC85A9E61AB3C133000E76ED /* UIImage+AHKAdditions.m in Sources */,
 				CCB816D21AB423870093980B /* RWBarChartView.m in Sources */,
+				CC2787871AB4FE200097ACED /* KaedeTextField.swift in Sources */,
+				CC27878A1AB4FE200097ACED /* TextFieldsEffects.swift in Sources */,
 				CCE16CB41AA3C8F300BBA47F /* CKCalendarView.m in Sources */,
+				CC2787851AB4FE200097ACED /* IsaoTextField.swift in Sources */,
 				CC3174571AAFF19D009ACC88 /* RMParallaxItem.swift in Sources */,
 				CC778B541AA2B958003862F5 /* ItemTableViewCell.m in Sources */,
 				CCDA2E681AB19A9A00122E2A /* mapTabViewController.m in Sources */,
@@ -740,6 +769,7 @@
 				CC47267C1AB02E83007B2AF5 /* CameraFlashButton.m in Sources */,
 				CCD6EFB71AA1A9D900413769 /* addDetailSegue.m in Sources */,
 				CC13C3D81AAAB1C700D58CAF /* FileSession.m in Sources */,
+				CC2787861AB4FE200097ACED /* JiroTextField.swift in Sources */,
 				CC3174581AAFF19D009ACC88 /* RMParallax.swift in Sources */,
 				CC47267A1AB02E83007B2AF5 /* CameraSessionView.m in Sources */,
 				CC4726801AB02E83007B2AF5 /* LaunchCameraButton.m in Sources */,
@@ -747,6 +777,7 @@
 				CCD6EFB41AA1A8DC00413769 /* addItemViewController.m in Sources */,
 				CC3D75681AA4EAA50082EC70 /* MyLocation.m in Sources */,
 				CC47267B1AB02E83007B2AF5 /* CameraDismissButton.m in Sources */,
+				CC27878B1AB4FE200097ACED /* YokoTextField.swift in Sources */,
 				CC45E0031AA1571B00E5B8CA /* itemDetailViewController.m in Sources */,
 				CC4726841AB02E83007B2AF5 /* CaptureSessionManager.m in Sources */,
 				CC13C3DB1AAAB20600D58CAF /* Item.m in Sources */,
@@ -759,8 +790,10 @@
 				CC85A9E51AB3C133000E76ED /* AHKActionSheetViewController.m in Sources */,
 				CC47267F1AB02E83007B2AF5 /* CameraToggleButton.m in Sources */,
 				CC3D756E1AA51EDD0082EC70 /* mapViewController.m in Sources */,
+				CC2787881AB4FE200097ACED /* MadokaTextField.swift in Sources */,
 				CC0E2AA41A9D76F00017A9E4 /* AppDelegate.m in Sources */,
 				CC0E2AA71A9D76F00017A9E4 /* FirstViewController.m in Sources */,
+				CC2787891AB4FE200097ACED /* MinoruTextField.swift in Sources */,
 				CC47267E1AB02E83007B2AF5 /* CameraShutterButton.m in Sources */,
 				CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */,
 				CCE31F071AAB9D1A00777414 /* galleryTableViewController.m in Sources */,
@@ -768,6 +801,7 @@
 				CC85A9E41AB3C133000E76ED /* AHKActionSheet.m in Sources */,
 				CCB816D31AB423870093980B /* RWDemoViewController.m in Sources */,
 				CC47268E1AB04909007B2AF5 /* KLCPopup.m in Sources */,
+				CC2787841AB4FE200097ACED /* HoshiTextField.swift in Sources */,
 				CCE325341AAC20CE002DBF0E /* Map.m in Sources */,
 				CC624FBF1AB1427B0029E4FE /* Timeline.m in Sources */,
 				CC1194E91AB289FD00F78DE2 /* XYPieChart.m in Sources */,

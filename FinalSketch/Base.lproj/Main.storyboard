@@ -34,8 +34,38 @@
                                     <action selector="pressedInfo:" destination="QNn-Y2-XOV" eventType="touchUpInside" id="Pqt-mS-vGg"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kG1-X9-AT6" customClass="KaedeTextField" customModule="FinalSketch" customModuleProvider="target">
+                                <rect key="frame" x="19" y="157" width="336" height="30"/>
+                                <color key="backgroundColor" red="0.1210314253" green="0.59424069769999999" blue="1" alpha="0.16" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.1027496619" green="0.29197285839999998" blue="0.67869039659999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" red="0.1027496619" green="0.29197285839999998" blue="0.67869039659999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="foregroundColor">
+                                        <color key="value" red="0.11949397575839316" green="0.59217246634170972" blue="1" alpha="0.35999999999999999" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nLV-of-F9D" customClass="KaedeTextField" customModule="FinalSketch" customModuleProvider="target">
+                                <rect key="frame" x="19" y="112" width="336" height="30"/>
+                                <color key="backgroundColor" red="0.1210314253" green="0.59424069769999999" blue="1" alpha="0.16" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" red="0.1027496619" green="0.29197285839999998" blue="0.67869039659999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="foregroundColor">
+                                        <color key="value" red="0.057862605547783219" green="0.57229654318938539" blue="1" alpha="0.39000000000000001" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfl-CE-Zhr">
-                                <rect key="frame" x="0.0" y="213" width="375" height="582"/>
+                                <rect key="frame" x="0.0" y="85" width="375" height="582"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAo-jp-WgI">
                                         <rect key="frame" x="0.0" y="307" width="375" height="46"/>
@@ -320,10 +350,12 @@
                         <outlet property="categoryImageView" destination="6wT-54-QlT" id="qei-ub-9Y3"/>
                         <outlet property="collectionView" destination="Lhe-CO-kM0" id="0Il-c8-5km"/>
                         <outlet property="dateLabel" destination="TDq-Mh-Zd7" id="cGM-D5-wNL"/>
+                        <outlet property="descriptionField" destination="kG1-X9-AT6" id="6GP-Sy-F8g"/>
                         <outlet property="locationLabel" destination="Ogk-uc-ME9" id="EJT-Lj-Ln5"/>
                         <outlet property="mainOperationView" destination="cfl-CE-Zhr" id="78K-qs-Kaj"/>
                         <outlet property="priceLabel" destination="DAo-jp-WgI" id="z06-6u-hHK"/>
                         <outlet property="smallImageView" destination="fF1-Oq-OH1" id="yjd-ob-Oyr"/>
+                        <outlet property="titleField" destination="nLV-of-F9D" id="UPv-Mt-uIj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wm6-fT-Nfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -414,8 +446,8 @@
                                                     </state>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMU-ON-fp2">
-                                                    <rect key="frame" x="13" y="51" width="179" height="51"/>
-                                                    <fontDescription key="fontDescription" name="Cochin-Italic" family="Cochin" pointSize="15"/>
+                                                    <rect key="frame" x="13" y="48" width="167" height="62"/>
+                                                    <fontDescription key="fontDescription" name="Cochin-Italic" family="Cochin" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -426,7 +458,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hz-CT-yhh">
-                                                    <rect key="frame" x="13" y="10" width="179" height="29"/>
+                                                    <rect key="frame" x="13" y="11" width="167" height="29"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -440,16 +472,16 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BB3-J7-IDr">
+                                                    <rect key="frame" x="183" y="8" width="180" height="180"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRy-aM-maS">
-                                                    <rect key="frame" x="13" y="124" width="96" height="29"/>
+                                                    <rect key="frame" x="8" y="112" width="96" height="29"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="28"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BB3-J7-IDr">
-                                                    <rect key="frame" x="203" y="8" width="160" height="160"/>
-                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -520,7 +552,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957.5" y="-43.5"/>
+            <point key="canvasLocation" x="957.5" y="-45.5"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="05O-WM-4g9">
