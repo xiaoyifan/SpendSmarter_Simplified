@@ -17,6 +17,7 @@
 
 
 
+
 @interface addItemViewController()<CKCalendarDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate, MKMapViewDelegate, CACameraSessionDelegate, UIAlertViewDelegate>
 
 @property BOOL inputingDecimal;
@@ -100,8 +101,6 @@
     
     NSLog(@"the selected location is: %f, %f", self.itemLocation.coordinate.latitude, self.itemLocation.coordinate.longitude);
 
-    
-    
     if (itemLocation != nil) {
         self.locationLabel.text = [NSString stringWithFormat:@"%@",address];
     }
@@ -224,15 +223,47 @@
     [self addToMap];
     [self addToTimeline];
     
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.6;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromTop;
-    [self.view.window.layer addAnimation:transition forKey:nil];
-
-    [self dismissViewControllerAnimated:NO completion:nil];
+//    CATransition *transition = [CATransition animation];
+//    transition.duration = 0.6;
+//    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//    transition.type = kCATransitionPush;
+//    transition.subtype = kCATransitionFromTop;
+//    [self.view.window.layer addAnimation:transition forKey:nil];
     
+    
+    self.account = [[DBAccountManager sharedManager] linkedAccount];
+    //check fi there's a linked account
+    
+    if (self.account) {
+        [self writeLocalToCloud];
+    }
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+
+-(void)writeLocalToCloud{
+    NSLog(@"write local to cloud");
+    DBPath *newPath = [[DBPath root] childPath:@"iAccount"];
+    
+    DBPath *itemPath = [newPath childPath:@"items.plist"];
+    DBFile *itemFile = [[DBFilesystem sharedFilesystem] createFile:itemPath error:nil];
+    
+    DBPath *mapPath = [newPath childPath:@"map.plist"];
+    DBFile *mapFile = [[DBFilesystem sharedFilesystem] createFile:mapPath error:nil];
+    
+    DBPath *timelinePath = [newPath childPath:@"timeline.plist"];
+    DBFile *timelineFile = [[DBFilesystem sharedFilesystem] createFile:timelinePath error:nil];
+    
+    NSURL *itemUrl = [FileSession getListURLOf:@"items.plist"];
+    [itemFile writeData:[NSData dataWithContentsOfURL:itemUrl] error:nil];
+    
+    NSURL *mapUrl = [FileSession getListURLOf:@"map.plist"];
+    [mapFile writeData:[NSData dataWithContentsOfURL:mapUrl] error:nil];
+    
+    NSURL *timelineUrl = [FileSession getListURLOf:@"timeline.plist"];
+    [timelineFile writeData:[NSData dataWithContentsOfURL:timelineUrl] error:nil];
 }
 
 -(void) addToMap{
@@ -285,7 +316,7 @@
             
             obj.dailyAmount = @([obj.dailyAmount integerValue]+[price doubleValue]);
             //if category existed, add 1
-            NSLog(@"gogogogogogo");
+           
         }
     }
     
@@ -344,14 +375,14 @@
 #pragma mark - dismiss the view controller
 - (IBAction)back:(id)sender {
     
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.6;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromTop;
-    [self.view.window.layer addAnimation:transition forKey:nil];
+//    CATransition *transition = [CATransition animation];
+//    transition.duration = 0.6;
+//    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//    transition.type = kCATransitionPush;
+//    transition.subtype = kCATransitionFromTop;
+//    [self.view.window.layer addAnimation:transition forKey:nil];
     
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 

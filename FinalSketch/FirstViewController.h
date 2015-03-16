@@ -16,5 +16,8 @@
 @property (nonatomic, strong) NSMutableArray *timeline;
 @property (nonatomic, strong) DBAccount *account;
 
+@property (nonatomic, assign) BOOL loadingFiles;
+
+
 @end
 

@@ -11,6 +11,7 @@
 #import "Timeline.h"
 #import <UIKit/UIKit.h>
 #import "mapViewController.h"
+#import <Dropbox/Dropbox.h>
 
 @interface addItemViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIGestureRecognizerDelegate, CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate>
 
@@ -33,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic, strong) NSMutableArray *categoryArray;
+
+@property (nonatomic, strong) DBAccount *account;
 
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue;
