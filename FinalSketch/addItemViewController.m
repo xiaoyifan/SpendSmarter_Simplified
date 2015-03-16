@@ -67,28 +67,56 @@
 
 - (IBAction)pressedInfo:(id)sender {
     
+    if (self.mainOperationViewCenter.y == self.mainOperationView.center.y) {
+        
     
     [UIView animateWithDuration:0.5 delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
-                         if (self.mainOperationView.center.y == self.mainOperationViewCenter.y) {
+                       
                              self.mainOperationView.center = CGPointMake(self.mainOperationView.center.x, self.mainOperationView.center.y+200);
-                         }
-                         else{
-                             self.mainOperationView.center = CGPointMake(self.mainOperationView.center.x, self.mainOperationView.center.y-200);
-                         }
+                         
+                         
                          
                          
                          
                      }
                      completion:^(BOOL completed){
-                         
+                         self.mainOperationView.center = CGPointMake(self.mainOperationViewCenter.x, self.mainOperationViewCenter.y+200);
+//                         [self.mainOperationView.superview setNeedsLayout];
                      }
      ];
-    
+    }
     
 }
+
+- (IBAction)pressDone:(id)sender {
+    
+    if (self.mainOperationViewCenter.y != self.mainOperationView.center.y) {
+
+        
+    [UIView animateWithDuration:0.5 delay:0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         
+                         
+                         self.mainOperationView.center = CGPointMake(self.mainOperationViewCenter.x, self.mainOperationViewCenter.y);
+                         
+                         
+                         
+                         
+                         
+                     }
+                     completion:^(BOOL completed){
+                        
+                         //                         [self.mainOperationView.superview setNeedsLayout];
+                     }
+     ];
+    }
+}
+
+
 
 
 
@@ -136,9 +164,11 @@
 
 
 - (IBAction)removeOneCharTapped:(id)sender {
-    
-    self.priceLabel.text = [self.priceLabel.text substringWithRange:NSMakeRange(0, self.priceLabel.text.length-2)];
-    
+    if ([self.priceLabel.text isEqualToString:@"$"]) {
+    }
+    else{
+    self.priceLabel.text = [self.priceLabel.text substringWithRange:NSMakeRange(0, self.priceLabel.text.length-1)];
+    }
 }
 
 
@@ -235,6 +265,7 @@
     //check fi there's a linked account
     
     if (self.account) {
+        NSLog(@"write to the cloud");
         [self writeLocalToCloud];
     }
 
