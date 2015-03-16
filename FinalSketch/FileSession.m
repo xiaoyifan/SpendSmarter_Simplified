@@ -18,7 +18,6 @@
                                               inDomain:NSUserDomainMask appropriateForURL:nil
                                                 create:YES error:&err];
     NSURL* file = [docs URLByAppendingPathComponent:string];
-    NSLog(@"FILE: %@",file);
     return file;
 }
 

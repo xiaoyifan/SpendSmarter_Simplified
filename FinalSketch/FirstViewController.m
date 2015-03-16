@@ -215,6 +215,7 @@
     }
     else if (index == 1)
     {
+        
         [self startSync];
        
         NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
@@ -304,9 +305,12 @@
         
         DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:self.account];
         [DBFilesystem setSharedFilesystem:filesystem];
+        NSLog(@"start sync............");
         
+        __weak FirstViewController *weakSelf = self;
         [[DBFilesystem sharedFilesystem] addObserver:self forPathAndChildren:[[DBPath root] childPath:@"iAccount"] block:^{
-            [self loadFiles];
+            
+            [weakSelf loadFiles];
         }];
         
     }
@@ -317,10 +321,11 @@
     
     
     if (self.loadingFiles) return;
+    self.loadingFiles  =YES;
     NSLog(@"loading files %d", self.loadingFiles);
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^() {
         
-        self.loadingFiles = NO;
+        
         
         DBPath *newPath = [[DBPath root] childPath:@"iAccount"];
 
@@ -333,7 +338,11 @@
         DBPath *timelinePath = [newPath childPath:@"timeline.plist"];
         [[DBFilesystem sharedFilesystem] openFile:timelinePath error:nil];
         
+        
         dispatch_async(dispatch_get_main_queue(), ^() {
+            
+            
+            [[DBFilesystem sharedFilesystem] removeObserver:self];
             
             self.loadingFiles = NO;
             [self reload];
@@ -540,7 +549,7 @@
     [self.map addObjectsFromArray: temp2];
     
     NSData* sessionDataMap = [NSKeyedArchiver archivedDataWithRootObject:self.map];
-    [itemFile writeData:sessionDataMap error:nil];
+    [mapFile writeData:sessionDataMap error:nil];
     [FileSession writeData:self.map ToList:mapUrl];
     
     
