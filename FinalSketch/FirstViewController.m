@@ -46,7 +46,6 @@
     self.optionIndices = [NSMutableIndexSet indexSetWithIndex:0];
     
     NSArray *images = @[
-                        [UIImage imageNamed:@"profile"],
                         [UIImage imageNamed:@"dropbox"],
                         [UIImage imageNamed:@"photo"],
                         [UIImage imageNamed:@"Info"],
@@ -54,7 +53,6 @@
                         
                         ];
     NSArray *colors = @[
-                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
                         [UIColor colorWithRed:61/255.f green:154/255.f blue:232/255.f alpha:1],
                         [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
                         [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
@@ -85,9 +83,7 @@
     
     
     self.account = [[DBAccountManager sharedManager] linkedAccount];
-    if (!self.account) {
-        self.syncButton.enabled = NO;
-    }
+
     
 }
 
@@ -212,58 +208,23 @@
 
 #pragma mark - sidebar delegate
 -(void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index {
-    if(index == 0)
-    {
-        //sync issue
+    
+  if (index == 0) {
+        
+        [self dropboxConnect];
+        
     }
     else if (index == 1) {
-        self.account = [[DBAccountManager sharedManager] linkedAccount];
-        if (self.account) {
-            NSLog(@"App already linked");
-            NSLog(@"%@", self.account.info);
-                self.syncButton.enabled = NO;
-            DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:self.account];
-            [DBFilesystem setSharedFilesystem:filesystem];
-            
-            DBPath *newPath = [[DBPath root] childPath:@"iAccount"];
-            
-            DBPath *itemPath = [newPath childPath:@"items.plist"];
-            DBFile *itemFile = [[DBFilesystem sharedFilesystem] createFile:itemPath error:nil];
-            
-            DBPath *mapPath = [newPath childPath:@"map.plist"];
-            DBFile *mapFile = [[DBFilesystem sharedFilesystem] createFile:mapPath error:nil];
-            
-            
-            NSURL *itemUrl = [FileSession getListURLOf:@"items.plist"];
-            [itemFile writeData:[NSData dataWithContentsOfURL:itemUrl] error:nil];
-            
-            NSURL *mapUrl = [FileSession getListURLOf:@"map.plist"];
-            [mapFile writeData:[NSData dataWithContentsOfURL:mapUrl] error:nil];
-            NSLog(@"mapPath is %@", mapPath);
-            NSLog(@"mapURL is %@", mapUrl);
-            
-            //could initialize a alert view here that you gonna unlink your Dropbox account here
-        } else {
-            [[DBAccountManager sharedManager] linkFromController:self];
-            self.account = [[DBAccountManager sharedManager] linkedAccount];
-            if (self.account) {
-                DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:self.account];
-                [DBFilesystem setSharedFilesystem:filesystem];
-            }
-            self.syncButton.enabled = YES;
-        }
-    }
-    else if (index == 2) {
        UITableViewController *gallery = [self.storyboard instantiateViewControllerWithIdentifier:@"galleryVC"];
         [self presentViewController:gallery animated:YES completion:nil];
     }
-    else if (index == 3) {
+    else if (index == 2) {
         UIViewController *info = [self.storyboard instantiateViewControllerWithIdentifier:@"infoViewController"];
         [self presentViewController:info animated:YES completion:nil];
         
         
     }
-    if (index == 4) {
+    if (index == 3) {
         [sidebar dismissAnimated:YES];
     }
 }
@@ -293,8 +254,159 @@
         [destVC setDetailItem:dataItem];
         
     }
-
+    
 }
+
+-(void)dropboxConnect{
+    
+    self.account = [[DBAccountManager sharedManager] linkedAccount];
+    //check fi there's a linked account
+    
+    if (self.account) {
+        NSLog(@"App already linked");
+        NSLog(@"%@", self.account.info);
+        self.syncButton.enabled = NO;
+        DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:self.account];
+        [DBFilesystem setSharedFilesystem:filesystem];
+        
+        
+        //There are four situations to handle
+        //1. Dropbox has files and local doesn't
+        //2. Dropbox has files and local does
+        //3. Dropbox has no file and local does
+        //4. Dropbox has no file and local doesn't
+        
+        if ([self filesExistAtLocal]) {
+            //data merge
+        }
+        else{
+            
+            [self writeFilesToLocal];
+            //handled situation 1, 4
+            //if the files are not existed at local, will be fetched from Dropbox
+            //if the files are not at Dropbox, too. Create files at Dropbox and download them
+            
+        }
+        
+        
+        
+        
+    
+    } else {
+        [[DBAccountManager sharedManager] linkFromController:self];
+        self.account = [[DBAccountManager sharedManager] linkedAccount];
+        if (self.account) {
+            DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:self.account];
+            [DBFilesystem setSharedFilesystem:filesystem];
+            
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"You are linked to Dropbox Account" message:[NSString stringWithFormat:@"%@",self.account.info] delegate:self cancelButtonTitle:@"Got It" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+    }
+}
+
+
+-(BOOL)filesExistAtLocal{
+    
+    NSURL *itemUrl = [FileSession getListURLOf:@"items.plist"];
+    if ([itemUrl checkResourceIsReachableAndReturnError:nil] == NO)
+        return false;
+    
+    NSURL *mapUrl = [FileSession getListURLOf:@"map.plist"];
+    if ([mapUrl checkResourceIsReachableAndReturnError:nil] == NO)
+        return false;
+    
+    NSURL *timelineUrl = [FileSession getListURLOf:@"timeline.plist"];
+    if ([timelineUrl checkResourceIsReachableAndReturnError:nil] == NO)
+        return false;
+    
+    return true;
+}
+
+-(void)writeFilesToLocal{
+    //create files if not exists
+    
+    DBPath *newPath = [[DBPath root] childPath:@"iAccount"];
+    
+    
+    
+    DBPath *itemPath = [newPath childPath:@"items.plist"];
+    DBFile *itemFile = [[DBFilesystem sharedFilesystem] openFile:itemPath error:nil];
+    
+    if (itemFile == nil) {
+    itemFile = [[DBFilesystem sharedFilesystem] createFile:itemPath error:nil];
+    }
+    
+    NSURL *itemUrl = [FileSession getListURLOf:@"items.plist"];
+    NSData *itemData =[itemFile readData:nil];
+    // this is the data from
+    [FileSession writeData:itemData ToList:itemUrl];
+    //get the copy from Dropbox Cloud to local
+    
+    
+    DBPath *mapPath = [newPath childPath:@"map.plist"];
+    DBFile *mapFile = [[DBFilesystem sharedFilesystem] openFile:mapPath error:nil];
+    
+    if (mapFile == nil) {
+        mapFile = [[DBFilesystem sharedFilesystem] createFile:itemPath error:nil];
+    }
+    
+    NSURL *mapUrl = [FileSession getListURLOf:@"map.plist"];
+    NSData *mapData =[mapFile readData:nil];
+    // this is the data from
+    [FileSession writeData:mapData ToList:mapUrl];
+    //get the copy from Dropbox Cloud to local
+    
+    
+    DBPath *timelinePath = [newPath childPath:@"timeline.plist"];
+    DBFile *timelineFile = [[DBFilesystem sharedFilesystem] openFile:timelinePath error:nil];
+    
+    if (timelineFile == nil) {
+        timelineFile = [[DBFilesystem sharedFilesystem] createFile:itemPath error:nil];
+    }
+    
+    NSURL *timelineUrl = [FileSession getListURLOf:@"timeline.plist"];
+    NSData *timelineData =[timelineFile readData:nil];
+    // this is the data from
+    [FileSession writeData:timelineData ToList:timelineUrl];
+    //get the copy from Dropbox Cloud to local
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

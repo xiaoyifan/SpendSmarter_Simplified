@@ -67,6 +67,7 @@
 		CC85A9E61AB3C133000E76ED /* UIImage+AHKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85A9E11AB3C133000E76ED /* UIImage+AHKAdditions.m */; };
 		CC85A9E71AB3C133000E76ED /* UIWindow+AHKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85A9E31AB3C133000E76ED /* UIWindow+AHKAdditions.m */; };
 		CC88E47B1AAEAECE006560A0 /* pieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88E4791AAEAECE006560A0 /* pieChartViewController.m */; };
+		CC91E1621AB6332700245389 /* settingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC91E1611AB6332700245389 /* settingsTableViewController.m */; };
 		CCB229511AB55D5E000EEB68 /* Info.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB229501AB55D5E000EEB68 /* Info.png */; };
 		CCB229531AB55DBE000EEB68 /* Info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB229521AB55DBE000EEB68 /* Info@2x.png */; };
 		CCB229571AB567EE000EEB68 /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB229561AB567EE000EEB68 /* infoViewController.m */; };
@@ -204,6 +205,8 @@
 		CC85A9E31AB3C133000E76ED /* UIWindow+AHKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+AHKAdditions.m"; sourceTree = "<group>"; };
 		CC88E4781AAEAECE006560A0 /* pieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pieChartViewController.h; sourceTree = "<group>"; };
 		CC88E4791AAEAECE006560A0 /* pieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pieChartViewController.m; sourceTree = "<group>"; };
+		CC91E1601AB6332700245389 /* settingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsTableViewController.h; sourceTree = "<group>"; };
+		CC91E1611AB6332700245389 /* settingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsTableViewController.m; sourceTree = "<group>"; };
 		CCB229501AB55D5E000EEB68 /* Info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Info.png; sourceTree = "<group>"; };
 		CCB229521AB55DBE000EEB68 /* Info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@2x.png"; sourceTree = "<group>"; };
 		CCB229551AB567EE000EEB68 /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
@@ -311,8 +314,9 @@
 		CC0E2A9D1A9D76F00017A9E4 /* FinalSketch */ = {
 			isa = PBXGroup;
 			children = (
+				CC91E15C1AB6323500245389 /* settingsVC */,
 				CCB229541AB567C8000EEB68 /* infoSheet */,
-				CC85A9DA1AB3C123000E76ED /* ActionSheet */,
+				CC85A9DA1AB3C123000E76ED /* ShareActionSheet */,
 				CC1194EA1AB28DCB00F78DE2 /* numberAnimationView */,
 				CCDA2E651AB19A5800122E2A /* mapTab */,
 				CC47268C1AB04909007B2AF5 /* KLCPopup.h */,
@@ -534,12 +538,12 @@
 			name = MainPage;
 			sourceTree = "<group>";
 		};
-		CC85A9DA1AB3C123000E76ED /* ActionSheet */ = {
+		CC85A9DA1AB3C123000E76ED /* ShareActionSheet */ = {
 			isa = PBXGroup;
 			children = (
 				CC85A9DB1AB3C133000E76ED /* Classes */,
 			);
-			name = ActionSheet;
+			name = ShareActionSheet;
 			sourceTree = "<group>";
 		};
 		CC85A9DB1AB3C133000E76ED /* Classes */ = {
@@ -566,6 +570,15 @@
 				CC88E4791AAEAECE006560A0 /* pieChartViewController.m */,
 			);
 			name = pieChart;
+			sourceTree = "<group>";
+		};
+		CC91E15C1AB6323500245389 /* settingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				CC91E1601AB6332700245389 /* settingsTableViewController.h */,
+				CC91E1611AB6332700245389 /* settingsTableViewController.m */,
+			);
+			name = settingsVC;
 			sourceTree = "<group>";
 		};
 		CCB229541AB567C8000EEB68 /* infoSheet */ = {
@@ -801,6 +814,7 @@
 				CC47267B1AB02E83007B2AF5 /* CameraDismissButton.m in Sources */,
 				CC27878B1AB4FE200097ACED /* YokoTextField.swift in Sources */,
 				CC45E0031AA1571B00E5B8CA /* itemDetailViewController.m in Sources */,
+				CC91E1621AB6332700245389 /* settingsTableViewController.m in Sources */,
 				CC4726841AB02E83007B2AF5 /* CaptureSessionManager.m in Sources */,
 				CC13C3DB1AAAB20600D58CAF /* Item.m in Sources */,
 				CC88E47B1AAEAECE006560A0 /* pieChartViewController.m in Sources */,
