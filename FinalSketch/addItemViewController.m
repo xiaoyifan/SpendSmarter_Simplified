@@ -66,6 +66,7 @@
 
 
 - (IBAction)pressedInfo:(id)sender {
+    [self.mainOperationView setTranslatesAutoresizingMaskIntoConstraints:YES];
     
     if (self.mainOperationViewCenter.y == self.mainOperationView.center.y) {
         
@@ -92,6 +93,8 @@
 }
 
 - (IBAction)pressDone:(id)sender {
+    [self.mainOperationView setTranslatesAutoresizingMaskIntoConstraints:YES];
+
     
     if (self.mainOperationViewCenter.y != self.mainOperationView.center.y) {
 

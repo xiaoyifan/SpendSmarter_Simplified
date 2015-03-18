@@ -323,7 +323,7 @@
     if (self.loadingFiles) return;
     self.loadingFiles  =YES;
     NSLog(@"loading files %d", self.loadingFiles);
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^() {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^() {
         
         
         
@@ -338,14 +338,17 @@
         DBPath *timelinePath = [newPath childPath:@"timeline.plist"];
         [[DBFilesystem sharedFilesystem] openFile:timelinePath error:nil];
         
+        [self reload];
         
         dispatch_async(dispatch_get_main_queue(), ^() {
             
             
             [[DBFilesystem sharedFilesystem] removeObserver:self];
             
+            [self.mainTableView reloadData];
+            
             self.loadingFiles = NO;
-            [self reload];
+            
         });
     });
 }
@@ -369,7 +372,6 @@
         //if the files are not at Dropbox, too. Create files at Dropbox and download them
     }
     
-    [self.mainTableView reloadData];
     
 }
 
