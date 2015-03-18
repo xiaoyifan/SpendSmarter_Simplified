@@ -65,27 +65,24 @@
 }
 
 
+// press add info to type in the title and description
 - (IBAction)pressedInfo:(id)sender {
     [self.mainOperationView setTranslatesAutoresizingMaskIntoConstraints:YES];
     
     if (self.mainOperationViewCenter.y == self.mainOperationView.center.y) {
         
-    
+    // the animation will scroll down the top view layer
     [UIView animateWithDuration:0.5 delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
                        
                              self.mainOperationView.center = CGPointMake(self.mainOperationView.center.x, self.mainOperationView.center.y+200);
-                         
-                         
-                         
-                         
+   
                          
                      }
                      completion:^(BOOL completed){
                          self.mainOperationView.center = CGPointMake(self.mainOperationViewCenter.x, self.mainOperationViewCenter.y+200);
-//                         [self.mainOperationView.superview setNeedsLayout];
                      }
      ];
     }
@@ -97,23 +94,17 @@
 
     
     if (self.mainOperationViewCenter.y != self.mainOperationView.center.y) {
-
-        
+  
+    //if the title stuff is done, tao down will cause the top view layer move up to the original position
     [UIView animateWithDuration:0.5 delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
-                         
                          self.mainOperationView.center = CGPointMake(self.mainOperationViewCenter.x, self.mainOperationViewCenter.y);
-                         
-                         
-                         
-                         
                          
                      }
                      completion:^(BOOL completed){
                         
-                         //                         [self.mainOperationView.superview setNeedsLayout];
                      }
      ];
     }
@@ -129,6 +120,7 @@
     CLLocation *itemLocation = source.selectedLocation;
     NSString *address = source.selectedLocationAddress;
     self.itemLocation = [[CLLocation alloc] initWithLatitude:itemLocation.coordinate.latitude longitude:itemLocation.coordinate.longitude];
+    //assign the location to the add view controller, this is the location data from the map view controller
     
     NSLog(@"the selected location is: %f, %f", self.itemLocation.coordinate.latitude, self.itemLocation.coordinate.longitude);
 
@@ -138,6 +130,8 @@
     
 }
 
+
+#pragma mark - buttons taped
 - (IBAction)numberTapped:(id)sender {
     
     
@@ -178,12 +172,32 @@
 - (IBAction)doneIsTapped:(id)sender {
     //Save the data first
     
+    
+    //the data cannot be empty
     if ([self.priceLabel.text isEqualToString:@"$"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Price field required"
                                                         message:@"you should enter the price field" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
+    
+    //save the data to the array, then sync it to Dropbox and local plist
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^() {
+        
+        [self addItemWithAttributes];
+        
+        dispatch_async(dispatch_get_main_queue(), ^() {
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+
+        });
+    });
+    
+    
+}
+
+//get the properties from the addViewController
+-(void)addItemWithAttributes{
     
     Item *newItem = [[Item alloc] init];
     
@@ -199,7 +213,7 @@
     }
     else{
         newItem.itemDescription = self.descriptionField.text;
-
+        
     }
     
     if (self.dateLabel.text.length!=0) {
@@ -227,7 +241,7 @@
     newItem.category = self.categorySelected;
     NSLog(@"The selected category is %@", self.categorySelected);
     newItem.categoryPic = self.categoryPic;
-   
+    
     if (self.itemLocation != nil) {
         newItem.location = [[CLLocation alloc] initWithLatitude:self.itemLocation.coordinate.latitude
                                                       longitude:self.itemLocation.coordinate.longitude];
@@ -246,9 +260,9 @@
     
     
     NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
-
+    
     NSMutableArray *itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
-
+    
     [itemArray insertObject:newItem atIndex:0];
     
     [FileSession writeData:itemArray ToList:fileURL];
@@ -256,39 +270,32 @@
     [self addToMap];
     [self addToTimeline];
     
-//    CATransition *transition = [CATransition animation];
-//    transition.duration = 0.6;
-//    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//    transition.type = kCATransitionPush;
-//    transition.subtype = kCATransitionFromTop;
-//    [self.view.window.layer addAnimation:transition forKey:nil];
-    
     
     self.account = [[DBAccountManager sharedManager] linkedAccount];
     //check fi there's a linked account
     
+    
+    //if the account is linked, data will be linked to Dropbox
     if (self.account) {
         NSLog(@"write to the cloud");
         [self writeLocalToCloud];
     }
-
-    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
-
+//write the files to cloud, we gonna write three lists to cloud
 -(void)writeLocalToCloud{
     NSLog(@"write local to cloud");
     DBPath *newPath = [[DBPath root] childPath:@"iAccount"];
     
     DBPath *itemPath = [newPath childPath:@"items.plist"];
-    DBFile *itemFile = [[DBFilesystem sharedFilesystem] createFile:itemPath error:nil];
+    DBFile *itemFile = [[DBFilesystem sharedFilesystem] openFile:itemPath error:nil];
     
     DBPath *mapPath = [newPath childPath:@"map.plist"];
-    DBFile *mapFile = [[DBFilesystem sharedFilesystem] createFile:mapPath error:nil];
+    DBFile *mapFile = [[DBFilesystem sharedFilesystem] openFile:mapPath error:nil];
     
     DBPath *timelinePath = [newPath childPath:@"timeline.plist"];
-    DBFile *timelineFile = [[DBFilesystem sharedFilesystem] createFile:timelinePath error:nil];
+    DBFile *timelineFile = [[DBFilesystem sharedFilesystem] openFile:timelinePath error:nil];
     
     NSURL *itemUrl = [FileSession getListURLOf:@"items.plist"];
     [itemFile writeData:[NSData dataWithContentsOfURL:itemUrl] error:nil];
@@ -300,6 +307,8 @@
     [timelineFile writeData:[NSData dataWithContentsOfURL:timelineUrl] error:nil];
 }
 
+
+//add the item to the map array, items are dictionary of locations
 -(void) addToMap{
     
     NSURL *mapURL = [FileSession getListURLOf:@"map.plist"];
@@ -317,8 +326,6 @@
 
             obj.itemNumber = @([obj.itemNumber integerValue]+[price doubleValue]);
             //if category existed, add 1
-            
-            NSLog(@"blablabla");
         }
     }
     
@@ -333,6 +340,8 @@
     
 }
 
+
+//add to timeline, timeline array contains items with dictionary with date and price. 
 -(void) addToTimeline{
     
     NSURL *timelineURL = [FileSession getListURLOf:@"timeline.plist"];

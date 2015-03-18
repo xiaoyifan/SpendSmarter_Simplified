@@ -10,7 +10,8 @@
 
 @implementation FileSession
 
-
+//get the URL in document from the filename
+//the filename is passed in by string
 +(NSURL *)getListURLOf:(NSString *)string
 {
     NSError* err = nil;
@@ -21,11 +22,14 @@
     return file;
 }
 
+//write data to URL, the data is object encoded
+//and the url is file
 +(void)writeData:(id)object ToList:(NSURL*)url{
     NSData* sessionData = [NSKeyedArchiver archivedDataWithRootObject:object];
     [sessionData writeToURL:url atomically:NO];
 }
 
+//get the data from URL, parameter is the url of the selected file, which is got from the first method
 +(NSArray *)readDataFromList:(NSURL*)url{
     // Read
     NSData* data = [[NSData alloc] initWithContentsOfURL:url];

@@ -30,6 +30,8 @@
     NSURL *mapURL = [FileSession getListURLOf:@"map.plist"];
     
     self.map = [NSMutableArray arrayWithArray:[FileSession readDataFromList:mapURL]];
+    // this is the data to draw the pieChart
+    
     
     self.slices = [NSMutableArray arrayWithCapacity:self.map.count];
     
@@ -38,6 +40,7 @@
     {
         NSNumber *one = [[self.map objectAtIndex:i] itemNumber];
         [self.slices addObject:one];
+        //initialize the data from the array
     }
     
     [self.pieChartRight setDelegate:self];
@@ -80,6 +83,7 @@
                        [UIColor colorWithRed:240/255.0 green:98/255.0 blue:146/255.0 alpha:1], //1. pink
                        [UIColor colorWithRed:186/255.0 green:104/255.0 blue:200/255.0 alpha:1], //11. purple
                        nil];
+    //the color of each piece
     
     self.spentAmountView.textColor = [UIColor grayColor];
     self.spentAmountView.font = [UIFont fontWithName:@"HelveticaNeue-light" size:20];
@@ -116,7 +120,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NSLog(@"View Did Appear called");
     
     NSURL *mapURL = [FileSession getListURLOf:@"map.plist"];
     
@@ -213,15 +216,6 @@
 }
 
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
 */
 
 @end

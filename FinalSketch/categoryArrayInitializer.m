@@ -16,6 +16,8 @@
 
 @implementation categoryArrayInitializer
 
+
+// just initialze the data in hard code
 -(instancetype)init{
     
     self.array  =[[NSMutableArray alloc] init];

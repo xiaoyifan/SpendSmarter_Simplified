@@ -67,14 +67,12 @@
 		CC85A9E61AB3C133000E76ED /* UIImage+AHKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85A9E11AB3C133000E76ED /* UIImage+AHKAdditions.m */; };
 		CC85A9E71AB3C133000E76ED /* UIWindow+AHKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85A9E31AB3C133000E76ED /* UIWindow+AHKAdditions.m */; };
 		CC88E47B1AAEAECE006560A0 /* pieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88E4791AAEAECE006560A0 /* pieChartViewController.m */; };
-		CC91E1621AB6332700245389 /* settingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC91E1611AB6332700245389 /* settingsTableViewController.m */; };
 		CCB229511AB55D5E000EEB68 /* Info.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB229501AB55D5E000EEB68 /* Info.png */; };
 		CCB229531AB55DBE000EEB68 /* Info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB229521AB55DBE000EEB68 /* Info@2x.png */; };
 		CCB229571AB567EE000EEB68 /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB229561AB567EE000EEB68 /* infoViewController.m */; };
 		CCB816D21AB423870093980B /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB816CF1AB423870093980B /* RWBarChartView.m */; };
 		CCB816D31AB423870093980B /* RWDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB816D11AB423870093980B /* RWDemoViewController.m */; };
 		CCBE44BC1AA37E59006CDF7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */; };
-		CCC73B551AA0217900BC5C2D /* Chicago.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCC73B541AA0217900BC5C2D /* Chicago.jpg */; };
 		CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD240491AA19D1A00577608 /* detailSegue.m */; };
 		CCD6EFB41AA1A8DC00413769 /* addItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD6EFB31AA1A8DC00413769 /* addItemViewController.m */; };
 		CCD6EFB71AA1A9D900413769 /* addDetailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD6EFB61AA1A9D900413769 /* addDetailSegue.m */; };
@@ -95,8 +93,6 @@
 		CCE31F071AAB9D1A00777414 /* galleryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE31F061AAB9D1A00777414 /* galleryTableViewController.m */; };
 		CCE325341AAC20CE002DBF0E /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE325331AAC20CE002DBF0E /* Map.m */; };
 		CCFEE26B1AA2E773002583E2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFEE26A1AA2E773002583E2 /* MapKit.framework */; };
-		CCFEE26D1AA2FD05002583E2 /* superstar.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFEE26C1AA2FD05002583E2 /* superstar.png */; };
-		CCFEE26F1AA2FE4E002583E2 /* kazuki.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFEE26E1AA2FE4E002583E2 /* kazuki.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,8 +201,6 @@
 		CC85A9E31AB3C133000E76ED /* UIWindow+AHKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+AHKAdditions.m"; sourceTree = "<group>"; };
 		CC88E4781AAEAECE006560A0 /* pieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pieChartViewController.h; sourceTree = "<group>"; };
 		CC88E4791AAEAECE006560A0 /* pieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pieChartViewController.m; sourceTree = "<group>"; };
-		CC91E1601AB6332700245389 /* settingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsTableViewController.h; sourceTree = "<group>"; };
-		CC91E1611AB6332700245389 /* settingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsTableViewController.m; sourceTree = "<group>"; };
 		CCB229501AB55D5E000EEB68 /* Info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Info.png; sourceTree = "<group>"; };
 		CCB229521AB55DBE000EEB68 /* Info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@2x.png"; sourceTree = "<group>"; };
 		CCB229551AB567EE000EEB68 /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
@@ -216,7 +210,6 @@
 		CCB816D01AB423870093980B /* RWDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDemoViewController.h; sourceTree = "<group>"; };
 		CCB816D11AB423870093980B /* RWDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDemoViewController.m; sourceTree = "<group>"; };
 		CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		CCC73B541AA0217900BC5C2D /* Chicago.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Chicago.jpg; sourceTree = "<group>"; };
 		CCD240481AA19D1A00577608 /* detailSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detailSegue.h; path = ../detailSegue.h; sourceTree = "<group>"; };
 		CCD240491AA19D1A00577608 /* detailSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = detailSegue.m; path = ../detailSegue.m; sourceTree = "<group>"; };
 		CCD6EFB21AA1A8DC00413769 /* addItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addItemViewController.h; sourceTree = "<group>"; };
@@ -244,8 +237,6 @@
 		CCE325321AAC20CE002DBF0E /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
 		CCE325331AAC20CE002DBF0E /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
 		CCFEE26A1AA2E773002583E2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		CCFEE26C1AA2FD05002583E2 /* superstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = superstar.png; sourceTree = "<group>"; };
-		CCFEE26E1AA2FE4E002583E2 /* kazuki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kazuki.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,7 +305,6 @@
 		CC0E2A9D1A9D76F00017A9E4 /* FinalSketch */ = {
 			isa = PBXGroup;
 			children = (
-				CC91E15C1AB6323500245389 /* settingsVC */,
 				CCB229541AB567C8000EEB68 /* infoSheet */,
 				CC85A9DA1AB3C123000E76ED /* ShareActionSheet */,
 				CC1194EA1AB28DCB00F78DE2 /* numberAnimationView */,
@@ -346,9 +336,6 @@
 		CC0E2A9E1A9D76F00017A9E4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCFEE26E1AA2FE4E002583E2 /* kazuki.png */,
-				CCFEE26C1AA2FD05002583E2 /* superstar.png */,
-				CCC73B541AA0217900BC5C2D /* Chicago.jpg */,
 				CC51F8B71AA128E800619BDC /* gear.png */,
 				CCB229521AB55DBE000EEB68 /* Info@2x.png */,
 				CCB229501AB55D5E000EEB68 /* Info.png */,
@@ -572,15 +559,6 @@
 			name = pieChart;
 			sourceTree = "<group>";
 		};
-		CC91E15C1AB6323500245389 /* settingsVC */ = {
-			isa = PBXGroup;
-			children = (
-				CC91E1601AB6332700245389 /* settingsTableViewController.h */,
-				CC91E1611AB6332700245389 /* settingsTableViewController.m */,
-			);
-			name = settingsVC;
-			sourceTree = "<group>";
-		};
 		CCB229541AB567C8000EEB68 /* infoSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -749,7 +727,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCC73B551AA0217900BC5C2D /* Chicago.jpg in Resources */,
 				CC51F8C01AA128E800619BDC /* gear@2x.png in Resources */,
 				CCE16C9E1AA3C14F00BBA47F /* right_arrow.png in Resources */,
 				CC4726821AB02E83007B2AF5 /* PaintCodeFile.pcvd in Resources */,
@@ -761,13 +738,11 @@
 				CC36CD5F1AB2C41400DA232C /* default.png in Resources */,
 				CC51F8C51AA128E800619BDC /* star.png in Resources */,
 				CCE16C9C1AA3C14F00BBA47F /* left_arrow.png in Resources */,
-				CCFEE26F1AA2FE4E002583E2 /* kazuki.png in Resources */,
 				CCE16C9D1AA3C14F00BBA47F /* left_arrow@2x.png in Resources */,
 				CC51F8C41AA128E800619BDC /* profile@2x.png in Resources */,
 				CC0E2AC81A9D8CE00017A9E4 /* description.rtf in Resources */,
 				CCE16C9F1AA3C14F00BBA47F /* right_arrow@2x.png in Resources */,
 				CC51F8C61AA128E800619BDC /* star@2x.png in Resources */,
-				CCFEE26D1AA2FD05002583E2 /* superstar.png in Resources */,
 				CC31745A1AAFF725009ACC88 /* Images.xcassets in Resources */,
 				CC51F8C11AA128E800619BDC /* globe.png in Resources */,
 				CC51F8C21AA128E800619BDC /* globe@2x.png in Resources */,
@@ -814,7 +789,6 @@
 				CC47267B1AB02E83007B2AF5 /* CameraDismissButton.m in Sources */,
 				CC27878B1AB4FE200097ACED /* YokoTextField.swift in Sources */,
 				CC45E0031AA1571B00E5B8CA /* itemDetailViewController.m in Sources */,
-				CC91E1621AB6332700245389 /* settingsTableViewController.m in Sources */,
 				CC4726841AB02E83007B2AF5 /* CaptureSessionManager.m in Sources */,
 				CC13C3DB1AAAB20600D58CAF /* Item.m in Sources */,
 				CC88E47B1AAEAECE006560A0 /* pieChartViewController.m in Sources */,

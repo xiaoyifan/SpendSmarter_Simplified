@@ -10,6 +10,8 @@
 
 @implementation Map
 
+
+//item contains the category and number
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.categoryString forKey:@"category"];
     [encoder encodeObject:self.itemNumber forKey:@"number"];

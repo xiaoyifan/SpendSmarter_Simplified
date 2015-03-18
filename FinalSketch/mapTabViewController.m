@@ -26,6 +26,7 @@
     self.mapView.delegate = self;
     NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
     
+    //load the data Array
     self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
 }
 
@@ -36,6 +37,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     
+    //visualize the data as pins on the map
     for (int i=0; i<self.itemArray.count; i++) {
         
         Item *item = [self.itemArray objectAtIndex:i];
@@ -48,6 +50,7 @@
     
 }
 
+#pragma mark - location manager delegate
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
     
     NSLog(@"%d", status);
@@ -82,6 +85,8 @@
 {
     NSLog(@"Could not find location: %@", error);
 }
+
+#pragma mark - MapView delegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
@@ -155,6 +160,8 @@
 
 
 - (IBAction)back:(id)sender {
+    
+    //dismiss view controller with transition animation
     CATransition *transition = [CATransition animation];
     transition.duration = 0.6;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];

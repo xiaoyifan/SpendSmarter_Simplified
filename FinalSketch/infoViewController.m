@@ -26,6 +26,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+//tap the button to dismiss the viewController
 - (IBAction)dismissPage:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
