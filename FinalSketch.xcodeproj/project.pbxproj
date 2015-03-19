@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0B5C281AB9490F0002242B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC0B5C271AB9490F0002242B /* Settings.bundle */; };
 		CC0E2AA11A9D76F00017A9E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0E2AA01A9D76F00017A9E4 /* main.m */; };
 		CC0E2AA41A9D76F00017A9E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0E2AA31A9D76F00017A9E4 /* AppDelegate.m */; };
 		CC0E2AA71A9D76F00017A9E4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0E2AA61A9D76F00017A9E4 /* FirstViewController.m */; };
@@ -108,6 +109,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC0B5C271AB9490F0002242B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CC0E2A9B1A9D76F00017A9E4 /* FinalSketch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalSketch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0E2A9F1A9D76F00017A9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC0E2AA01A9D76F00017A9E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				CC0E2AB01A9D76F00017A9E4 /* LaunchScreen.xib */,
 				CCE16C971AA3C14F00BBA47F /* resources */,
 				CC0E2A9E1A9D76F00017A9E4 /* Supporting Files */,
+				CC0B5C271AB9490F0002242B /* Settings.bundle */,
 				CC3174521AAFF19C009ACC88 /* FinalSketch-Bridging-Header.h */,
 			);
 			path = FinalSketch;
@@ -749,6 +752,7 @@
 				CC51F8C41AA128E800619BDC /* profile@2x.png in Resources */,
 				CC0E2AC81A9D8CE00017A9E4 /* description.rtf in Resources */,
 				CCE16C9F1AA3C14F00BBA47F /* right_arrow@2x.png in Resources */,
+				CC0B5C281AB9490F0002242B /* Settings.bundle in Resources */,
 				CC51F8C61AA128E800619BDC /* star@2x.png in Resources */,
 				CC5D405F1AB9294F00322104 /* xiaoyifan-LYecheng_marketing.pdf in Resources */,
 				CC31745A1AAFF725009ACC88 /* Images.xcassets in Resources */,
@@ -946,7 +950,7 @@
 		CC0E2AC21A9D76F00017A9E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -963,7 +967,7 @@
 		CC0E2AC31A9D76F00017A9E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

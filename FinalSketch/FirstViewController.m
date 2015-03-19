@@ -75,22 +75,22 @@
     
     NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
     
-        self.itemArray = nil;
-        [FileSession writeData:self.itemArray ToList:fileURL];
+//        self.itemArray = nil;
+//        [FileSession writeData:self.itemArray ToList:fileURL];
     
     self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
     
     NSURL *mapURL = [FileSession getListURLOf:@"map.plist"];
     
-        self.map = nil;
-        [FileSession writeData:self.map ToList:mapURL];
+//        self.map = nil;
+//        [FileSession writeData:self.map ToList:mapURL];
     
     self.map = [NSMutableArray arrayWithArray:[FileSession readDataFromList:mapURL]];
     
     NSURL *timelineURL = [FileSession getListURLOf:@"timeline.plist"];
     
-        self.timeline = nil;
-        [FileSession writeData:self.timeline ToList:timelineURL];
+//        self.timeline = nil;
+//        [FileSession writeData:self.timeline ToList:timelineURL];
     
     self.timeline = [NSMutableArray arrayWithArray:[FileSession readDataFromList:timelineURL]];
 
@@ -98,11 +98,15 @@
     
     
     self.account = [[DBAccountManager sharedManager] linkedAccount];
+    NSLog(@"%@", self.account);
 
     
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    NSLog(@"the account: %@", self.account);
+    
     NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
     self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
     [self.mainTableView reloadData];
@@ -113,11 +117,13 @@
     NSURL *timelineURL = [FileSession getListURLOf:@"timeline.plist"];
     self.timeline = [NSMutableArray arrayWithArray:[FileSession readDataFromList:timelineURL]];
     
+    //
     
     for (Timeline *item in self.timeline) {
         NSLog(@"%@", item.timelabel);
         NSLog(@"%@", item.dailyAmount);
     }
+    //log out the timeline
     
 }
 
@@ -146,8 +152,9 @@
     
     ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
+    
     Item *item = [self.itemArray objectAtIndex:indexPath.row];
-
+    //initialize the cell object, from array of items
    
     cell.itemTitle.text = item.title;
     cell.itemDescription.text = item.itemDescription;
@@ -159,12 +166,10 @@
         cell.itemImage.image = nil;
         cell.itemImage.backgroundColor  = [self randomColor];
     }
+    //initialize the cell pic
+    //if not pic is provided, we will use the random color
     
     cell.itemPrice.text = [NSString stringWithFormat:@"$%@",[item.price stringValue]];
-
-    
-    UIImageView *picView = [[UIImageView alloc] initWithImage:item.categoryPic];
-    cell.categoryImage = picView;
     
     cell.categoryImage.backgroundColor = [UIColor grayColor];
     
@@ -180,6 +185,8 @@
 
 }
 
+
+//select a random color
 -(UIColor *)randomColor{
     NSArray *sliceColors =[NSArray arrayWithObjects:
                        
@@ -208,6 +215,8 @@
 
 
 #pragma mark - sidebar delegate
+
+//this is the side bar method
 -(void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index {
     
   if (index == 0) {
@@ -217,6 +226,8 @@
     {
         
         [self startSync];
+        //dropbox start to sync,
+        //tap the first button, to link the dorpbox account is required
        
         NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
         
@@ -235,12 +246,13 @@
     else if (index == 2) {
        UITableViewController *gallery = [self.storyboard instantiateViewControllerWithIdentifier:@"galleryVC"];
         [self presentViewController:gallery animated:YES completion:nil];
+        //load gallery to view the pics
     }
     else if (index == 3) {
         UIViewController *info = [self.storyboard instantiateViewControllerWithIdentifier:@"infoViewController"];
         [self presentViewController:info animated:YES completion:nil];
         
-        
+        //show brief info
     }
     if (index == 4) {
         [sidebar dismissAnimated:YES];
@@ -272,6 +284,7 @@
         itemDetailViewController *destVC = (itemDetailViewController *)[[segue destinationViewController] topViewController];
         
         [destVC setDetailItem:dataItem];
+        //bring the item object selected to detailVC
     }
 }
 
@@ -279,7 +292,7 @@
 -(void)dropboxConnect{
     
     self.account = [[DBAccountManager sharedManager] linkedAccount];
-    //check fi there's a linked account
+    //check if there's a linked account
     
     if (self.account) {
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"You are not linked." message:[NSString stringWithFormat:@"%@",self.account.info] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -290,9 +303,7 @@
     } else {
         [[DBAccountManager sharedManager] linkFromController:self];
         self.account = [[DBAccountManager sharedManager] linkedAccount];
-        
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"You are linked to Dropbox Account" message:[NSString stringWithFormat:@"%@",self.account.info] delegate:self cancelButtonTitle:@"Got It" otherButtonTitles:nil, nil];
-        [alert show];
+        //if the account is not linked, will link to your Dropbox account
        
     }
     
@@ -300,6 +311,7 @@
 
 -(void)startSync{
     self.account = [[DBAccountManager sharedManager] linkedAccount];
+    //get the current account
     if (self.account)
     {
         
@@ -312,6 +324,7 @@
             
             [weakSelf loadFiles];
         }];
+        //add observer to the iAccount file
         
     }
     
@@ -323,6 +336,8 @@
     if (self.loadingFiles) return;
     self.loadingFiles  =YES;
     NSLog(@"loading files %d", self.loadingFiles);
+    
+    //using GCD to cache the data from Dropbox
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^() {
         
         
@@ -339,10 +354,11 @@
         [[DBFilesystem sharedFilesystem] openFile:timelinePath error:nil];
         
         [self reload];
-        
+        //load data to the arrays
+    
         dispatch_async(dispatch_get_main_queue(), ^() {
             
-            
+            //update UI to views in main thread
             [[DBFilesystem sharedFilesystem] removeObserver:self];
             
             [self.mainTableView reloadData];
@@ -356,8 +372,9 @@
 -(void)reload{
     
     if ([self filesExistAtLocal]) {
+        //if files exist at local
         //data merge
-        if([self filesExistOnCloud]){
+        if([self filesExistOnCloud]){//if data exist on Cloud
             [self mergeData];
         }
         else{

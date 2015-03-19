@@ -30,6 +30,14 @@
     [DBAccountManager setSharedManager:accountMgr];
     
     
+    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:@"firstLaunchDate"];
+    if (!date) {
+        date = [NSDate date];
+        [[NSUserDefaults standardUserDefaults] setObject:date forKey:@"firstLaunchDate"];
+    }
+    NSLog(@"first launch date: %@", date);
+    
+    
     return YES;
 }
 

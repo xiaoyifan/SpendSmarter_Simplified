@@ -35,6 +35,10 @@
 
 @property (weak, nonatomic) IBOutlet KaedeTextField *descriptionField;
 
+@property (weak, nonatomic) IBOutlet UIView *networkView;
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *savingIndicator;
+
 
 @end
 
@@ -55,6 +59,8 @@
     self.mainOperationViewCenter = self.mainOperationView.center;
     self.titleField.delegate  =self;
     self.descriptionField.delegate = self;
+    
+    self.networkView.hidden  = YES;
     
 }
 
@@ -89,6 +95,7 @@
     
 }
 
+//if the title and description is typed in, you can press done to move up the main view
 - (IBAction)pressDone:(id)sender {
     [self.mainOperationView setTranslatesAutoresizingMaskIntoConstraints:YES];
 
@@ -113,7 +120,7 @@
 
 
 
-
+//unwind segue
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue{
     
     mapViewController *source = [segue sourceViewController];
@@ -132,6 +139,8 @@
 
 
 #pragma mark - buttons taped
+
+//tap the number
 - (IBAction)numberTapped:(id)sender {
     
     
@@ -168,7 +177,7 @@
     }
 }
 
-
+//save the data
 - (IBAction)doneIsTapped:(id)sender {
     //Save the data first
     
@@ -181,6 +190,8 @@
         return;
     }
     
+    self.networkView.hidden = NO;
+    [self.savingIndicator startAnimating];
     //save the data to the array, then sync it to Dropbox and local plist
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^() {
         
@@ -190,6 +201,8 @@
             
             [self dismissViewControllerAnimated:YES completion:nil];
 
+            self.networkView.hidden = YES;
+            [self.savingIndicator stopAnimating];
         });
     });
     
