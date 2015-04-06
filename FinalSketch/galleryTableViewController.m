@@ -46,7 +46,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    NSLog(@"delegate is called");
     return 1;
 }
 
@@ -70,7 +69,7 @@
 }
 - (double)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
+    NSLog(@"%f", self.view.frame.size.width);
     return self.view.frame.size.width;
 }
 

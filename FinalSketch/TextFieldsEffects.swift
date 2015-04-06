@@ -42,9 +42,9 @@ public class TextFieldEffects : UITextField, TextFieldsEffectsProtocol {
     
     // MARK: - Initializers
     
-    public override init() {
-        super.init()
-    }
+//    public override init() {
+//        super.init()
+//    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)

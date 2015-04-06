@@ -47,12 +47,13 @@
     [self.pieChartRight setDataSource:self];
     [self.pieChartRight setStartPieAngle:M_PI_2];
     [self.pieChartRight setAnimationSpeed:1.0];
+    
+    
     [self.pieChartRight setShowPercentage:YES];
     [self.pieChartRight setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24]];
     [self.pieChartRight setLabelRadius:self.pieChartRight.bounds.size.width*0.35];
     [self.pieChartRight setPieBackgroundColor:[UIColor colorWithRed:255/255.0 green:255/255.0 blue:240/255.0 alpha:1]]; //ivory
     // set location of pie centre
-
     
     [self.pieChartRight setUserInteractionEnabled:YES];
     // [self.pieChartRight setLabelShadowColor:[UIColor blackColor]];
@@ -98,6 +99,11 @@
     self.thisCategoryAmountView.textColor =  [UIColor grayColor];
     self.thisCategoryAmountView.font = [UIFont fontWithName:@"HelveticaNeue-light" size:20];
     self.thisCategoryAmountView.minLength =3;
+    
+    NSLog(@"set view width: %f",self.pieChartRight.frame.size.width);
+    
+    NSLog(@"center is: %f, %f", self.pieChartRight.center.x,self.pieChartRight.center.y);
+    NSLog(@"frame size is: %f, %f", self.view.frame.size.width, self.view.frame.size.height);
 
 }
 

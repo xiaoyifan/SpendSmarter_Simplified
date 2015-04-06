@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84E297721AC34B9F0006A00E /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E2976F1AC34B9F0006A00E /* RWBarChartView.m */; };
+		84E297731AC34B9F0006A00E /* RWDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E297711AC34B9F0006A00E /* RWDemoViewController.m */; };
 		CC0B5C281AB9490F0002242B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC0B5C271AB9490F0002242B /* Settings.bundle */; };
 		CC0E2AA11A9D76F00017A9E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0E2AA01A9D76F00017A9E4 /* main.m */; };
 		CC0E2AA41A9D76F00017A9E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0E2AA31A9D76F00017A9E4 /* AppDelegate.m */; };
@@ -73,8 +75,6 @@
 		CCB229511AB55D5E000EEB68 /* Info.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB229501AB55D5E000EEB68 /* Info.png */; };
 		CCB229531AB55DBE000EEB68 /* Info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB229521AB55DBE000EEB68 /* Info@2x.png */; };
 		CCB229571AB567EE000EEB68 /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB229561AB567EE000EEB68 /* infoViewController.m */; };
-		CCB816D21AB423870093980B /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB816CF1AB423870093980B /* RWBarChartView.m */; };
-		CCB816D31AB423870093980B /* RWDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB816D11AB423870093980B /* RWDemoViewController.m */; };
 		CCBE44BC1AA37E59006CDF7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */; };
 		CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD240491AA19D1A00577608 /* detailSegue.m */; };
 		CCD6EFB41AA1A8DC00413769 /* addItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD6EFB31AA1A8DC00413769 /* addItemViewController.m */; };
@@ -109,6 +109,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84E2976E1AC34B9F0006A00E /* RWBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWBarChartView.h; sourceTree = "<group>"; };
+		84E2976F1AC34B9F0006A00E /* RWBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBarChartView.m; sourceTree = "<group>"; };
+		84E297701AC34B9F0006A00E /* RWDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDemoViewController.h; sourceTree = "<group>"; };
+		84E297711AC34B9F0006A00E /* RWDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDemoViewController.m; sourceTree = "<group>"; };
 		CC0B5C271AB9490F0002242B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CC0E2A9B1A9D76F00017A9E4 /* FinalSketch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalSketch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0E2A9F1A9D76F00017A9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -211,10 +215,6 @@
 		CCB229521AB55DBE000EEB68 /* Info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@2x.png"; sourceTree = "<group>"; };
 		CCB229551AB567EE000EEB68 /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
 		CCB229561AB567EE000EEB68 /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
-		CCB816CE1AB423870093980B /* RWBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWBarChartView.h; sourceTree = "<group>"; };
-		CCB816CF1AB423870093980B /* RWBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBarChartView.m; sourceTree = "<group>"; };
-		CCB816D01AB423870093980B /* RWDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDemoViewController.h; sourceTree = "<group>"; };
-		CCB816D11AB423870093980B /* RWDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDemoViewController.m; sourceTree = "<group>"; };
 		CCBE44BB1AA37E59006CDF7D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CCD240481AA19D1A00577608 /* detailSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detailSegue.h; path = ../detailSegue.h; sourceTree = "<group>"; };
 		CCD240491AA19D1A00577608 /* detailSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = detailSegue.m; path = ../detailSegue.m; sourceTree = "<group>"; };
@@ -580,10 +580,10 @@
 		CCB816CD1AB4229B0093980B /* barChart */ = {
 			isa = PBXGroup;
 			children = (
-				CCB816CE1AB423870093980B /* RWBarChartView.h */,
-				CCB816CF1AB423870093980B /* RWBarChartView.m */,
-				CCB816D01AB423870093980B /* RWDemoViewController.h */,
-				CCB816D11AB423870093980B /* RWDemoViewController.m */,
+				84E2976E1AC34B9F0006A00E /* RWBarChartView.h */,
+				84E2976F1AC34B9F0006A00E /* RWBarChartView.m */,
+				84E297701AC34B9F0006A00E /* RWDemoViewController.h */,
+				84E297711AC34B9F0006A00E /* RWDemoViewController.m */,
 			);
 			name = barChart;
 			sourceTree = "<group>";
@@ -697,6 +697,7 @@
 				TargetAttributes = {
 					CC0E2A9A1A9D76F00017A9E4 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 4NPA9YHQ69;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -778,7 +779,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC85A9E61AB3C133000E76ED /* UIImage+AHKAdditions.m in Sources */,
-				CCB816D21AB423870093980B /* RWBarChartView.m in Sources */,
 				CCB229571AB567EE000EEB68 /* infoViewController.m in Sources */,
 				CC2787871AB4FE200097ACED /* KaedeTextField.swift in Sources */,
 				CC27878A1AB4FE200097ACED /* TextFieldsEffects.swift in Sources */,
@@ -799,6 +799,7 @@
 				CCD6EFB41AA1A8DC00413769 /* addItemViewController.m in Sources */,
 				CC3D75681AA4EAA50082EC70 /* MyLocation.m in Sources */,
 				CC47267B1AB02E83007B2AF5 /* CameraDismissButton.m in Sources */,
+				84E297731AC34B9F0006A00E /* RWDemoViewController.m in Sources */,
 				CC27878B1AB4FE200097ACED /* YokoTextField.swift in Sources */,
 				CC45E0031AA1571B00E5B8CA /* itemDetailViewController.m in Sources */,
 				CC4726841AB02E83007B2AF5 /* CaptureSessionManager.m in Sources */,
@@ -818,10 +819,10 @@
 				CC2787891AB4FE200097ACED /* MinoruTextField.swift in Sources */,
 				CC47267E1AB02E83007B2AF5 /* CameraShutterButton.m in Sources */,
 				CCD2404A1AA19D1A00577608 /* detailSegue.m in Sources */,
+				84E297721AC34B9F0006A00E /* RWBarChartView.m in Sources */,
 				CCE31F071AAB9D1A00777414 /* galleryTableViewController.m in Sources */,
 				CC47267D1AB02E83007B2AF5 /* CameraFocalReticule.m in Sources */,
 				CC85A9E41AB3C133000E76ED /* AHKActionSheet.m in Sources */,
-				CCB816D31AB423870093980B /* RWDemoViewController.m in Sources */,
 				CC47268E1AB04909007B2AF5 /* KLCPopup.m in Sources */,
 				CC2787841AB4FE200097ACED /* HoshiTextField.swift in Sources */,
 				CCE325341AAC20CE002DBF0E /* Map.m in Sources */,
@@ -952,6 +953,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -969,6 +971,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

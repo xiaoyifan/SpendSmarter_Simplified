@@ -42,7 +42,7 @@
     self.sectionTitleTextHorizontalMargin = 5;
     self.sectionTitleTextVerticalMargin = 2;
     self.sectionTitleColor = [UIColor blackColor];
-    self.itemTextFont = [UIFont systemFontOfSize:12];
+    self.itemTextFont = [UIFont systemFontOfSize:16];
     self.itemTextColor = [UIColor whiteColor];
     self.itemTextHorizontalMargin = 10;
     self.itemTextVerticalMargin = 2;
