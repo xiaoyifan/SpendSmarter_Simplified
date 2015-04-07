@@ -56,11 +56,16 @@
     //the category array contains the catogories
     [self.collectionView reloadData];
     
-    self.mainOperationViewCenter = self.mainOperationView.center;
+    
     self.titleField.delegate  =self;
     self.descriptionField.delegate = self;
     
     self.networkView.hidden  = YES;
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    self.mainOperationViewCenter = self.mainOperationView.center;
     
 }
 
@@ -73,7 +78,12 @@
 
 // press add info to type in the title and description
 - (IBAction)pressedInfo:(id)sender {
+    
+    NSLog(@"info button tapped");
     [self.mainOperationView setTranslatesAutoresizingMaskIntoConstraints:YES];
+
+    NSLog(@"center is: %f", self.mainOperationView.center.y);
+    NSLog(@"original center is: %f", self.mainOperationViewCenter.y);
     
     if (self.mainOperationViewCenter.y == self.mainOperationView.center.y) {
         
@@ -88,7 +98,12 @@
                          
                      }
                      completion:^(BOOL completed){
+                         
+                         NSLog(@"center is: %f", self.mainOperationView.center.y);
+                         NSLog(@"original center is: %f", self.mainOperationViewCenter.y);
                          self.mainOperationView.center = CGPointMake(self.mainOperationViewCenter.x, self.mainOperationViewCenter.y+200);
+                         NSLog(@"center is: %f", self.mainOperationView.center.y);
+                         NSLog(@"original center is: %f", self.mainOperationViewCenter.y);
                      }
      ];
     }
@@ -411,6 +426,17 @@
     return cell;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+                sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    CGFloat side = (self.view.frame.size.width-80)/5.0;
+    return CGSizeMake(side, side);
+}
+
+
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     NSMutableDictionary *dic = [self.categoryArray objectAtIndex:indexPath.row];
@@ -425,7 +451,7 @@
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(20, 50, 20, 50);
+    return UIEdgeInsetsMake(10, 40, 10, 40);
 }
 
 #pragma mark - dismiss the view controller
