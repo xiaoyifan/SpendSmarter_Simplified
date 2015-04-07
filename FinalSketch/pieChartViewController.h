@@ -11,7 +11,7 @@
 
 @interface pieChartViewController : UIViewController<XYPieChartDelegate, XYPieChartDataSource>
 
-@property (strong, nonatomic) IBOutlet XYPieChart *pieChartRight;
+@property (strong, nonatomic) XYPieChart *pieChartRight;
 @property (strong, nonatomic) IBOutlet UILabel *selectedSliceLabel;
 
 

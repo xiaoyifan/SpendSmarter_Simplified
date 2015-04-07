@@ -126,6 +126,9 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         
         self.pieRadius = MIN(frame.size.width/2, frame.size.height/2) - 10;
         self.pieCenter = CGPointMake(frame.size.width/2, frame.size.height/2);
+        
+        NSLog(@"frame size is: %f, %f", frame.size.width, frame.size.height);
+        
         self.labelFont = [UIFont boldSystemFontOfSize:MAX((int)self.pieRadius/10, 5)];
         _labelColor = [UIColor whiteColor];
         _labelRadius = _pieRadius/2;
@@ -165,6 +168,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         _selectedSliceStroke = 3.0;
         
         CGRect bounds = [[self layer] bounds];
+        
         self.pieRadius = MIN(bounds.size.width/2, bounds.size.height/2) - 10;
         self.pieCenter = CGPointMake(bounds.size.width/2, bounds.size.height/2);
         self.labelFont = [UIFont boldSystemFontOfSize:MAX((int)self.pieRadius/10, 5)];

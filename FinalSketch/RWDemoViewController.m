@@ -137,7 +137,7 @@
     [super viewWillLayoutSubviews];
     
     CGFloat padding = 50;
-    CGFloat height = (self.view.bounds.size.height - padding)*0.9;
+    CGFloat height = (self.view.bounds.size.height - padding)*0.8;
     CGRect rect = CGRectMake(0, padding, self.view.bounds.size.width, height);
     self.singleChartView.frame = rect;
 

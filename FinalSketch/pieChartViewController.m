@@ -43,11 +43,18 @@
         //initialize the data from the array
     }
     
+    self.pieChartRight = [[XYPieChart alloc] initWithFrame:CGRectMake(0, 70, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)*0.45)];
+    self.pieChartRight.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+    
+    [self.view addSubview:self.pieChartRight];
+    
     [self.pieChartRight setDelegate:self];
     [self.pieChartRight setDataSource:self];
     [self.pieChartRight setStartPieAngle:M_PI_2];
     [self.pieChartRight setAnimationSpeed:1.0];
     
+    
+    // [self.pieChartRight setCenter:CGPointMake(375, self.pieChartRight.center.y)];
     
     [self.pieChartRight setShowPercentage:YES];
     [self.pieChartRight setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24]];
@@ -107,6 +114,14 @@
 
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    
+    
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -150,6 +165,7 @@
 
     [self.spentAmountView startAnimation];
     [self.remainAmountView startAnimation];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
