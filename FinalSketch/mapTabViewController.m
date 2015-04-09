@@ -159,18 +159,5 @@
 }
 
 
-- (IBAction)back:(id)sender {
-    
-    //dismiss view controller with transition animation
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.6;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromLeft;
-    [self.view.window.layer addAnimation:transition forKey:nil];
-    
-    [self dismissViewControllerAnimated:NO completion:nil];
-    
-}
 
 @end

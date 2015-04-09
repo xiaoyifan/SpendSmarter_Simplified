@@ -98,34 +98,11 @@
     
     
     self.account = [[DBAccountManager sharedManager] linkedAccount];
-    NSLog(@"%@", self.account);
+    NSLog(@"The current linked Dropbox account is: %@", self.account);
 
     
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    
-    NSLog(@"the account: %@", self.account);
-    
-    NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
-    self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
-    [self.mainTableView reloadData];
-    
-    NSURL *mapURL = [FileSession getListURLOf:@"map.plist"];
-    self.map = [NSMutableArray arrayWithArray:[FileSession readDataFromList:mapURL]];
-    
-    NSURL *timelineURL = [FileSession getListURLOf:@"timeline.plist"];
-    self.timeline = [NSMutableArray arrayWithArray:[FileSession readDataFromList:timelineURL]];
-    
-    //
-    
-    for (Timeline *item in self.timeline) {
-        NSLog(@"%@", item.timelabel);
-        NSLog(@"%@", item.dailyAmount);
-    }
-    //log out the timeline
-    
-}
 
 
 - (void)didReceiveMemoryWarning {
@@ -169,7 +146,7 @@
     //initialize the cell pic
     //if not pic is provided, we will use the random color
     
-    cell.itemPrice.text = [NSString stringWithFormat:@"$%@",[item.price stringValue]];
+    cell.itemPrice.text = [NSString stringWithFormat:@"  $%@  ",[item.price stringValue]];
     
     cell.categoryImage.backgroundColor = [UIColor grayColor];
     

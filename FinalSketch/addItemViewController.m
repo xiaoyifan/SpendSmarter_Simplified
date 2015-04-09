@@ -112,6 +112,9 @@
 
 //if the title and description is typed in, you can press done to move up the main view
 - (IBAction)pressDone:(id)sender {
+    
+    [self.titleField resignFirstResponder];
+    [self.descriptionField resignFirstResponder];
     [self.mainOperationView setTranslatesAutoresizingMaskIntoConstraints:YES];
 
     
