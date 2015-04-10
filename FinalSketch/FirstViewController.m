@@ -152,8 +152,13 @@
     
     cell.dateLabel.text = item.date;
     
+    if(item.locationDescription.length == 0)
+    {
+     cell.locationLabel.text = @"location not provided";
+    }
+    else{
     cell.locationLabel.text = item.locationDescription;
-
+    }
     cell.itemPrice.backgroundColor = [UIColor blackColor];
     cell.itemPrice.alpha = 0.7;
     [cell setNeedsDisplay];

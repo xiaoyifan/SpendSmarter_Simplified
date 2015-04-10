@@ -69,26 +69,7 @@
 
 #pragma mark - calendar
 
-- (IBAction)showCalendar:(id)sender {
-    CKCalendarView *calendar = [[CKCalendarView alloc] init];
-    
-    calendar.delegate = self;
-    
-    self.calendarPopup = [KLCPopup popupWithContentView:calendar
-                                               showType: KLCPopupShowTypeSlideInFromLeft
-                                            dismissType: KLCPopupDismissTypeSlideOutToRight
-                                               maskType: KLCPopupMaskTypeDimmed
-                               dismissOnBackgroundTouch:YES
-                                  dismissOnContentTouch:NO];
-    [self.calendarPopup show];
-    
-}
 
-- (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
-    self.dateLabel.text = [NSString stringWithFormat:@"%@",date];
-//    [calendar removeFromSuperview];
-     [self.calendarPopup dismiss:YES];
-}
 
 -(void)didPressDismiss{
     [self.navigationController setNavigationBarHidden:NO animated:YES];
@@ -203,37 +184,6 @@
 }
 
 
-- (IBAction)mapViewLongTapToDropPin:(UILongPressGestureRecognizer *)sender {
- 
-    NSLog(@"The map view is tapped");
-    CGPoint point = [sender locationInView:self.mapView];
-    CLLocationCoordinate2D locCoord = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
-    // Then all you have to do is create the annotation and add it to the map
-    
-    CLLocationCoordinate2D coordinates;
-        coordinates.latitude = locCoord.latitude;
-        coordinates.longitude =locCoord.longitude;
-    
-    for (MyLocation *annotation in self.mapView.annotations) {
-        
-        if ((annotation.coordinate.latitude == coordinates.latitude)&&(annotation.coordinate.longitude == coordinates.longitude) ) {
-            return;
-        }
-        else{
-                [self.mapView removeAnnotation:annotation];
-            MyLocation *annotation = [[MyLocation alloc] initWithName:self.detailItem.title
-                                                              address:[NSString stringWithFormat:@"$%@", [self.detailItem.price stringValue]]
-
-                                                           coordinate:coordinates];
-            [self.mapView addAnnotation:annotation];
-        }
-        
-    }
-    //long tap to add the droppin in the mapView
-    //the pin won't be added to the same point twice
-    
-}
-
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     NSLog(@"%@ %@",view,control);
@@ -272,14 +222,14 @@
 
 - (IBAction)actionSheetTouched:(id)sender {
     
-    AHKActionSheet *actionSheet = [[AHKActionSheet alloc] initWithTitle:NSLocalizedString(@"Wanna share this item to social network?", nil)];
+    AHKActionSheet *actionSheet = [[AHKActionSheet alloc] initWithTitle:NSLocalizedString(@"Wanna share this item to friends?", nil)];
     [actionSheet addButtonWithTitle:NSLocalizedString(@"Facebook", nil)
                               image:[UIImage imageNamed:@"facebook"]
                                type:AHKActionSheetButtonTypeDefault
                             handler:^(AHKActionSheet *as) {
                                 NSLog(@"Favorite tapped");
                                 if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-                                    SLComposeViewController *facebookPost = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+                                    SLComposeViewController *facebookPost = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
                                     
                                     NSString *text = [NSString stringWithFormat:@"I just bought %@ at date %@. Cost me $%@ and it's cool!", self.itemTitle.text, self.dateLabel.text, self.detailItem.price];
                                     [facebookPost setInitialText:text];
@@ -289,7 +239,7 @@
                                 else{
                                     UIAlertView *alertView = [[UIAlertView alloc]
                                                               initWithTitle:@"Sorry"
-                                                              message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup"
+                                                              message:@"You can't send a Facebook post now, make sure your device has an internet connection and you have at least one Facebook account setup"
                                                               delegate:self
                                                               cancelButtonTitle:@"OK"
                                                               otherButtonTitles:nil];
@@ -327,7 +277,7 @@
                             handler:^(AHKActionSheet *as) {
                                 NSLog(@"Share tapped");
                                 if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeSinaWeibo]) {
-                                    SLComposeViewController *weiboPost = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+                                    SLComposeViewController *weiboPost = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeSinaWeibo];
                                     
                                     NSString *text = [NSString stringWithFormat:@"I just bought %@ at date %@. Cost me $%@ and it's cool!", self.itemTitle.text, self.dateLabel.text, self.detailItem.price];
                                     [weiboPost setInitialText:text];
@@ -338,7 +288,7 @@
                                 else{
                                     UIAlertView *alertView = [[UIAlertView alloc]
                                                               initWithTitle:@"Sorry"
-                                                              message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup"
+                                                              message:@"You can't send a weibo right now, make sure your device has an internet connection and you have at least one Weibo account setup"
                                                               delegate:self
                                                               cancelButtonTitle:@"OK"
                                                               otherButtonTitles:nil];
