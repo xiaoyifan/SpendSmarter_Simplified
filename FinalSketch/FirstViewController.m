@@ -14,7 +14,7 @@
 #import "Item.h"
 #import "Map.h"
 #import "Timeline.h"
-#import "FinalSketch-Swift.h"
+#import "SpendSmarter-Swift.h"
 
 
 @interface FirstViewController ()
@@ -24,6 +24,8 @@
 @property (strong, nonatomic) RNFrostedSidebar *callout;
 @property (nonatomic, strong) NSMutableIndexSet *optionIndices;
 @property (weak, nonatomic) IBOutlet UIButton *syncButton;
+
+@property (retain,nonatomic) ViewController *vc;
 
 @property (nonatomic) BOOL needToLoadFiles;
 
@@ -35,10 +37,16 @@
     
     [super viewDidLoad];
     
-    ViewController *vc = [[ViewController alloc] init];
-    [self presentViewController:vc animated:NO completion:nil];
-    [self.view addSubview:vc.view];
+    self.vc = [[ViewController alloc] init];
+    [self presentViewController:self.vc animated:NO completion:nil];
+    [self.view addSubview:self.vc.view];
     
+    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:@"firstLaunchDate"];
+    if (date) {
+        NSLog(@"gonna call the selector");
+        [self performSelector:@selector(dissMissViewController) withObject:self afterDelay:2.0];
+    }
+ 
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     
@@ -48,8 +56,9 @@
     self.optionIndices = [NSMutableIndexSet indexSetWithIndex:0];
     
     NSArray *images = @[
-                        [UIImage imageNamed:@"dropbox"],
-                        [UIImage imageNamed:@"sync"],
+                        [UIImage imageNamed:@"gear"],
+//                        [UIImage imageNamed:@"dropbox"],
+//                        [UIImage imageNamed:@"sync"],
                         [UIImage imageNamed:@"photo"],
                         [UIImage imageNamed:@"Info"],
                         [UIImage imageNamed:@"back"]
@@ -57,7 +66,7 @@
                         ];
     NSArray *colors = @[
                         [UIColor colorWithRed:61/255.f green:154/255.f blue:232/255.f alpha:1],
-                        [UIColor colorWithRed:61/255.f green:154/255.f blue:232/255.f alpha:1],
+//                        [UIColor colorWithRed:61/255.f green:154/255.f blue:232/255.f alpha:1],
                         [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
                         [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
                         [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1]
@@ -101,6 +110,27 @@
     NSLog(@"The current linked Dropbox account is: %@", self.account);
 
     
+}
+
+
+//dissMissviewController is the method which has the code for dismissing the viewController.
+
+//and can follow the same for showing the viewController.
+
+- (void)dissMissViewController
+{
+    //if you are pushing your viewControler, then use below single line code
+    [self.vc dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"calling the selector");
+    //if you are presnting ViewController modally. then use below code
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
+    self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
+    
+    [self.mainTableView reloadData];
 }
 
 
@@ -202,41 +232,20 @@
 -(void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index {
     
   if (index == 0) {
-        [self dropboxConnect];
+      
     }
-    else if (index == 1)
-    {
-        
-        [self startSync];
-        //dropbox start to sync,
-        //tap the first button, to link the dorpbox account is required
-       
-        NSURL *fileURL = [FileSession getListURLOf:@"items.plist"];
-        
-        self.itemArray = [NSMutableArray arrayWithArray:[FileSession readDataFromList:fileURL]];
-        
-        NSURL *mapURL = [FileSession getListURLOf:@"map.plist"];
-        
-        self.map = [NSMutableArray arrayWithArray:[FileSession readDataFromList:mapURL]];
-        
-        NSURL *timelineURL = [FileSession getListURLOf:@"timeline.plist"];
-        
-        self.timeline = [NSMutableArray arrayWithArray:[FileSession readDataFromList:timelineURL]];
-        
-        [self.mainTableView reloadData];
-    }
-    else if (index == 2) {
+    else if (index == 1) {
        UITableViewController *gallery = [self.storyboard instantiateViewControllerWithIdentifier:@"galleryVC"];
         [self presentViewController:gallery animated:YES completion:nil];
         //load gallery to view the pics
     }
-    else if (index == 3) {
+    else if (index == 2) {
         UIViewController *info = [self.storyboard instantiateViewControllerWithIdentifier:@"infoViewController"];
         [self presentViewController:info animated:YES completion:nil];
         
         //show brief info
     }
-    if (index == 4) {
+    if (index == 3) {
         [sidebar dismissAnimated:YES];
     }
 }

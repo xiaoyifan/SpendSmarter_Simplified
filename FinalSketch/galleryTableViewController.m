@@ -69,7 +69,6 @@
 }
 - (double)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"%f", self.view.frame.size.width);
     return self.view.frame.size.width;
 }
 

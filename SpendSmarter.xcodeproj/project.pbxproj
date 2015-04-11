@@ -114,7 +114,7 @@
 		84E297701AC34B9F0006A00E /* RWDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDemoViewController.h; sourceTree = "<group>"; };
 		84E297711AC34B9F0006A00E /* RWDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDemoViewController.m; sourceTree = "<group>"; };
 		CC0B5C271AB9490F0002242B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		CC0E2A9B1A9D76F00017A9E4 /* FinalSketch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalSketch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC0E2A9B1A9D76F00017A9E4 /* SpendSmarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpendSmarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0E2A9F1A9D76F00017A9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC0E2AA01A9D76F00017A9E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CC0E2AA21A9D76F00017A9E4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		CC0E2AA61A9D76F00017A9E4 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		CC0E2AAC1A9D76F00017A9E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC0E2AB11A9D76F00017A9E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		CC0E2AB71A9D76F00017A9E4 /* FinalSketchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalSketchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC0E2AB71A9D76F00017A9E4 /* SpendSmarterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpendSmarterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0E2ABC1A9D76F00017A9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC0E2ABD1A9D76F00017A9E4 /* FinalSketchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinalSketchTests.m; sourceTree = "<group>"; };
 		CC0E2AC71A9D8CE00017A9E4 /* description.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = description.rtf; sourceTree = "<group>"; };
@@ -304,8 +304,8 @@
 		CC0E2A9C1A9D76F00017A9E4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CC0E2A9B1A9D76F00017A9E4 /* FinalSketch.app */,
-				CC0E2AB71A9D76F00017A9E4 /* FinalSketchTests.xctest */,
+				CC0E2A9B1A9D76F00017A9E4 /* SpendSmarter.app */,
+				CC0E2AB71A9D76F00017A9E4 /* SpendSmarterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -651,9 +651,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CC0E2A9A1A9D76F00017A9E4 /* FinalSketch */ = {
+		CC0E2A9A1A9D76F00017A9E4 /* SpendSmarter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC0E2AC11A9D76F00017A9E4 /* Build configuration list for PBXNativeTarget "FinalSketch" */;
+			buildConfigurationList = CC0E2AC11A9D76F00017A9E4 /* Build configuration list for PBXNativeTarget "SpendSmarter" */;
 			buildPhases = (
 				CC0E2A971A9D76F00017A9E4 /* Sources */,
 				CC0E2A981A9D76F00017A9E4 /* Frameworks */,
@@ -663,14 +663,14 @@
 			);
 			dependencies = (
 			);
-			name = FinalSketch;
+			name = SpendSmarter;
 			productName = FinalSketch;
-			productReference = CC0E2A9B1A9D76F00017A9E4 /* FinalSketch.app */;
+			productReference = CC0E2A9B1A9D76F00017A9E4 /* SpendSmarter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CC0E2AB61A9D76F00017A9E4 /* FinalSketchTests */ = {
+		CC0E2AB61A9D76F00017A9E4 /* SpendSmarterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC0E2AC41A9D76F00017A9E4 /* Build configuration list for PBXNativeTarget "FinalSketchTests" */;
+			buildConfigurationList = CC0E2AC41A9D76F00017A9E4 /* Build configuration list for PBXNativeTarget "SpendSmarterTests" */;
 			buildPhases = (
 				CC0E2AB31A9D76F00017A9E4 /* Sources */,
 				CC0E2AB41A9D76F00017A9E4 /* Frameworks */,
@@ -681,9 +681,9 @@
 			dependencies = (
 				CC0E2AB91A9D76F00017A9E4 /* PBXTargetDependency */,
 			);
-			name = FinalSketchTests;
+			name = SpendSmarterTests;
 			productName = FinalSketchTests;
-			productReference = CC0E2AB71A9D76F00017A9E4 /* FinalSketchTests.xctest */;
+			productReference = CC0E2AB71A9D76F00017A9E4 /* SpendSmarterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -713,7 +713,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CC0E2A961A9D76F00017A9E4 /* Build configuration list for PBXProject "FinalSketch" */;
+			buildConfigurationList = CC0E2A961A9D76F00017A9E4 /* Build configuration list for PBXProject "SpendSmarter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -726,8 +726,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CC0E2A9A1A9D76F00017A9E4 /* FinalSketch */,
-				CC0E2AB61A9D76F00017A9E4 /* FinalSketchTests */,
+				CC0E2A9A1A9D76F00017A9E4 /* SpendSmarter */,
+				CC0E2AB61A9D76F00017A9E4 /* SpendSmarterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -845,7 +845,7 @@
 /* Begin PBXTargetDependency section */
 		CC0E2AB91A9D76F00017A9E4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CC0E2A9A1A9D76F00017A9E4 /* FinalSketch */;
+			target = CC0E2A9A1A9D76F00017A9E4 /* SpendSmarter */;
 			targetProxy = CC0E2AB81A9D76F00017A9E4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -960,7 +960,7 @@
 				);
 				INFOPLIST_FILE = FinalSketch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpendSmarter;
 				SWIFT_OBJC_BRIDGING_HEADER = "FinalSketch/FinalSketch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -979,7 +979,7 @@
 				);
 				INFOPLIST_FILE = FinalSketch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpendSmarter;
 				SWIFT_OBJC_BRIDGING_HEADER = "FinalSketch/FinalSketch-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -999,7 +999,7 @@
 				);
 				INFOPLIST_FILE = FinalSketchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpendSmarterTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinalSketch.app/FinalSketch";
 			};
 			name = Debug;
@@ -1014,7 +1014,7 @@
 				);
 				INFOPLIST_FILE = FinalSketchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpendSmarterTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinalSketch.app/FinalSketch";
 			};
 			name = Release;
@@ -1022,7 +1022,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CC0E2A961A9D76F00017A9E4 /* Build configuration list for PBXProject "FinalSketch" */ = {
+		CC0E2A961A9D76F00017A9E4 /* Build configuration list for PBXProject "SpendSmarter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC0E2ABF1A9D76F00017A9E4 /* Debug */,
@@ -1031,7 +1031,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC0E2AC11A9D76F00017A9E4 /* Build configuration list for PBXNativeTarget "FinalSketch" */ = {
+		CC0E2AC11A9D76F00017A9E4 /* Build configuration list for PBXNativeTarget "SpendSmarter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC0E2AC21A9D76F00017A9E4 /* Debug */,
@@ -1040,7 +1040,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC0E2AC41A9D76F00017A9E4 /* Build configuration list for PBXNativeTarget "FinalSketchTests" */ = {
+		CC0E2AC41A9D76F00017A9E4 /* Build configuration list for PBXNativeTarget "SpendSmarterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC0E2AC51A9D76F00017A9E4 /* Debug */,

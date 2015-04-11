@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <Dropbox/Dropbox.h>
 #import "FileSession.h"
-#import "FinalSketch-Swift.h"
+#import "SpendSmarter-Swift.h"
 
 
 #define app_key   @"v9c9clnv9q9j6p4"

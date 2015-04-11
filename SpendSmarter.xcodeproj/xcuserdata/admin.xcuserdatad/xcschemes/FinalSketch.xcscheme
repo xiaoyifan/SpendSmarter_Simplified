@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CC0E2A9A1A9D76F00017A9E4"
-               BuildableName = "FinalSketch.app"
-               BlueprintName = "FinalSketch"
-               ReferencedContainer = "container:FinalSketch.xcodeproj">
+               BuildableName = "SpendSmarter.app"
+               BlueprintName = "SpendSmarter"
+               ReferencedContainer = "container:SpendSmarter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CC0E2AB61A9D76F00017A9E4"
-               BuildableName = "FinalSketchTests.xctest"
-               BlueprintName = "FinalSketchTests"
-               ReferencedContainer = "container:FinalSketch.xcodeproj">
+               BuildableName = "SpendSmarterTests.xctest"
+               BlueprintName = "SpendSmarterTests"
+               ReferencedContainer = "container:SpendSmarter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CC0E2AB61A9D76F00017A9E4"
-               BuildableName = "FinalSketchTests.xctest"
-               BlueprintName = "FinalSketchTests"
-               ReferencedContainer = "container:FinalSketch.xcodeproj">
+               BuildableName = "SpendSmarterTests.xctest"
+               BlueprintName = "SpendSmarterTests"
+               ReferencedContainer = "container:SpendSmarter.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC0E2A9A1A9D76F00017A9E4"
-            BuildableName = "FinalSketch.app"
-            BlueprintName = "FinalSketch"
-            ReferencedContainer = "container:FinalSketch.xcodeproj">
+            BuildableName = "SpendSmarter.app"
+            BlueprintName = "SpendSmarter"
+            ReferencedContainer = "container:SpendSmarter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC0E2A9A1A9D76F00017A9E4"
-            BuildableName = "FinalSketch.app"
-            BlueprintName = "FinalSketch"
-            ReferencedContainer = "container:FinalSketch.xcodeproj">
+            BuildableName = "SpendSmarter.app"
+            BlueprintName = "SpendSmarter"
+            ReferencedContainer = "container:SpendSmarter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC0E2A9A1A9D76F00017A9E4"
-            BuildableName = "FinalSketch.app"
-            BlueprintName = "FinalSketch"
-            ReferencedContainer = "container:FinalSketch.xcodeproj">
+            BuildableName = "SpendSmarter.app"
+            BlueprintName = "SpendSmarter"
+            ReferencedContainer = "container:SpendSmarter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

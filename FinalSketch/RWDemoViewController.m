@@ -2,8 +2,8 @@
 //  RWDemoViewController.m
 //  RWBarChartViewDemo
 //
-//  Created by Yifan Xiao & Yecheng Li on 14-03-08.
-//  Copyright (c) 2014 Yifan Xiao & Yecheng Li. All rights reserved.
+//  Created by Yifan Xiao  on 14-03-08.
+//  Copyright (c) 2014 Yifan Xiao. All rights reserved.
 //
 
 #import "RWDemoViewController.h"
@@ -17,7 +17,6 @@
 @property (nonatomic, strong) NSArray *itemCounts;
 @property (nonatomic, strong) RWBarChartView *singleChartView;
 @property (nonatomic, strong) NSIndexPath *indexPathToScroll;
-@property (weak, nonatomic) IBOutlet UILabel *dayExpenseLabel;
 
 @end
 
@@ -63,7 +62,7 @@
             numDays = 30;
         }
         else {
-            numDays = 28;
+            numDays = 29;
         }
         
         [itemCounts addObject:@(numDays)];
@@ -74,8 +73,6 @@
             // fake data to demonstrate daily expenses
             {
                 CGFloat ratio = (CGFloat)(random() % 1000) / 1000.0;
-                
-                NSLog(@"%f", ratio);
                 
                 UIColor *color = nil;
                 if (ratio < 0.25)

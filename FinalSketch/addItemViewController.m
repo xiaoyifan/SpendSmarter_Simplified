@@ -13,7 +13,7 @@
 #import "categoryArrayInitializer.h"
 #import "CameraSessionView.h"
 #import "KLCPopup.h"
-#import "FinalSketch-Swift.h"
+#import "SpendSmarter-Swift.h"
 
 
 
