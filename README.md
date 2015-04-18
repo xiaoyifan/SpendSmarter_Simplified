@@ -12,16 +12,16 @@ Here's the screenshots:
 
 ![Alt text](/1.PNG?raw=true "Optional Title")
 
-![Alt text](/relative/path/to/2.PNG?raw=true "Optional Title")
+![Alt text](/2.PNG?raw=true "Optional Title")
 
-![Alt text](/relative/path/to/3.PNG?raw=true "Optional Title")
+![Alt text](/3.PNG?raw=true "Optional Title")
 
-![Alt text](/relative/path/to/4.PNG?raw=true "Optional Title")
+![Alt text](/4.PNG?raw=true "Optional Title")
 
-![Alt text](/relative/path/to/5.PNG?raw=true "Optional Title")
+![Alt text](/5.PNG?raw=true "Optional Title")
 
-![Alt text](/relative/path/to/6.PNG?raw=true "Optional Title")
+![Alt text](/6.PNG?raw=true "Optional Title")
 
-![Alt text](/relative/path/to/7.PNG?raw=true "Optional Title")
+![Alt text](/7.PNG?raw=true "Optional Title")
 
-![Alt text](/relative/path/to/8.PNG?raw=true "Optional Title")
+![Alt text](/8.PNG?raw=false "Optional Title")
