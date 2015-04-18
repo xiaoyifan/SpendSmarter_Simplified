@@ -10,3 +10,18 @@ Data can be fetched from your Dropbox account, and your new records will be sync
   
 Here's the screenshots: 
 
+![Alt text](/relative/path/to/1.PNG?raw=true "Optional Title")
+
+![Alt text](/relative/path/to/2.PNG?raw=true "Optional Title")
+
+![Alt text](/relative/path/to/3.PNG?raw=true "Optional Title")
+
+![Alt text](/relative/path/to/4.PNG?raw=true "Optional Title")
+
+![Alt text](/relative/path/to/5.PNG?raw=true "Optional Title")
+
+![Alt text](/relative/path/to/6.PNG?raw=true "Optional Title")
+
+![Alt text](/relative/path/to/7.PNG?raw=true "Optional Title")
+
+![Alt text](/relative/path/to/8.PNG?raw=true "Optional Title")
